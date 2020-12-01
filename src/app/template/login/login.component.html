@@ -1,0 +1,11 @@
+<p>login works!</p>
+<br><br>
+<form #userlogin="ngForm" (ngSubmit)="onSubmit(userlogin.value)">
+    <input type="text" name="email" placeholder="email" ngModel="dev@gmail.com">
+        <br>
+    <input type="password" name="password" placeholder="password" ngModel="mudar123" >
+        <br>
+    <input type="text" name="company_name" placeholder="company_name" ngModel="hagana-seguranca-limitada">
+        <br>
+    <button type="submit" class="btn  btn-rounded btn-info">Entrar</button>
+</form>

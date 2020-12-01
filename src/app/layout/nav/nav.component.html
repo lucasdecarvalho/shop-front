@@ -1,0 +1,59 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>shop</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    
+    <mat-divider></mat-divider>
+    <section>
+      <div class="example-label">FAB</div>
+      <div class="example-button-row">
+        <div class="example-flex-container">
+          <div class="example-button-container">
+            <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+          <div class="example-button-container">
+            <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+              <mat-icon>bookmark</mat-icon>
+            </button>
+          </div>
+          <div class="example-button-container">
+            <button mat-fab color="warn" *ngFor="let item of items" (click)="alerta($event, item)" aria-label="Example icon button with a home icon">
+              <mat-icon>home</mat-icon>
+            </button>
+          </div>
+          <div class="example-button-container">
+            <button mat-fab disabled aria-label="Example icon button with a heart icon">
+              <mat-icon>favorite</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <mat-divider></mat-divider>
+    <!-- end -->
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
