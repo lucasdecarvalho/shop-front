@@ -25,7 +25,7 @@
                     <div class="form-row">
                         <div class="form-group col-12">
                             <!-- <label for="cnpj">Sobrenome:</label> -->
-                            <input type="text" class="form-control" id="cnpj" formControlName="cnpj" [ngClass]="{ 'is-invalid': submitted && f.cnpj.errors }" placeholder="Digite o CNPJ" maxlength="18" (input)="validatePhoneNo($event.target)">
+                            <input type="text" class="form-control" id="cnpj" formControlName="cnpj" [ngClass]="{ 'is-invalid': submitted && f.cnpj.errors }" placeholder="Digite o CNPJ" maxlength="18" (input)="validatePhoneNo($event.target)" autocomplete="off">
                             <div *ngIf="submitted && f.cnpj.errors" class="invalid-feedback">
                                 <div *ngIf="f.cnpj.errors.required">CNPJ é obrigatório</div>
                                 <div *ngIf="f.cnpj.errors.minlength">CNPJ incorreto. {{ f.cnpj.value }}</div>
@@ -35,7 +35,7 @@
                     
                         <div class="form-group col-12">
                             <!-- <label for="email">Seu E-mail:</label> -->
-                            <input type="text" class="form-control" id="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Digite seu e-mail" maxlength="255">
+                            <input type="text" class="form-control" id="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Digite seu e-mail" maxlength="255" autocomplete="off">
                             <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                                 <div *ngIf="f.email.errors.required">E-mail é obrigatório</div>
                                 <div *ngIf="f.email.errors.email">Precisamos de um endereço de e-mail válido.</div>
@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="form-group col-12">
-                            <button type="submit" class="btn btn-primary">Criar minha loja</button>
+                            <button type="submit" class="btn btn-primary" (click)="openDialog()">Criar minha loja</button>
                         </div>
                     </div>
 

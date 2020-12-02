@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 import { Signup } from '../../models/signup';
 import { AuthService } from "../auth.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +17,9 @@ export class SignupComponent implements OnInit {
   errors: any;
   public isValidFlg:boolean = true;
 
-  constructor(private formBuilder: FormBuilder, private AuthService: AuthService, private router: Router) {  }
+  constructor(private formBuilder: FormBuilder, private AuthService: AuthService, private router: Router) {  
+    
+  }
 
   ngOnInit() {
     this.createForm(new Signup());
@@ -77,28 +80,63 @@ export class SignupComponent implements OnInit {
 
             if (status == 'OK')
             {
-              console.log("Cnpj valido.");
+              // console.log("Cnpj valido.");
 
                 if(municipio == 'RIO CLARO')
                 {
                   this.AuthService.create(this.formSignup.value)
                       .subscribe(response => {
-                          console.log("Empresa registrada.");
+                          
+                          //@ts-ignore
+                          // Swal.fire('Deu certo', 'Empresa registrada com sucesso','');
+                          Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Empresa registrada com sucesso!',
+                            showConfirmButton: false,
+                            timer: 2000
+                          })
                       },
                       error => {
                           this.errors = error.error.errors;
                           
                           for (let property in this.errors){
-                            console.log(property + ": " + this.errors[property]);
+                            Swal.fire({
+                              icon: 'error',
+                              title: 'Oops...',
+                              text: this.errors[property],
+                              footer: '<a href> Precisa de ajuda? Chat com nosso atendimento</a>'
+                            })
                           }
                       })
                 }
                 else {
-                    alert("Sua empresa não está registrada no municipio de Rio Claro/SP na Receita Federal, por isso, não podemos aprovar sua entrada. Agradecemos o interesse.");
+
+                    Swal.fire({
+                      title: '',
+                      showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                      },
+                      hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                      }
+                    });
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'Registro externo',
+                      html: 'Sua empresa não está registrada junto à Receita Federal dentro do município de Rio Claro/SP, por isso, não podemos aprovar sua entrada neste momento. Agradecemos o interesse.',
+                      footer: '<a href> Precisa de ajuda? Chat com nosso atendimento</a>'
+                    })
                 }
             }
             else {
-              alert("Cnpj invalido");
+
+              Swal.fire({
+                icon: 'error',
+                title: 'CNPJ invalido',
+                text: 'Confira o CNPJ digitado e tente novamente',
+                footer: '<a href> Precisa de ajuda? Chat com nosso atendimento</a>'
+              })
             }
       },
       error => {
@@ -106,7 +144,36 @@ export class SignupComponent implements OnInit {
           console.log(this.errors);
 
           if(error.status == 429) {
-            alert("Aguarde 1 minuto e tente novamente");
+            let timerInterval;
+            Swal.fire({
+              title: 'Excesso de tentativas',
+              html: 'Por segurança do sistema, <br> aguarde <b>alguns</b> segundos e tente novamente.',
+              timer: 45000,
+              timerProgressBar: true,
+              showConfirmButton: false,
+              allowOutsideClick: false,
+              willOpen: () => {
+                Swal.showLoading()
+                timerInterval = setInterval(() => {
+                  const content = Swal.getContent()
+                  if (content) {
+                    const b = content.querySelector('b')
+                    if (b) {
+                      // @ts-ignore
+                      b.textContent = (Swal.getTimerLeft() / 1000).toFixed(0)
+                    }
+                  }
+                }, 100)
+              },
+              willClose: () => {
+                clearInterval(timerInterval)
+              }
+            }).then((result) => {
+              /* Read more about handling dismissals below */
+              if (result.dismiss === Swal.DismissReason.timer) {
+                console.log('I was closed by the timer')
+              }
+            })
           }
       })
   
