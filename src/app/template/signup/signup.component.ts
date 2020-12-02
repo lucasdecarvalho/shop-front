@@ -14,11 +14,32 @@ export class SignupComponent implements OnInit {
   formSignup: FormGroup;
   submitted: boolean = false;
   errors: any;
+  public isValidFlg:boolean = true;
 
-  constructor(private formBuilder: FormBuilder, private AuthService: AuthService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private AuthService: AuthService, private router: Router) {  }
 
   ngOnInit() {
     this.createForm(new Signup());
+  }
+
+  validatePhoneNo(field) {
+    var phoneNumDigits = field.value.replace(/\D/g, '');
+  
+    this.isValidFlg = (phoneNumDigits.length==0 || phoneNumDigits.length == 18);
+  
+    var formattedNumber = phoneNumDigits;
+    if (phoneNumDigits.length >= 3)
+      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2);
+    if (phoneNumDigits.length >= 6)
+      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2, 5) + '.' + phoneNumDigits.substring(5);
+    if (phoneNumDigits.length >= 9)
+      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2, 5) + '.' + phoneNumDigits.substring(5, 8) + '/' + phoneNumDigits.substring(8);
+    if (phoneNumDigits.length >= 13)
+      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2, 5) + '.' + phoneNumDigits.substring(5, 8) + '/' + phoneNumDigits.substring(8, 12) + '-' + phoneNumDigits.substring(12);
+    if (phoneNumDigits.length >= 14)
+      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2, 5) + '.' + phoneNumDigits.substring(5, 8) + '/' + phoneNumDigits.substring(8, 12) + '-' + phoneNumDigits.substring(12, 14) + phoneNumDigits.substring(14);
+  
+    field.value = formattedNumber;
   }
 
   createForm(user: Signup) {
@@ -41,6 +62,9 @@ export class SignupComponent implements OnInit {
       }
 
       let cnpj = this.formSignup.value.cnpj;
+       
+      cnpj = cnpj.replace(/\D/g,'');
+      this.formSignup.value.cnpj = this.formSignup.value.cnpj.replace(/\D/g,'');
 
       this.AuthService.checkCnpj(cnpj)
       .subscribe(response => {

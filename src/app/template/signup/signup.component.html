@@ -25,17 +25,17 @@
                     <div class="form-row">
                         <div class="form-group col-12">
                             <!-- <label for="cnpj">Sobrenome:</label> -->
-                            <input type="text" class="form-control" id="cnpj" formControlName="cnpj" [ngClass]="{ 'is-invalid': submitted && f.cnpj.errors }" placeholder="Digite o CNPJ" mask="00.000.000/0000-00">
+                            <input type="text" class="form-control" id="cnpj" formControlName="cnpj" [ngClass]="{ 'is-invalid': submitted && f.cnpj.errors }" placeholder="Digite o CNPJ" maxlength="18" (input)="validatePhoneNo($event.target)">
                             <div *ngIf="submitted && f.cnpj.errors" class="invalid-feedback">
                                 <div *ngIf="f.cnpj.errors.required">CNPJ é obrigatório</div>
-                                <div *ngIf="f.cnpj.errors.minlength">CNPJ incorreto.</div>
+                                <div *ngIf="f.cnpj.errors.minlength">CNPJ incorreto. {{ f.cnpj.value }}</div>
                                 <div *ngIf="f.cnpj.errors.maxlength">CNPJ incorreto.</div>
                             </div>
                         </div>
                     
                         <div class="form-group col-12">
                             <!-- <label for="email">Seu E-mail:</label> -->
-                            <input type="text" class="form-control" id="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Digite seu e-mail">
+                            <input type="text" class="form-control" id="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Digite seu e-mail" maxlength="255">
                             <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                                 <div *ngIf="f.email.errors.required">E-mail é obrigatório</div>
                                 <div *ngIf="f.email.errors.email">Precisamos de um endereço de e-mail válido.</div>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group col-12">
                             <!-- <label for="email">Crie uma Senha:</label> -->
-                            <input type="password" class="form-control" id="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Crie uma senha">
+                            <input type="password" class="form-control" id="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Crie uma senha" maxlength="25">
                             <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                                 <div *ngIf="f.password.errors.required">Senha é obrigatório</div>
                                 <div *ngIf="f.password.errors.minlength">Sua senha precisa ter, no mínimo, 6 caracteres.</div>
@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="form-group col-12">
-                            <button type="submit" [disabled]="this.formSignup.invalid" class="btn btn-primary">Criar minha loja</button>
+                            <button type="submit" class="btn btn-primary">Criar minha loja</button>
                         </div>
                     </div>
 
