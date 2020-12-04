@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TemplateModule } from './template/template.module';
-import { SignupModule } from './template/signup/signup.module';
+import { SignupModule } from './template/sellers/signup/signup.module';
 
 @NgModule({
   declarations: [

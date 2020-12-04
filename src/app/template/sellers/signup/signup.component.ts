@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators }  from  '@angular/forms';
-import { Signup } from '../../models/signup';
-import { AuthService } from "../auth.service";
 import Swal from "sweetalert2";
+import { AuthService } from '../../auth.service';
+import { Signup } from 'src/app/models/signup';
 
 @Component({
   selector: 'app-signup',
