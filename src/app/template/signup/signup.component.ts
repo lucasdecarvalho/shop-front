@@ -15,42 +15,23 @@ export class SignupComponent implements OnInit {
   formSignup: FormGroup;
   submitted: boolean = false;
   errors: any;
-  public isValidFlg:boolean = true;
+  isValidFlg:boolean = true;
+  confirmData: boolean = false;
+  dataCompany: Object[];
 
   constructor(private formBuilder: FormBuilder, private AuthService: AuthService, private router: Router) {  
-    
   }
-
+  
   ngOnInit() {
     this.createForm(new Signup());
   }
 
-  validatePhoneNo(field) {
-    var phoneNumDigits = field.value.replace(/\D/g, '');
-  
-    this.isValidFlg = (phoneNumDigits.length==0 || phoneNumDigits.length == 18);
-  
-    var formattedNumber = phoneNumDigits;
-    if (phoneNumDigits.length >= 3)
-      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2);
-    if (phoneNumDigits.length >= 6)
-      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2, 5) + '.' + phoneNumDigits.substring(5);
-    if (phoneNumDigits.length >= 9)
-      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2, 5) + '.' + phoneNumDigits.substring(5, 8) + '/' + phoneNumDigits.substring(8);
-    if (phoneNumDigits.length >= 13)
-      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2, 5) + '.' + phoneNumDigits.substring(5, 8) + '/' + phoneNumDigits.substring(8, 12) + '-' + phoneNumDigits.substring(12);
-    if (phoneNumDigits.length >= 14)
-      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2, 5) + '.' + phoneNumDigits.substring(5, 8) + '/' + phoneNumDigits.substring(8, 12) + '-' + phoneNumDigits.substring(12, 14) + phoneNumDigits.substring(14);
-  
-    field.value = formattedNumber;
-  }
-
   createForm(user: Signup) {
     this.formSignup = this.formBuilder.group({
-      cnpj: [user.cnpj, [Validators.required, Validators.minLength(14), Validators.maxLength(18)]],
-      email: [user.email, [Validators.required, Validators.email, Validators.maxLength(45)]],
-      password: [user.password, [Validators.required, Validators.minLength(6), Validators.maxLength(25)]],
-      termsCheck: [false, Validators.requiredTrue],
+      cnpj: ['12.239.095/0001-80', [Validators.required, Validators.minLength(14), Validators.maxLength(18)]],
+      email: ['e@u.com', [Validators.required, Validators.email, Validators.maxLength(45)]],
+      password: [123123, [Validators.required, Validators.minLength(6), Validators.maxLength(25)]],
+      termsCheck: [true, Validators.requiredTrue],
     })
   }
 
@@ -73,29 +54,33 @@ export class SignupComponent implements OnInit {
       .subscribe(response => {
 
             // @ts-ignore
+            let situacao = response.situacao;
+
+            // @ts-ignore
             let status = response.status;
             
             // @ts-ignore
             let municipio = response.municipio;
 
-            if (status == 'OK')
+            if (situacao == 'ATIVA' && status == 'OK')
             {
-              // console.log("Cnpj valido.");
+              // @ts-ignore
+              this.dataCompany = response;
 
                 if(municipio == 'RIO CLARO')
                 {
                   this.AuthService.create(this.formSignup.value)
                       .subscribe(response => {
-                          
-                          //@ts-ignore
-                          // Swal.fire('Deu certo', 'Empresa registrada com sucesso','');
+
                           Swal.fire({
-                            position: 'top-end',
+                            position: 'top',
                             icon: 'success',
                             title: 'Empresa registrada com sucesso!',
                             showConfirmButton: false,
-                            timer: 2000
+                            timer: 1500
                           })
+                          // this.router.navigateByUrl(`/data-confirm`);
+                          this.confirmData = true;
                       },
                       error => {
                           this.errors = error.error.errors;
@@ -113,18 +98,9 @@ export class SignupComponent implements OnInit {
                 else {
 
                     Swal.fire({
-                      title: '',
-                      showClass: {
-                        popup: 'animate__animated animate__fadeInDown'
-                      },
-                      hideClass: {
-                        popup: 'animate__animated animate__fadeOutUp'
-                      }
-                    });
-                    Swal.fire({
                       icon: 'error',
                       title: 'Registro externo',
-                      html: 'Sua empresa não está registrada junto à Receita Federal dentro do município de Rio Claro/SP, por isso, não podemos aprovar sua entrada neste momento. Agradecemos o interesse.',
+                      html: 'Sua empresa não está registrada junto à Receita Federal dentro do município de Rio Claro/SP, por esse motivo, não podemos aprovar sua entrada neste momento. Agradecemos o interesse.',
                       footer: '<a href> Precisa de ajuda? Chat com nosso atendimento</a>'
                     })
                 }
@@ -171,12 +147,32 @@ export class SignupComponent implements OnInit {
             }).then((result) => {
               /* Read more about handling dismissals below */
               if (result.dismiss === Swal.DismissReason.timer) {
-                console.log('I was closed by the timer')
+                // console.log('I was closed by the timer')
               }
             })
           }
       })
   
+  }
+
+  validatePhoneNo(field) {
+    let phoneNumDigits = field.value.replace(/\D/g, '');
+  
+    this.isValidFlg = (phoneNumDigits.length == 0 || phoneNumDigits.length == 18);
+  
+    let formattedNumber = phoneNumDigits;
+    if (phoneNumDigits.length >= 3)
+      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2);
+    if (phoneNumDigits.length >= 6)
+      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2, 5) + '.' + phoneNumDigits.substring(5);
+    if (phoneNumDigits.length >= 9)
+      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2, 5) + '.' + phoneNumDigits.substring(5, 8) + '/' + phoneNumDigits.substring(8);
+    if (phoneNumDigits.length >= 13)
+      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2, 5) + '.' + phoneNumDigits.substring(5, 8) + '/' + phoneNumDigits.substring(8, 12) + '-' + phoneNumDigits.substring(12);
+    if (phoneNumDigits.length >= 14)
+      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2, 5) + '.' + phoneNumDigits.substring(5, 8) + '/' + phoneNumDigits.substring(8, 12) + '-' + phoneNumDigits.substring(12, 14) + phoneNumDigits.substring(14);
+  
+    field.value = formattedNumber;
   }
 
 }
