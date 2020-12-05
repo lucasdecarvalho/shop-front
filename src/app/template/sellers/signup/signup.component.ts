@@ -73,9 +73,8 @@ export class SignupComponent implements OnInit {
                       .subscribe(response => {
 
                           Swal.fire({
-                            position: 'top',
+                            position: 'center',
                             icon: 'success',
-                            title: 'Empresa registrada com sucesso!',
                             showConfirmButton: false,
                             timer: 1500
                           })
