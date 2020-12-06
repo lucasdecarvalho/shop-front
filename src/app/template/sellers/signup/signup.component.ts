@@ -28,10 +28,10 @@ export class SignupComponent implements OnInit {
 
   createForm(user: Signup) {
     this.formSignup = this.formBuilder.group({
-      cnpj: ['12.239.095/0001-80', [Validators.required, Validators.minLength(14), Validators.maxLength(18)]],
-      email: ['e@u.com', [Validators.required, Validators.email, Validators.maxLength(45)]],
-      password: [123123, [Validators.required, Validators.minLength(6), Validators.maxLength(25)]],
-      termsCheck: [true, Validators.requiredTrue],
+      cnpj: [user.cnpj, [Validators.required, Validators.minLength(14), Validators.maxLength(18)]],
+      email: [user.email, [Validators.required, Validators.email, Validators.maxLength(45)]],
+      password: [user.password, [Validators.required, Validators.minLength(6), Validators.maxLength(25)]],
+      termsCheck: [false, Validators.requiredTrue],
     })
   }
 
