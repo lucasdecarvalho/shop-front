@@ -9,11 +9,13 @@ import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { LayoutModule } from '../layout/layout.module';
 import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './sellers/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     LoginComponent,
+    DashboardComponent,
   ],
   imports: [
     CommonModule,

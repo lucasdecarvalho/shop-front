@@ -3,11 +3,12 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar>Empresa</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item href="#">Confirme seus dados</a>
+      <a mat-list-item href="#">Adicione Produtos</a>
+      <a mat-list-item href="#">Adicione Banners</a>
+      <a mat-list-item href="#">Adicione Promoção</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -20,12 +21,43 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>shop</span>
+      <span>Dashboard</span>
     </mat-toolbar>
     <!-- Add Content Here -->
+
+    <div class="row m-2">
+      <div class="col-12">
+        <div class="row p-4 mb-2 banner rounded bg-white">
+          <h1 class="font-weight-bold">Edite sua loja</h1>
+          <p>Esse é o seu espaço administrativo. Acompanhe as vendas, visitas e cliques. Adicione produtos, banners, promoções.
+          <br>Precisa de ajuda? <a href="http://">Assista ao vídeo tutorial</a> ou fale com nosso suporte on-line <a href="http://">clicando aqui</a>.</p>
+        </div>
+      </div>
+    </div>
     
+    <div class="row">
+      <div class="col-12 products text-right">
+          <button class="btn btn-primary">Publicar loja</button>
+          <button class="btn btn-success">Compartilhar</button>
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="col-12 products">
+        <h4 class="p-2">Seus produtos cadastrados:</h4>
+        <div class="text-center bg-white m-2 p-4 rounded border" style="width:22.5%;float:left">
+          <mat-icon style="font-size:3em;color:#ccc;margin-left:-.5em;">add_circle_outline</mat-icon>
+          <p style="color:#ccc;">Adicione produto</p>
+        </div>
+        <app-card></app-card>
+        <app-card></app-card>
+        <app-card></app-card>
+      </div>
+    </div>
+
     <mat-divider></mat-divider>
-    <section>
+    
+    <!-- <section>
       <div class="example-label">FAB</div>
       <div class="example-button-row">
         <div class="example-flex-container">
@@ -51,7 +83,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <mat-divider></mat-divider>
     <!-- end -->
 

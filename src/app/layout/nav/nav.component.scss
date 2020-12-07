@@ -15,3 +15,41 @@
   top: 0;
   z-index: 1;
 }
+
+
+.content {
+  background-color: #fd0;
+}
+.no-style {
+  list-style: none;
+}
+h1, .logo {
+  width:100%;
+  font-size: 3em;
+}
+ul:first-of-type span {
+  color:#090;
+}
+ul span {
+  color:#aa0000;
+}
+input[type='text'],input[type='password'] {
+  padding: 6px 10px !important;
+  font-size: 1em;
+  background: #fff;
+}
+button {
+  padding: 3px 5px !important;
+  font-size: 1em;
+  margin-right:1em;
+  border:none;
+}
+.invalid-feedback {
+  width: 100%;
+  padding: 6px;
+  margin: 0 0 5px 0;
+  border-radius: 3px;
+  background-color: #ffd;
+  text-align: left;
+  color: #aa0000;
+}

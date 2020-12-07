@@ -1,5 +1,7 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from "@angular/router";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-data-confirm',
@@ -12,7 +14,7 @@ export class DataConfirmComponent implements OnInit {
   company: any;
   formConfirm: FormGroup;
   
-  constructor() {  
+  constructor(private router: Router) {  
   }
   
   ngOnInit(): void { 
@@ -39,7 +41,14 @@ export class DataConfirmComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("me salva");
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Dados confirmados com sucesso!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+    this.router.navigateByUrl(`/dashboard`);
   }
 
   buscaCEP() {
