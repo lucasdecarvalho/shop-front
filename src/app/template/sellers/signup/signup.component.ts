@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
       cnpj: [user.cnpj, [Validators.required, Validators.minLength(14), Validators.maxLength(18)]],
       email: [user.email, [Validators.required, Validators.email, Validators.maxLength(45)]],
       password: [user.password, [Validators.required, Validators.minLength(6), Validators.maxLength(25)]],
-      termsCheck: [false, Validators.requiredTrue],
+      termsCheck: [false, Validators.requiredTrue]
     })
   }
 
@@ -66,19 +66,22 @@ export class SignupComponent implements OnInit {
             {
               // @ts-ignore
               this.dataCompany = response;
-
-                if(municipio == 'RIO CLARO')
-                {
-                  this.AuthService.create(this.formSignup.value)
-                      .subscribe(response => {
-
+              
+              if(municipio == 'RIO CLARO')
+              {
+                this.AuthService.createCompany(this.formSignup.value)
+                .subscribe(res => {
+                  
                           Swal.fire({
                             position: 'center',
                             icon: 'success',
+                            title: 'Cadastro efetuado com sucesso!',
                             showConfirmButton: false,
                             timer: 1500
                           })
                           // this.router.navigateByUrl(`/data-confirm`);
+                          // @ts-ignore
+                          window.localStorage.setItem('token',res.access_token);
                           this.confirmData = true;
                       },
                       error => {

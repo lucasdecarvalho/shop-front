@@ -26,12 +26,12 @@ export class AuthService {
     return this.http.get(`http://www.receitaws.com.br/v1/cnpj/${cnpj}`);
   }
   
-  create(data: any) {
-    return this.http.post(`${environment.api_url}/api/company`, data, this.httpOptions);
+  createCompany(data: any) {
+    return this.http.post(`${environment.api_url}/api/seller/create`, data, this.httpOptions);
   }
   
   getUserDetails(data: object) {
-    return this.http.post(environment.api_url + "/api/login", data, this.httpOptions);
+    return this.http.post(environment.api_url + "/api/seller/login", data, this.httpOptions);
   }
   
 }
