@@ -17,7 +17,7 @@ export class SignupService {
            "Access-Control-Allow-Origin": "*",
            "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
            "Access-Control-Allow-Methods": "GET, POST, DELETE, PUT, OPTIONS",
-           "Authorization": "Bearer " + window.sessionStorage.getItem('token')
+           "Authorization": "Bearer " + window.localStorage.getItem('token')
            })
       };
   }

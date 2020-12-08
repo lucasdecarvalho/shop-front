@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
-    window.sessionStorage.clear();
     window.localStorage.clear();
   }
 
@@ -27,7 +26,7 @@ export class LoginComponent implements OnInit {
         .subscribe(response => {
 
             //@ts-ignore;
-            window.sessionStorage.setItem('token',response.access_token);
+            window.localStorage.setItem('token',response.access_token);
             console.log(response);
         },
         error => {

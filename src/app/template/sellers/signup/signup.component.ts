@@ -81,7 +81,7 @@ export class SignupComponent implements OnInit {
                           })
                           // this.router.navigateByUrl(`/data-confirm`);
                           // @ts-ignore
-                          window.sessionStorage.setItem('token',res.access_token);
+                          window.localStorage.setItem('token',res.access_token);
                           this.confirmData = true;
                       },
                       error => {
