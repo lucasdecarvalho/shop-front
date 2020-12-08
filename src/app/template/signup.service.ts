@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class SignupService {
 
   protected httpOptions: object;
 
@@ -21,9 +21,13 @@ export class AuthService {
            })
       };
   }
+
+  checkCnpj(cnpj: number) {
+    return this.http.get(`http://www.receitaws.com.br/v1/cnpj/${cnpj}`);
+  }
   
-  sellerLogin(data: object) {
-    return this.http.post(environment.api_url + "/api/seller/login", data, this.httpOptions);
+  createCompany(data: any) {
+    return this.http.post(`${environment.api_url}/api/seller/create`, data, this.httpOptions);
   }
   
 }

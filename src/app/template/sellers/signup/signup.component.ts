@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 import Swal from "sweetalert2";
-import { AuthService } from '../../auth.service';
 import { Signup } from 'src/app/models/signup';
+import { SignupService } from '../../signup.service';
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
   confirmData: boolean = false;
   dataCompany: Object[];
 
-  constructor(private formBuilder: FormBuilder, private AuthService: AuthService, private router: Router) {  
+  constructor(private formBuilder: FormBuilder, private signup: SignupService, private router: Router) {  
   }
   
   ngOnInit() {
@@ -50,7 +50,7 @@ export class SignupComponent implements OnInit {
       cnpj = cnpj.replace(/\D/g,'');
       this.formSignup.value.cnpj = this.formSignup.value.cnpj.replace(/\D/g,'');
 
-      this.AuthService.checkCnpj(cnpj)
+      this.signup.checkCnpj(cnpj)
       .subscribe(response => {
 
             // @ts-ignore
@@ -69,7 +69,7 @@ export class SignupComponent implements OnInit {
               
               if(municipio == 'RIO CLARO')
               {
-                this.AuthService.createCompany(this.formSignup.value)
+                this.signup.createCompany(this.formSignup.value)
                 .subscribe(res => {
                   
                           Swal.fire({
@@ -81,7 +81,7 @@ export class SignupComponent implements OnInit {
                           })
                           // this.router.navigateByUrl(`/data-confirm`);
                           // @ts-ignore
-                          window.localStorage.setItem('token',res.access_token);
+                          window.sessionStorage.setItem('token',res.access_token);
                           this.confirmData = true;
                       },
                       error => {
