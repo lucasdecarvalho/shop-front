@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { AuthService } from "../auth.service";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { SignupService } from '../signup.service';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +11,14 @@ export class LoginComponent implements OnInit {
 
   errors: any[] = [];
 
-  constructor(private urlParams: ActivatedRoute, private auth: AuthService, private router: Router) { 
-
-  }
+  constructor(private auth: SignupService, private router: Router) { }
 
   ngOnInit() {
 
-    window.localStorage.clear();
+  }
+
+  dataAccess() {
+    alert("acessou");
   }
 
   onSubmit(data: any) {
@@ -25,16 +26,21 @@ export class LoginComponent implements OnInit {
     this.auth.sellerLogin(data)
         .subscribe(response => {
 
-            //@ts-ignore;
-            window.localStorage.setItem('token',response.access_token);
-            console.log(response);
+          // @ts-ignore
+          let res = JSON.stringify(response);
+          //@ts-ignore;
+          console.log("dados: "+response.m_name);
+          this.dataAccess();
+          //@ts-ignore;
+          window.localStorage.setItem('token',response.access_token);
+          return this.router.navigateByUrl('/');
         },
         error => {
 
             if (error.error.errors)
                 this.errors = error.error.errors;
             else
-                console.log("deu ruim");
+                console.log("Erro ao logar");
         }
         
     );

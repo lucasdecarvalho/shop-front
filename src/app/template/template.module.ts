@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { LayoutModule } from '../layout/layout.module';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './sellers/dashboard/dashboard.component';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,10 @@ import { DashboardComponent } from './sellers/dashboard/dashboard.component';
     SharedModule,
     LayoutModule,
     ReactiveFormsModule,
-  ]
+  ],
+  providers: [
+    AuthService, 
+    AuthGuard,
+  ],
 })
 export class TemplateModule {  }

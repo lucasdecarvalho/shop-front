@@ -29,5 +29,9 @@ export class SignupService {
   createCompany(data: any) {
     return this.http.post(`${environment.api_url}/api/seller/create`, data, this.httpOptions);
   }
+
+  sellerLogin(data: object) {
+    return this.http.post(environment.api_url + "/api/seller/login", data, this.httpOptions);
+  }
   
 }

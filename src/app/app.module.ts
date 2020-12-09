@@ -13,7 +13,7 @@ import { SignupModule } from './template/sellers/signup/signup.module';
     AppComponent,
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     

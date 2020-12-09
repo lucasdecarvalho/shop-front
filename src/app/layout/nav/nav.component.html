@@ -5,10 +5,11 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Empresa</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Confirme seus dados</a>
+      <a mat-list-item href="/cadastrar">Confirme seus dados</a>
       <a mat-list-item href="#">Adicione Produtos</a>
       <a mat-list-item href="#">Adicione Banners</a>
       <a mat-list-item href="#">Adicione Promoção</a>
+      <a mat-list-item (click)="sellerLogout()">Sair</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
