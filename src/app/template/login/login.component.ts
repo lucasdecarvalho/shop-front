@@ -17,22 +17,22 @@ export class LoginComponent implements OnInit {
 
   }
 
-  dataAccess() {
-    alert("acessou");
+  dataAccess(data) {
+
+    this.auth.verifyAccess(data)
+        .subscribe(res => { });
   }
 
   onSubmit(data: any) {
         
     this.auth.sellerLogin(data)
         .subscribe(response => {
-
-          // @ts-ignore
-          let res = JSON.stringify(response);
-          //@ts-ignore;
-          console.log("dados: "+response.m_name);
-          this.dataAccess();
+          
+          this.dataAccess(response);
+          
           //@ts-ignore;
           window.localStorage.setItem('token',response.access_token);
+
           return this.router.navigateByUrl('/');
         },
         error => {

@@ -34,4 +34,16 @@ export class SignupService {
     return this.http.post(environment.api_url + "/api/seller/login", data, this.httpOptions);
   }
   
+  sellerData(data: any) {
+    return this.http.get(environment.api_url + "/api/seller/list", this.httpOptions);
+  }
+  
+  verifyAccess(data: any) {
+    return this.http.post(environment.api_url + "/api/seller/verify-access", data, this.httpOptions);
+  }
+  
+  getVerifyAccess(id: any) {
+    return this.http.get(environment.api_url + `/api/seller/verify-access/${id}`, this.httpOptions);
+  }
+  
 }

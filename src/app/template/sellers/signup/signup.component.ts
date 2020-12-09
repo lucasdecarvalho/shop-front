@@ -36,6 +36,12 @@ export class SignupComponent implements OnInit {
   }
 
   get f() { return this.formSignup.controls; }
+
+  dataAccess(data) {
+
+    this.signup.verifyAccess(data)
+        .subscribe(res => { });
+  }
  
   onSubmit() {
 
@@ -79,7 +85,9 @@ export class SignupComponent implements OnInit {
                             showConfirmButton: false,
                             timer: 1500
                           })
-                          // this.router.navigateByUrl(`/data-confirm`);
+
+                          this.dataAccess(res);
+
                           // @ts-ignore
                           window.localStorage.setItem('token',res.access_token);
                           this.confirmData = true;
