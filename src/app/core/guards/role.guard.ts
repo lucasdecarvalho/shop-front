@@ -3,14 +3,14 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } fro
 import { Observable } from 'rxjs';
 import jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
-import { SignupService } from './signup.service';
+import { SellersService } from '../../modules/sellers/sellers.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoleGuard implements CanActivate {
 
-  constructor(public signup: SignupService, public router: Router) {}
+  constructor(public signup: SellersService, public router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -35,7 +35,7 @@ export class RoleGuard implements CanActivate {
 
       if (typeAccount !== expectedRole) {
 
-          this.router.navigateByUrl('login');
+          this.router.navigateByUrl('vendedores/login');
           return false;
       }
 

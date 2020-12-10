@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { SignupService } from './signup.service';
+import { SellersService } from '../../modules/sellers/sellers.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private SignupService: SignupService, private router: Router) {}
+  constructor(private SignupService: SellersService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
       
       if (!token && jwtHelper.isTokenExpired(token)) {
         window.localStorage.clear();
-        this.router.navigateByUrl('login');
+        this.router.navigateByUrl('vendedores/login');
         return false;
       }
 
@@ -31,7 +31,7 @@ export class AuthGuard implements CanActivate {
             // @ts-ignore
             if(token !== response.access_token) {
               window.localStorage.clear();
-              this.router.navigateByUrl('login');
+              this.router.navigateByUrl('vendedores/login');
               return false;
             }
           });

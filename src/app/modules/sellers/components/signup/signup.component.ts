@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 import Swal from "sweetalert2";
-import { Signup } from 'src/app/models/signup';
-import { SignupService } from '../../signup.service';
+import { Signup } from './signup';
+import { SellersService } from 'src/app/modules/sellers/sellers.service';
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
   confirmData: boolean = false;
   dataCompany: Object[];
 
-  constructor(private formBuilder: FormBuilder, private signup: SignupService, private router: Router) {  
+  constructor(private formBuilder: FormBuilder, private signup: SellersService, private router: Router) {  
   }
   
   ngOnInit() {
@@ -86,10 +86,16 @@ export class SignupComponent implements OnInit {
                             timer: 1500
                           })
 
+                          res['typeAccount'] = 'seller';
+
                           this.dataAccess(res);
 
                           // @ts-ignore
                           window.localStorage.setItem('token',res.access_token);
+
+                          //@ts-ignore;
+                          window.localStorage.setItem('typeAccount',res.role);
+
                           this.confirmData = true;
                       },
                       error => {

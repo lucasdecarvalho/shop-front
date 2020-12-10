@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-newsletter',
@@ -7,12 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NewsletterComponent implements OnInit {
 
-  @Input() recebeFamilia: string;
-
   constructor() { }
 
   ngOnInit() {
-    console.log(this.recebeFamilia);
   }
 
 }

@@ -48,7 +48,7 @@ export class DataConfirmComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500
     })
-    this.router.navigateByUrl(`/dashboard`);
+    this.router.navigateByUrl(`vendedores`);
   }
 
   buscaCEP() {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { SignupService } from '../signup.service';
+import { SellersService } from '../../sellers.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   errors: any[] = [];
 
-  constructor(private auth: SignupService, private router: Router) { }
+  constructor(private auth: SellersService, private router: Router) { }
 
   ngOnInit() {
 
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
           //@ts-ignore;
           window.localStorage.setItem('typeAccount',response.role);
           
-          return this.router.navigateByUrl('/');
+          return this.router.navigateByUrl('vendedores');
         },
         error => {
 
