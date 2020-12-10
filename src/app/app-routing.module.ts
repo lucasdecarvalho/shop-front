@@ -5,12 +5,16 @@ import { DashboardComponent } from './template/sellers/dashboard/dashboard.compo
 import { SignupComponent } from './template/sellers/signup/signup.component';
 import { AuthGuard } from './template/auth.guard';
 import { HomeComponent } from './template/home/home.component';
+import { RoleGuard } from './template/role.guard';
 
 const routes: Routes = [
   { 
     path: '',
     component: DashboardComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, RoleGuard],
+    data: { 
+      expectedRole: 'seller'
+    } 
   },
   { 
     path: 'login',

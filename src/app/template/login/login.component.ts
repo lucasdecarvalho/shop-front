@@ -27,12 +27,17 @@ export class LoginComponent implements OnInit {
         
     this.auth.sellerLogin(data)
         .subscribe(response => {
-          
+
+          response['typeAccount'] = 'seller';
+
           this.dataAccess(response);
           
           //@ts-ignore;
           window.localStorage.setItem('token',response.access_token);
-
+          
+          //@ts-ignore;
+          window.localStorage.setItem('typeAccount',response.role);
+          
           return this.router.navigateByUrl('/');
         },
         error => {

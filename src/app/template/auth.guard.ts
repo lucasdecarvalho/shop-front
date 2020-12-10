@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { SignupService } from './signup.service';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +18,6 @@ export class AuthGuard implements CanActivate {
       const jwtHelper: JwtHelperService = new JwtHelperService();
       const token = localStorage.getItem('token');
       const decodedToken = jwtHelper.decodeToken(token);
-      let Modifyedtoken = localStorage.getItem('token');
       
       if (!token && jwtHelper.isTokenExpired(token)) {
         window.localStorage.clear();
