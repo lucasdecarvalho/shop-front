@@ -16,12 +16,12 @@ const routes: Routes = [
         component: SellersComponent,
         children: [
             {
-                path: '',
-                component: DashboardComponent,
-                canActivate: [AuthGuard, RoleGuard],
-                data: {
-                  expectedRole: 'seller'
-                }
+              path: '',
+              component: DashboardComponent,
+              canActivate: [AuthGuard, RoleGuard],
+              data: {
+                expectedRole: 'seller'
+              }
             },
             {
               path: 'cadastro',

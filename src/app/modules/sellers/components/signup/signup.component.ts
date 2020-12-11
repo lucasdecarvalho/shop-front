@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
   confirmData: boolean = false;
   dataCompany: Object[];
 
-  constructor(private formBuilder: FormBuilder, private signup: SellersService, private router: Router) {  
+  constructor(private formBuilder: FormBuilder, public signup: SellersService, private router: Router) {  
   }
   
   ngOnInit() {
@@ -95,8 +95,12 @@ export class SignupComponent implements OnInit {
 
                           //@ts-ignore;
                           window.localStorage.setItem('typeAccount',res.role);
+                          
+                          //@ts-ignore;
+                          window.localStorage.setItem('companyData', JSON.stringify(response));
 
-                          this.confirmData = true;
+                          // this.confirmData = true;
+                          this.router.navigateByUrl('vendedores/confirmar-dados');
                       },
                       error => {
                           this.errors = error.error.errors;

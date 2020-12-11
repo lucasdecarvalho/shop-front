@@ -20,6 +20,7 @@ export class SellersService {
            "Authorization": "Bearer " + window.localStorage.getItem('token')
            })
       };
+
   }
 
   checkCnpj(cnpj: number) {

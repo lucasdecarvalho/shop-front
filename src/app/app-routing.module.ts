@@ -5,9 +5,9 @@ import { SignupComponent } from './modules/sellers/components/signup/signup.comp
 const routes: Routes = [
   { 
     path: '',
-      component: SignupComponent,
-      
-  }];
+    component: SignupComponent,  
+    }
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],

@@ -1,79 +1,81 @@
+<div class="container">
+
 <div class="row">
     <div class="col-12">
         
         <h1 class="font-weight-bold">Parabéns!</h1>
-<h2 class="font-weight-bold">Sua loja virtual foi cadastrada.</h2>
-<!-- <h5>Por favor, confirme os dados abaixo para prosseguir. É de extrema importância que estejam atualizados. Caso precise fazer alguma alteração, fique à vontade. E caso precise de ajuda, <a href="">clique aqui</a> e fale direto com o nosso suporte on-line.</h5> -->
-<!-- <h5>Para prosseguir, por favor, confirme os dados abaixo. Caso precise de ajuda, <a href="">clique aqui</a> e fale direto com o nosso suporte on-line.</h5> -->
-<h5 class="mb-4">Para prosseguir, por favor, confirme os dados abaixo.</h5>
-<hr>
+        <h2 class="font-weight-bold">Sua loja virtual foi cadastrada.</h2>
+        <!-- <h5>Por favor, confirme os dados abaixo para prosseguir. É de extrema importância que estejam atualizados. Caso precise fazer alguma alteração, fique à vontade. E caso precise de ajuda, <a href="">clique aqui</a> e fale direto com o nosso suporte on-line.</h5> -->
+        <!-- <h5>Para prosseguir, por favor, confirme os dados abaixo. Caso precise de ajuda, <a href="">clique aqui</a> e fale direto com o nosso suporte on-line.</h5> -->
+        <h5 class="mb-4">Para prosseguir, por favor, confirme os dados abaixo.</h5>
+        <hr>
 
-</div>
+    </div>
 </div>
 
 <div class="row">
     <div class="col-12">
         
-<form [formGroup]="formConfirm" (ngSubmit)="onSubmit()">
-    <div class="form-row">
+        <form [formGroup]="formConfirm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
 
-        <div class="form-group col-md-12">
-            <label for="fantasia">Nome fantasia:</label>
-            <input type="text" class="form-control" id="fantasia" formControlName="fantasia">
-        </div>
+                <div class="form-group col-md-12">
+                    <label for="fantasia">Nome fantasia:</label>
+                    <input type="text" class="form-control" id="fantasia" formControlName="fantasia">
+                </div>
 
-        <div class="form-group col-md-6">
-            <label for="telefone">Telefone:</label>
-            <input type="text" class="form-control" id="telefone" formControlName="telefone">
-        </div>
+                <div class="form-group col-md-6">
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" class="form-control" id="telefone" formControlName="telefone">
+                </div>
 
-        <div class="form-group col-md-6">
-            <label for="telefone2">Telefone adicional (opcional):</label>
-            <input type="text" class="form-control" id="telefone2" formControlName="telefone2">
-        </div>
-        
-        <!-- Endereço -->
+                <div class="form-group col-md-6">
+                    <label for="telefone2">Telefone adicional (opcional):</label>
+                    <input type="text" class="form-control" id="telefone2" formControlName="telefone2">
+                </div>
+                
+                <!-- Endereço -->
 
-        <div class="form-group col-md-3">
-            <label for="cep">CEP:</label>
-            <input type="text" class="form-control" id="cep" formControlName="cep" (blur)="buscaCEP()">
-        </div>
+                <div class="form-group col-md-3">
+                    <label for="cep">CEP:</label>
+                    <input type="text" class="form-control" id="cep" formControlName="cep" (blur)="buscaCEP()">
+                </div>
 
-        <div class="form-group col-md-7">
-            <label for="logradouro">Logradouro:</label>
-            <input type="text" class="form-control" id="logradouro" formControlName="logradouro">
-        </div>
+                <div class="form-group col-md-7">
+                    <label for="logradouro">Logradouro:</label>
+                    <input type="text" class="form-control" id="logradouro" formControlName="logradouro">
+                </div>
 
-        <div class="form-group col-md-2">
-            <label for="numero">Número:</label>
-            <input type="text" class="form-control" id="numero" formControlName="numero">
-        </div>
-        
-        <div class="form-group col-md-6">
-            <label for="complemento">Complemento:</label>
-            <input type="text" class="form-control" id="complemento" formControlName="complemento">
-        </div>
-        
-        <div class="form-group col-md-6">
-            <label for="bairro">Bairro:</label>
-            <input type="text" class="form-control" id="bairro" formControlName="bairro">
-        </div>
-        
-        <div class="form-group col-md-9">
-            <label for="municipio">Município:</label>
-            <input type="text" class="form-control" id="municipio" formControlName="municipio">
-        </div>
-        
-        <div class="form-group col-md-3">
-            <label for="uf">Estado (UF):</label>
-            <input type="text" class="form-control" id="uf" formControlName="uf">
-        </div>
-        
+                <div class="form-group col-md-2">
+                    <label for="numero">Número:</label>
+                    <input type="text" class="form-control" id="numero" formControlName="numero">
+                </div>
+                
+                <div class="form-group col-md-6">
+                    <label for="complemento">Complemento:</label>
+                    <input type="text" class="form-control" id="complemento" formControlName="complemento">
+                </div>
+                
+                <div class="form-group col-md-6">
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" class="form-control" id="bairro" formControlName="bairro">
+                </div>
+                
+                <div class="form-group col-md-9">
+                    <label for="municipio">Município:</label>
+                    <input type="text" class="form-control" id="municipio" formControlName="municipio">
+                </div>
+                
+                <div class="form-group col-md-3">
+                    <label for="uf">Estado (UF):</label>
+                    <input type="text" class="form-control" id="uf" formControlName="uf">
+                </div>
+                
+            </div>
+            <button type="submit" class="btn btn-primary">Confirmar</button>
+        </form>
+
     </div>
-    <button type="submit" class="btn btn-primary">Confirmar</button>
-</form>
-
-</div>
 </div>
 
 <div class="row">
@@ -82,3 +84,9 @@
         <h5 class="mt-2">Caso precise de ajuda, <a href="">clique aqui</a> e fale direto com o nosso suporte on-line.</h5>
     </div>
 </div>
+</div>
+
+<br><br>
+<hr>
+<br><br>
+
