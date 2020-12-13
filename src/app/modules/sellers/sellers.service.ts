@@ -16,10 +16,14 @@ export class SellersService {
            "Content-Type": "application/json",
            "Access-Control-Allow-Origin": "*",
            "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
-           "Access-Control-Allow-Methods": "GET, POST, DELETE, PUT, OPTIONS",
-           "Authorization": "Bearer " + window.localStorage.getItem('token')
+           "Access-Control-Allow-Methods": "GET, POST, DELETE, PUT, OPTIONS"
+          //  "Authorization": "Bearer " + window.localStorage.getItem('token')
            })
       };
+  }
+
+  public getToken(): string {
+    return localStorage.getItem('token');
   }
 
   checkCnpj(cnpj: number) {
@@ -27,7 +31,7 @@ export class SellersService {
   }
   
   createCompany(data: any) {
-    return this.http.post(`${environment.api_url}/api/seller/create`, data, data.heeader);
+    return this.http.post(`${environment.api_url}/api/seller/create`, data);
   }
   
   updateCompany(data: any) {

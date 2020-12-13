@@ -10,6 +10,9 @@ import { SellersComponent } from './sellers.component';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
 import { RoleGuard } from 'src/app/core/guards/role.guard';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from '../../core/token.interceptor';
+
 const routes: Routes = [
   {
     path: 'vendedores',
@@ -42,6 +45,13 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ]
 })
 export class SellersRoutingModule { }
