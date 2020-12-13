@@ -28,7 +28,7 @@
                             <input type="text" class="form-control" id="cnpj" formControlName="cnpj" [ngClass]="{ 'is-invalid': submitted && f.cnpj.errors }" placeholder="Digite o CNPJ" maxlength="18" (input)="validatePhoneNo($event.target)" autocomplete="off">
                             <div *ngIf="submitted && f.cnpj.errors" class="invalid-feedback">
                                 <div *ngIf="f.cnpj.errors.required">CNPJ é obrigatório</div>
-                                <div *ngIf="f.cnpj.errors.minlength">CNPJ incorreto. {{ f.cnpj.value }}</div>
+                                <div *ngIf="f.cnpj.errors.minlength">CNPJ incorreto.</div>
                                 <div *ngIf="f.cnpj.errors.maxlength">CNPJ incorreto.</div>
                             </div>
                         </div>

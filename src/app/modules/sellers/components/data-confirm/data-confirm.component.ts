@@ -2,8 +2,8 @@ import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
 import Swal from "sweetalert2";
-import { isString } from 'util';
 import { SellersService } from '../../sellers.service';
+import Stepper from 'bs-stepper';
 
 @Component({
   selector: 'app-data-confirm',
@@ -12,43 +12,123 @@ import { SellersService } from '../../sellers.service';
 })
 export class DataConfirmComponent implements OnInit {
 
-  company: any;
-  formConfirm: FormGroup;
+  private stepper: Stepper;
+  public formConfirm: FormGroup;
+  public company: any;
+  public errors: any;
+  public submitted: boolean = false;
   
-  constructor(private formBuilder: FormBuilder, private seller: SellersService, private router: Router) {  }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private seller: SellersService, 
+    private router: Router) 
+    {  
+      this.formConfirm = this.formBuilder.group({
+
+        firstName: ['', [Validators.required, Validators.maxLength(255)]], //
+        lastName: ['', [Validators.required, Validators.maxLength(255)]], //
+        cpf: ['', [Validators.required, Validators.maxLength(14)]], // 379.333.588-70
+        cel: ['', [Validators.required, Validators.maxLength(15)]], //
+        
+        fantasia: ['', [Validators.required, Validators.maxLength(255)]], //
+        nome: ['', [Validators.required, Validators.maxLength(255)]], //
+        abertura: ['', [Validators.required, Validators.maxLength(10)]], // 31/12/2020
+        logradouro: ['', [Validators.required, Validators.maxLength(255)]], //
+        numero: ['', [Validators.required, Validators.maxLength(15)]], //
+        complemento: ['', [Validators.maxLength(255)]], //
+        bairro: ['', [Validators.required, Validators.maxLength(255)]], //
+        municipio: ['', [Validators.required, Validators.maxLength(255)]], //
+        uf: ['', [Validators.required, Validators.maxLength(2)]], //
+        cep: ['', [Validators.required, Validators.maxLength(10)]], //
+        telefone: ['', [Validators.required, Validators.maxLength(15)]], // (11) 95812-9698
+        telefone2: ['', [Validators.maxLength(15)]], //
+        alias: ['', [Validators.required, Validators.maxLength(255)]], //
+        
+        bankName: ['', [Validators.required, Validators.maxLength(5)]], //
+        bankType: ['', [Validators.required, Validators.maxLength(2)]], //
+        bankAg: ['', [Validators.required, Validators.maxLength(15)]], //
+        bankAccount: ['', [Validators.required, Validators.maxLength(15)]], //
+      });
+    }
                 
   ngOnInit() { 
+    this.seller.sellerData()
+      .subscribe(response => {
 
-    this.company = window.localStorage.getItem('companyData');
-    this.company = JSON.parse(this.company);
+        this.company = response;
 
-    let company = this.company;
+        console.log(this.company);
 
-    // this.formConfirm = new FormGroup({
-    //   fantasia: new FormControl( 123 )
-    //   telefone: new FormControl( company.telefone ),
-    //   telefone2: new FormControl( company.telefone2 ),
-    //   cep: new FormControl( company.cep ),
-    //   logradouro: new FormControl({ value: company.logradouro, disabled: true }),
-    //   numero: new FormControl( company.numero ),
-    //   complemento: new FormControl( company.complemento ),
-    //   bairro: new FormControl({ value: company.bairro, disabled: true }),
-    //   municipio: new FormControl({ value: company.municipio, disabled: true }),
-    //   uf: new FormControl({ value: company.uf, disabled: true })
-    // })
-
-    this.formConfirm = this.formBuilder.group({
-      fantasia: [company.fantasia, [Validators.required, Validators.minLength(14), Validators.maxLength(18)]],
-      telefone: [company.telefone, [Validators.required, Validators.minLength(14), Validators.maxLength(18)]],
-      telefone2: [company.telefone2, [Validators.required, Validators.minLength(14), Validators.maxLength(18)]],
-      cep: [company.cep, [Validators.required, Validators.minLength(14), Validators.maxLength(18)]],
-      logradouro: [company.logradouro, [Validators.required, Validators.minLength(14), Validators.maxLength(18)]],
-      numero: [company.numero, [Validators.required, Validators.minLength(14), Validators.maxLength(18)]],
-      complemento: [company.complemento, [Validators.required, Validators.minLength(14), Validators.maxLength(18)]],
-      bairro: [company.bairro, [Validators.required, Validators.minLength(14), Validators.maxLength(18)]],
-      municipio: [company.municipio, [Validators.required, Validators.minLength(14), Validators.maxLength(18)]],
-      uf: [company.uf, [Validators.required, Validators.minLength(14), Validators.maxLength(18)]]
+        this.formConfirm.patchValue({
+          fantasia: this.company.seller.fantasia,
+          nome: this.company.seller.nome,
+          abertura: this.company.seller.abertura,
+          logradouro: this.company.seller.logradouro,
+          numero: this.company.seller.numero,
+          complemento: this.company.seller.complemento,
+          bairro: this.company.seller.bairro,
+          municipio: this.company.seller.municipio,
+          uf: this.company.seller.uf,
+          cep: this.company.seller.cep,
+          telefone: this.company.seller.telefone,
+          telefone2: this.company.seller.telefone2,
+          alias: this.company.seller.alias,
+          firstName: this.company.seller.firstName,
+          lastName: this.company.seller.lastName,
+          cpf: this.company.seller.cpf,
+          cel: this.company.seller.cel,
+          bankName: this.company.seller.bankName,
+          bankType: this.company.seller.bankType,
+          bankAg: this.company.seller.bankAg,
+          bankAccount: this.company.seller.bankAccount,
+        });
+      });
+    this.stepper = new Stepper(document.querySelector('#stepper1'), {
+      linear: false,
+      animation: true
     });
+  }
+
+  get f() { return this.formConfirm.controls; }
+
+
+  next(id: number) {
+    
+    if(id !== 3) {
+      event.preventDefault();
+    }
+
+    this.submitted = true;
+
+    if (this.formConfirm.invalid) {
+        return;
+    }
+    
+    this.seller.updateCompany(this.formConfirm.value)
+          .subscribe(res => {
+
+              this.stepper.next();
+              console.log("avançou");
+            },
+            error => {
+              this.errors = error.error.errors;
+              
+              for (let property in this.errors) {
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: this.errors[property],
+                  footer: '<a href> Precisa de ajuda? Chat com nosso atendimento</a>'
+                })
+              }
+
+            });
+    }
+
+  prev() {
+    event.preventDefault()
+    this.stepper.previous();
+    console.log("voltou");
   }
 
   onSubmit() {

@@ -67,6 +67,11 @@ export class SignupComponent implements OnInit {
             
             // @ts-ignore
             let municipio = response.municipio;
+            
+            response['cnpj'] = cnpj;
+            response['email'] = this.formSignup.value.email;
+            response['password'] = this.formSignup.value.password;
+            response['alias'] = response['fantasia'].normalize('NFKD').replace(/[^a-zA-Z]/g, "").toLowerCase();
 
             if (situacao == 'ATIVA' && status == 'OK')
             {
@@ -75,9 +80,16 @@ export class SignupComponent implements OnInit {
               
               if(municipio == 'RIO CLARO')
               {
-                this.signup.createCompany(this.formSignup.value)
+                this.signup.createCompany(this.dataCompany)
                 .subscribe(res => {
-                  
+
+                          // @ts-ignore
+                          let token = res.access_token;
+                          window.localStorage.setItem('token', token);
+
+                          // @ts-ignore
+                          // console.log(res);
+
                           Swal.fire({
                             position: 'center',
                             icon: 'success',
@@ -86,21 +98,11 @@ export class SignupComponent implements OnInit {
                             timer: 1500
                           })
 
-                          res['typeAccount'] = 'seller';
-
-                          this.dataAccess(res);
-
-                          // @ts-ignore
-                          window.localStorage.setItem('token',res.access_token);
-
-                          //@ts-ignore;
-                          window.localStorage.setItem('typeAccount',res.role);
+                          // res['typeAccount'] = 'seller';
+                          // this.dataAccess(res);
                           
-                          //@ts-ignore;
-                          window.localStorage.setItem('companyData', JSON.stringify(response));
-
-                          // this.confirmData = true;
                           this.router.navigateByUrl('vendedores/confirmar-dados');
+                          
                       },
                       error => {
                           this.errors = error.error.errors;

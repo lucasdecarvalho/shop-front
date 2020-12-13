@@ -18,10 +18,11 @@ const routes: Routes = [
             {
               path: '',
               component: DashboardComponent,
-              canActivate: [AuthGuard, RoleGuard],
-              data: {
-                expectedRole: 'seller'
-              }
+              canActivate: [AuthGuard],
+              // canActivate: [AuthGuard, RoleGuard],
+              // data: {
+              //   expectedRole: 'seller'
+              // }
             },
             {
               path: 'cadastro',
@@ -29,7 +30,8 @@ const routes: Routes = [
             },
             {
               path: 'confirmar-dados',
-              component: DataConfirmComponent
+              component: DataConfirmComponent,
+              canActivate: [AuthGuard],
             },
             {
                 path: 'login',

@@ -25,16 +25,16 @@ export class AuthGuard implements CanActivate {
         return false;
       }
 
-      this.SignupService.getVerifyAccess(decodedToken.sub)
-          .subscribe(response => {
+      // this.SignupService.getVerifyAccess(decodedToken.sub)
+      //     .subscribe(response => {
 
-            // @ts-ignore
-            if(token !== response.access_token) {
-              window.localStorage.clear();
-              this.router.navigateByUrl('vendedores/login');
-              return false;
-            }
-          });
+      //       // @ts-ignore
+      //       if(token !== response.access_token) {
+      //         window.localStorage.clear();
+      //         this.router.navigateByUrl('vendedores/login');
+      //         return false;
+      //       }
+      //     });
       
       return true;
   }
