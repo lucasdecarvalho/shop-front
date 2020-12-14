@@ -31,8 +31,8 @@ export class DataConfirmComponent implements OnInit {
         cel: ['', [Validators.required, Validators.maxLength(15)]], //
         
         fantasia: ['', [Validators.required, Validators.maxLength(255)]], //
-        nome: ['', [Validators.required, Validators.maxLength(255)]], //
-        abertura: ['', [Validators.required, Validators.maxLength(10)]], // 31/12/2020
+        // nome: ['', [Validators.required, Validators.maxLength(255)]], //
+        // abertura: ['', [Validators.required, Validators.maxLength(10)]], // 31/12/2020
         logradouro: ['', [Validators.required, Validators.maxLength(255)]], //
         numero: ['', [Validators.required, Validators.maxLength(15)]], //
         complemento: ['', [Validators.maxLength(255)]], //
@@ -42,12 +42,12 @@ export class DataConfirmComponent implements OnInit {
         cep: ['', [Validators.required, Validators.maxLength(10)]], //
         telefone: ['', [Validators.required, Validators.maxLength(15)]], // (11) 95812-9698
         telefone2: ['', [Validators.maxLength(15)]], //
-        alias: ['', [Validators.required, Validators.maxLength(255)]], //
+        // alias: ['', [Validators.required, Validators.maxLength(255)]], //
         
-        bankName: ['', [Validators.required, Validators.maxLength(5)]], //
-        bankType: ['', [Validators.required, Validators.maxLength(2)]], //
-        bankAg: ['', [Validators.required, Validators.maxLength(15)]], //
-        bankAccount: ['', [Validators.required, Validators.maxLength(15)]], //
+        bankName: ['', [Validators.required]], //
+        bankType: ['', [Validators.required]], //
+        bankAg: ['', [Validators.required]], //
+        bankAccount: ['', [Validators.required]], //
       });
     }
                 
@@ -92,18 +92,33 @@ export class DataConfirmComponent implements OnInit {
   get f() { return this.formConfirm.controls; }
 
 
-  next(id: number) {
+  next(id: boolean) {
     
-    if(id !== 3) {
-      event.preventDefault();
-    }
-
     this.submitted = true;
 
-    if (this.formConfirm.invalid) {
+    if(id) {
+
+      event.preventDefault();
+      if (this.f.firstName.invalid || this.f.lastName.invalid || this.f.cpf.invalid || this.f.cel.invalid) {
         return;
+      }
+    }
+
+    if(id) {
+
+      event.preventDefault();
+      if (this.f.fantasia.invalid || this.f.telefone.invalid || this.f.telefone2.invalid || this.f.cep.invalid || this.f.logradouro.invalid || this.f.numero.invalid || this.f.complemento.invalid || this.f.bairro.invalid || this.f.municipio.invalid || this.f.uf.invalid) {
+        return;
+      }
     }
     
+    if (!id) {
+      if (this.formConfirm.invalid) {
+        event.preventDefault();
+        return;
+      }
+    }
+
     this.seller.updateCompany(this.formConfirm.value)
           .subscribe(res => {
 

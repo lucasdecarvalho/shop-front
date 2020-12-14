@@ -160,7 +160,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button (click)="next(2)" class="btn btn-primary">Salvar</button>
+                            <button (click)="next(1)" class="btn btn-primary">Salvar</button>
                             <button (click)="prev()" class="btn btn-light mr-1">Voltar</button>
                         </div>
                         <!-- Banco -->
@@ -176,7 +176,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="bankName">Banco:</label>
                                     <select class="form-control" id="bankName" [ngClass]="{ 'is-invalid': submitted && f.bankName.errors }" formControlName="bankName" maxlength="5">
-                                        <option value=""></option>
+                                        <option></option>
                                         <option value="1">001 - BANCO DO BRASIL S/A</option>
                                         <option value="2">002 - BANCO CENTRAL DO BRASIL</option>
                                         <option value="3">003 - BANCO DA AMAZONIA S.A</option>
@@ -428,19 +428,17 @@
                                     </select>
                                     <div *ngIf="submitted && f.bankName.errors" class="invalid-feedback">
                                         <div *ngIf="f.bankName.errors.required">Banco é obrigatório.</div>
-                                        <div *ngIf="f.bankName.errors.maxlength">Formato de banco incorreto.</div>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="bankType">Tipo de conta:</label>
                                     <select class="form-control" id="bankType" [ngClass]="{ 'is-invalid': submitted && f.bankType.errors }" formControlName="bankType" maxlength="2">
                                       <option></option>
-                                      <option value="01">Corrente</option>
-                                      <option value="02">Poupança</option>
+                                      <option value="1">Corrente</option>
+                                      <option value="2">Poupança</option>
                                     </select>
                                     <div *ngIf="submitted && f.bankType.errors" class="invalid-feedback">
                                         <div *ngIf="f.bankType.errors.required">Tipo de conta é obrigatório.</div>
-                                        <div *ngIf="f.bankType.errors.maxlength">Tipo de conta incorreto.</div>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -448,7 +446,6 @@
                                     <input type="text" class="form-control" id="bankAg" [ngClass]="{ 'is-invalid': submitted && f.bankAg.errors }" formControlName="bankAg" autocomplete="off" maxlength="15" />
                                     <div *ngIf="submitted && f.bankAg.errors" class="invalid-feedback">
                                         <div *ngIf="f.bankAg.errors.required">Agência é obrigatório.</div>
-                                        <div *ngIf="f.bankAg.errors.maxlength">Formato de agência incorreto.</div>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -456,11 +453,10 @@
                                     <input type="text" class="form-control" id="bankAccount" [ngClass]="{ 'is-invalid': submitted && f.bankAccount.errors }" formControlName="bankAccount" autocomplete="off" maxlength="15" />
                                     <div *ngIf="submitted && f.bankAccount.errors" class="invalid-feedback">
                                         <div *ngIf="f.bankAccount.errors.required">Conta é obrigatório.</div>
-                                        <div *ngIf="f.bankAccount.errors.maxlength">Formato de conta incorreto.</div>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" (click)="next(3)" class="btn btn-primary">Concluir</button>
+                            <button type="submit" (click)="next(0)" class="btn btn-primary">Concluir</button>
                             <button (click)="prev()" class="btn btn-light mr-1">Voltar</button>
                         </div>
                         
