@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
           
           //@ts-ignore;
           window.localStorage.setItem('token',response.token);
+          // @ts-ignore
           
           //@ts-ignore;
           // window.localStorage.setItem('typeAccount',response.role);

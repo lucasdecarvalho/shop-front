@@ -17,6 +17,7 @@ export class DataConfirmComponent implements OnInit {
   public company: any;
   public errors: any;
   public submitted: boolean = false;
+  public nome: string;
   
   constructor(
     private formBuilder: FormBuilder, 
@@ -52,10 +53,12 @@ export class DataConfirmComponent implements OnInit {
     }
                 
   ngOnInit() { 
+
     this.seller.sellerData()
       .subscribe(response => {
 
         this.company = response;
+        this.nome = this.company.seller.nome;
 
         console.log(this.company);
 
