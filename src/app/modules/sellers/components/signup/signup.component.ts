@@ -87,9 +87,6 @@ export class SignupComponent implements OnInit {
                           let token = res.access_token;
                           window.localStorage.setItem('token', token);
 
-                          // @ts-ignore
-                          // console.log(res);
-
                           Swal.fire({
                             position: 'center',
                             icon: 'success',
@@ -139,7 +136,6 @@ export class SignupComponent implements OnInit {
       },
       error => {
           this.errors = error.error.errors;
-          console.log(this.errors);
 
           if(error.status == 429) {
             let timerInterval;
