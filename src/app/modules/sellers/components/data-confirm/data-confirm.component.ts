@@ -27,10 +27,10 @@ export class DataConfirmComponent implements OnInit {
     {  
       this.formConfirm = this.formBuilder.group({
 
-        firstName: ['', [Validators.required, Validators.maxLength(255)]],
-        lastName: ['', [Validators.required, Validators.maxLength(255)]],
-        cpf: ['', [Validators.required, Validators.maxLength(14)]],
-        cel: ['', [Validators.required, Validators.maxLength(15)]],
+        firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
+        lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
+        cpf: ['', [Validators.required, Validators.minLength(14), Validators.maxLength(14)]],
+        cel: ['', [Validators.required, Validators.minLength(15), Validators.maxLength(15)]],
         
         fantasia: ['', [Validators.required, Validators.maxLength(255)]],
         // nome: ['', [Validators.required, Validators.maxLength(255)]],
@@ -41,9 +41,9 @@ export class DataConfirmComponent implements OnInit {
         bairro: [{value: '', disabled: true}, [Validators.required, Validators.maxLength(255)]],
         municipio: [{value: '', disabled: true}, [Validators.required, Validators.maxLength(255)]],
         uf: [{value: '', disabled: true}, [Validators.required, Validators.maxLength(2)]],
-        cep: ['', [Validators.required, Validators.maxLength(10)]],
-        telefone: ['', [Validators.required, Validators.maxLength(15)]],
-        telefone2: ['', [Validators.maxLength(15)]],
+        cep: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+        telefone: ['', [Validators.required, Validators.minLength(14), Validators.maxLength(14)]],
+        telefone2: ['', [Validators.minLength(14), Validators.maxLength(14)]],
         // alias: ['', [Validators.required, Validators.maxLength(255)]],
         
         bankName: ['', [Validators.required]],
@@ -84,7 +84,18 @@ export class DataConfirmComponent implements OnInit {
           bankAg: this.company.seller.bankAg,
           bankAccount: this.company.seller.bankAccount,
         });
+      },
+      error => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Usuário não encontrado',
+            text: '',
+            footer: '<a href> Precisa de ajuda? Chat com nosso atendimento</a>'
+          })
+          window.localStorage.removeItem('token');
+          this.router.navigateByUrl('/vendedores');
       });
+
     this.stepper = new Stepper(document.querySelector('#stepper1'), {
       linear: false,
       animation: true
@@ -112,9 +123,21 @@ export class DataConfirmComponent implements OnInit {
       if (this.f.fantasia.invalid || this.f.telefone.invalid || this.f.telefone2.invalid || this.f.cep.invalid || this.f.logradouro.invalid || this.f.numero.invalid || this.f.complemento.invalid || this.f.bairro.invalid || this.f.municipio.invalid || this.f.uf.invalid) {
         return;
       }
+
+      if(this.formConfirm.controls.municipio.value !== 'RIO CLARO' && this.formConfirm.controls.uf.value !== 'SP' ) {
+        event.preventDefault();
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'A cidade informada não faz parte da nossa cobertura. Sua empresa precisa ser de Rio Claro/SP.',
+          footer: '<a href> Precisa de ajuda? Chat com nosso atendimento</a>'
+        })
+        return;
+      }
     }
     
     if (id == 3) {
+
       if (this.formConfirm.invalid) {
         event.preventDefault();
         return;

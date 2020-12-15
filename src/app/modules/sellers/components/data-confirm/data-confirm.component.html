@@ -46,6 +46,7 @@
                                     <input type="text" class="form-control" id="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" formControlName="firstName" autocomplete="off" maxlength="255" />
                                     <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
                                         <div *ngIf="f.firstName.errors.required">Primeiro nome é obrigatório.</div>
+                                        <div *ngIf="f.firstName.errors.minlength">Primeiro nome não parece válido.</div>
                                         <div *ngIf="f.firstName.errors.maxlength">Primeiro nome muito longo. Reduza ou abrevie.</div>
                                     </div>
                                 </div>
@@ -54,6 +55,7 @@
                                     <input type="text" class="form-control" id="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" formControlName="lastName" autocomplete="off" maxlength="255" />
                                     <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
                                         <div *ngIf="f.lastName.errors.required">Sobrenome é obrigatório.</div>
+                                        <div *ngIf="f.lastName.errors.minlength">Sobrenome não parece válido.</div>
                                         <div *ngIf="f.lastName.errors.maxlength">Sobrenome muito longo. Reduza ou abrevie.</div>
                                     </div>
                                 </div>
@@ -62,6 +64,7 @@
                                     <input type="text" class="form-control" id="cpf" [ngClass]="{ 'is-invalid': submitted && f.cpf.errors }" formControlName="cpf" (input)="validateCpf($event.target)" autocomplete="off" maxlength="14" />
                                     <div *ngIf="submitted && f.cpf.errors" class="invalid-feedback">
                                         <div *ngIf="f.cpf.errors.required">CPF é obrigatório.</div>
+                                        <div *ngIf="f.cpf.errors.minlength">CPF inválido.</div>
                                         <div *ngIf="f.cpf.errors.maxlength">Formato de CPF incorreto.</div>
                                     </div>
                                 </div>
@@ -70,6 +73,7 @@
                                     <input type="text" class="form-control" id="cel" [ngClass]="{ 'is-invalid': submitted && f.cel.errors }" formControlName="cel" (input)="validateCel($event.target)" autocomplete="off" maxlength="15" />
                                     <div *ngIf="submitted && f.cel.errors" class="invalid-feedback">
                                         <div *ngIf="f.cel.errors.required">Celular é obrigatório.</div>
+                                        <div *ngIf="f.cel.errors.minlength">Celular inválido.</div>
                                         <div *ngIf="f.cel.errors.maxlength">Formato de celular incorreto.</div>
                                     </div>
                                 </div>
@@ -95,6 +99,7 @@
                                     <input type="text" class="form-control" id="telefone" [ngClass]="{ 'is-invalid': submitted && f.telefone.errors }" formControlName="telefone" (input)="validatePhoneNo($event.target)" maxlength="14">
                                     <div *ngIf="submitted && f.telefone.errors" class="invalid-feedback">
                                         <div *ngIf="f.telefone.errors.required">Telefone é obrigatório.</div>
+                                        <div *ngIf="f.telefone.errors.minlength">Telefone inválido.</div>
                                         <div *ngIf="f.telefone.errors.maxlength">Formato de telefone incorreto.</div>
                                     </div>
                                 </div>
@@ -102,6 +107,7 @@
                                     <label for="telefone2">Telefone adicional (opcional):</label>
                                     <input type="text" class="form-control" id="telefone2" [ngClass]="{ 'is-invalid': submitted && f.telefone2.errors }" formControlName="telefone2" (input)="validatePhoneNo($event.target)" maxlength="14">
                                     <div *ngIf="submitted && f.telefone2.errors" class="invalid-feedback">
+                                        <div *ngIf="f.telefone2.errors.minlength">Telefone inválido.</div>
                                         <div *ngIf="f.telefone2.errors.maxlength">Formato de telefone incorreto.</div>
                                     </div>
                                 </div>
@@ -110,6 +116,7 @@
                                     <input type="text" class="form-control" id="cep" [ngClass]="{ 'is-invalid': submitted && f.cep.errors }" formControlName="cep" (input)="validateCep($event.target)" (blur)="buscaCEP()" maxlength="10">
                                     <div *ngIf="submitted && f.cep.errors" class="invalid-feedback">
                                         <div *ngIf="f.cep.errors.required">CEP é obrigatório.</div>
+                                        <div *ngIf="f.cep.errors.minlength">CEP inválido.</div>
                                         <div *ngIf="f.cep.errors.maxlength">Formato de CEP incorreto.</div>
                                     </div>
                                 </div>

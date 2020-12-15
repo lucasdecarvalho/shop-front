@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators }  from  '@angular/forms';
 import Swal from "sweetalert2";
 import { Signup } from './signup';
 import { SellersService } from 'src/app/modules/sellers/sellers.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-signup',
@@ -19,8 +20,11 @@ export class SignupComponent implements OnInit {
   confirmData: boolean = false;
   dataCompany: Object[];
 
-  constructor(private formBuilder: FormBuilder, public signup: SellersService, private router: Router) {  
-  }
+  constructor(
+    private formBuilder: FormBuilder, 
+    public signup: SellersService, 
+    private router: Router, 
+    private SpinnerService: NgxSpinnerService) { }
   
   ngOnInit() {
     this.createForm(new Signup());
@@ -37,24 +41,16 @@ export class SignupComponent implements OnInit {
 
   get f() { return this.formSignup.controls; }
 
-  dataAccess(data) {
-
-    this.signup.verifyAccess(data)
-        .subscribe(res => { });
-  }
- 
   onSubmit() {
-
+      this.SpinnerService.show();
       this.submitted = true;
 
-      if (this.formSignup.invalid) {
+      if (this.formSignup.invalid) { 
+          this.SpinnerService.hide();
           return;
       }
-
-      let cnpj = this.formSignup.value.cnpj;
        
-      cnpj = cnpj.replace(/\D/g,'');
-      this.formSignup.value.cnpj = this.formSignup.value.cnpj.replace(/\D/g,'');
+      let cnpj = this.formSignup.value.cnpj.replace(/\D/g,'');
 
       this.signup.checkCnpj(cnpj)
       .subscribe(response => {
@@ -68,67 +64,68 @@ export class SignupComponent implements OnInit {
             // @ts-ignore
             let municipio = response.municipio;
             
-            response['cnpj'] = cnpj;
-            response['email'] = this.formSignup.value.email;
-            response['password'] = this.formSignup.value.password;
-            response['alias'] = response['fantasia'].normalize('NFKD').replace(/[^a-zA-Z]/g, "").toLowerCase();
-
+            // @ts-ignore
+            let uf = response.uf;
+            
             if (situacao == 'ATIVA' && status == 'OK')
             {
+
+              response['cnpj'] = this.formSignup.value.cnpj;
+              response['email'] = this.formSignup.value.email;
+              response['password'] = this.formSignup.value.password;
+
+              if(response['fantasia']) {
+
+                response['alias'] = response['fantasia'].normalize('NFKD').replace(/[^a-zA-Z]/g, "").toLowerCase();
+              } else {
+
+                response['fantasia'] = response['nome'];
+                response['alias'] = response['fantasia'].normalize('NFKD').replace(/[^a-zA-Z]/g, "").toLowerCase();
+              }
+
               // @ts-ignore
               this.dataCompany = response;
               
-              if(municipio == 'RIO CLARO')
-              {
-                this.signup.createCompany(this.dataCompany)
-                .subscribe(res => {
+                  if(municipio == 'RIO CLARO' && uf == 'SP')
+                  {
+                    this.signup.createCompany(this.dataCompany)
+                    .subscribe(res => {
 
-                          // @ts-ignore
-                          let token = res.access_token;
-                          window.localStorage.setItem('token', token);
+                              // @ts-ignore
+                              let token = res.access_token;
+                              window.localStorage.setItem('token', token);
 
-                          Swal.fire({
-                            position: 'center',
-                            icon: 'success',
-                            title: 'Cadastro efetuado com sucesso!',
-                            showConfirmButton: false,
-                            timer: 1500
+                              this.SpinnerService.hide();
+                              this.router.navigateByUrl('vendedores/confirmar-dados');
+                          },
+                          error => {
+                              this.errors = error.error.errors;
+                              this.SpinnerService.hide();
+                              for (let property in this.errors){
+                                Swal.fire({
+                                  icon: 'error',
+                                  title: 'Oops...',
+                                  text: this.errors[property],
+                                  footer: '<a href> Precisa de ajuda? Chat com nosso atendimento</a>'
+                                })
+                              }
                           })
-
-                          // res['typeAccount'] = 'seller';
-                          // this.dataAccess(res);
-                          
-                          this.router.navigateByUrl('vendedores/confirmar-dados');
-                          
-                      },
-                      error => {
-                          this.errors = error.error.errors;
-                          
-                          for (let property in this.errors){
-                            Swal.fire({
-                              icon: 'error',
-                              title: 'Oops...',
-                              text: this.errors[property],
-                              footer: '<a href> Precisa de ajuda? Chat com nosso atendimento</a>'
-                            })
-                          }
+                  }
+                  else {
+                      this.SpinnerService.hide();
+                      Swal.fire({
+                        icon: 'error',
+                        title: 'Registro externo',
+                        html: 'Sua empresa não está registrada junto à Receita Federal dentro do município de Rio Claro/SP, por esse motivo, não podemos aprovar sua entrada neste momento. Agradecemos o interesse.',
+                        footer: '<a href> Precisa de ajuda? Chat com nosso atendimento</a>'
                       })
-                }
-                else {
-
-                    Swal.fire({
-                      icon: 'error',
-                      title: 'Registro externo',
-                      html: 'Sua empresa não está registrada junto à Receita Federal dentro do município de Rio Claro/SP, por esse motivo, não podemos aprovar sua entrada neste momento. Agradecemos o interesse.',
-                      footer: '<a href> Precisa de ajuda? Chat com nosso atendimento</a>'
-                    })
-                }
+                  }
             }
             else {
-
+              this.SpinnerService.hide();
               Swal.fire({
                 icon: 'error',
-                title: 'CNPJ invalido',
+                title: 'CNPJ inválido',
                 text: 'Confira o CNPJ digitado e tente novamente',
                 footer: '<a href> Precisa de ajuda? Chat com nosso atendimento</a>'
               })
@@ -136,7 +133,7 @@ export class SignupComponent implements OnInit {
       },
       error => {
           this.errors = error.error.errors;
-
+          this.SpinnerService.hide();
           if(error.status == 429) {
             let timerInterval;
             Swal.fire({
