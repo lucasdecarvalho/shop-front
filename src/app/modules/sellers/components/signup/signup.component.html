@@ -1,26 +1,28 @@
-<div class="content p-4">
-    <div class="row p-4">
-        <div class="col-6 p-4">
-            <div class="row p-4">
-                <h1 class="font-weight-bold">Abra sua <br> loja virtual <br> em segundos.</h1>
-                <ul class="w-50 no-style font-weight-bold p-2">
-                    <li><span class="material-icons">done</span> Publique para milhares de pessoas</li>
-                    <li><span class="material-icons">done</span> Produtos ilimitados</li>
-                    <li><span class="material-icons">done</span> Suporte técnico gratuito</li>
-                </ul>
-                <ul class="w-50 no-style font-weight-bold p-2">
-                    <li><span class="material-icons">close</span> Sem custo de adesão</li>
-                    <li><span class="material-icons">close</span> Sem custo de mensalidade</li>
-                    <li><span class="material-icons">close</span> Sem burocracia</li>
-                </ul>
+<div class="content bg-primary text-white">
+    <div class="col-12 p-md-4">
+        <div class="row">
+            <div class="col-12 col-md-6 p-1 p-md-4 text-center text-md-right">
+                <h1 class="font-weight-bold">Abra sua <br> loja virtual <br> em segundos</h1>
+                <div class="w-100 d-block d-md-none">
+                    <hr>
+                </div>
+                <!-- <div class="row">
+                    <ul class="w-50 no-style font-weight-bold p-0">
+                        <li><span class="material-icons">done</span> Publique para milhares de pessoas</li>
+                        <li><span class="material-icons">done</span> Produtos ilimitados</li>
+                        <li><span class="material-icons">done</span> Suporte técnico gratuito</li>
+                    </ul>
+                    <ul class="w-50 no-style font-weight-bold p-0">
+                        <li><span class="material-icons">close</span> Sem custo de adesão</li>
+                        <li><span class="material-icons">close</span> Sem custo de mensalidade</li>
+                        <li><span class="material-icons">close</span> Sem burocracia</li>
+                    </ul>
+                </div> -->
             </div>
-        </div>
-        <div class="col-6 p-4">
-            <div class="row p-4">
-                <h4>Crie sua conta gratuita:</h4>
-                <form class="w-75 text-right" [formGroup]="formSignup" (ngSubmit)="onSubmit()">
-                <div class="form-row">
-                    <div class="form-group col-12">
+            <div class="col-12 col-md-6 text-center text-md-left">
+                <h4 class="pb-2">Crie uma conta gratuita:</h4>
+                <form class="col-12 col-md-7 p-0" [formGroup]="formSignup" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
                         <!-- <label for="cnpj">Sobrenome:</label> -->
                         <input type="text" class="form-control" id="cnpj" formControlName="cnpj" [ngClass]="{ 'is-invalid': submitted && f.cnpj.errors }" placeholder="Digite o CNPJ" maxlength="18" (input)="validatePhoneNo($event.target)" autocomplete="off">
                         <div *ngIf="submitted && f.cnpj.errors" class="invalid-feedback">
@@ -29,7 +31,7 @@
                             <div *ngIf="f.cnpj.errors.maxlength">CNPJ incorreto.</div>
                         </div>
                     </div>
-                    <div class="form-group col-12">
+                    <div class="form-group">
                         <!-- <label for="email">Seu E-mail:</label> -->
                         <input type="text" class="form-control" id="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Digite seu e-mail" maxlength="255" autocomplete="off">
                         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
@@ -38,7 +40,7 @@
                             <div *ngIf="f.email.errors.maxlength">Seu email é muito longo.</div>
                         </div>
                     </div>
-                    <div class="form-group col-12">
+                    <div class="form-group">
                         <!-- <label for="email">Crie uma Senha:</label> -->
                         <input type="password" class="form-control" id="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Crie uma senha" maxlength="25">
                         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
@@ -47,21 +49,20 @@
                             <div *ngIf="f.password.errors.maxlength">Sua senha é muito longa.</div>
                         </div>
                     </div>
-                    <div class="form-group col-12">
+                    <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="termsCheck" formControlName="termsCheck" [ngClass]="{ 'is-invalid': submitted && f.termsCheck.errors }">
                             <label class="form-check-label" for="termsCheck"> Li e concordo com os termos de uso.</label>
                         </div>
                     </div>
-                    <div class="form-group col-12">
-                        <button type="submit" class="btn btn-primary">Criar minha loja</button>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-secondary p-3">Criar minha loja</button>
                     </div>
-                </div>
                 </form>
             </div>
         </div>
-        <ngx-spinner bdColor="rgba(255, 255, 255, 0.8)" size="medium" [fullScreen] = "true" type="ball-clip-rotate" color="#000">
-            <p style="color: black">Carregando...</p>
-        </ngx-spinner>
     </div>
 </div>
+<ngx-spinner bdColor="rgba(255, 255, 255, 1)" size="medium" [fullScreen]="true" type="ball-clip-rotate" color="#0000ff">
+    <p class="text-primary">Carregando...</p>
+</ngx-spinner>

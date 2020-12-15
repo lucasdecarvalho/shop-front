@@ -1,11 +1,11 @@
-.content {
-    background-color: #fd0;
-}
+// .content {
+//     background-color: #fd0;
+// }
 .no-style {
     list-style: none;
 }
-h1, .logo {
-    font-size: 5em;
+h1 {
+    font-size: 3.6em;
 }
 ul:first-of-type span {
     color:#090;
@@ -14,22 +14,18 @@ ul span {
     color:#aa0000;
 }
 input[type='text'],input[type='password'] {
-    padding: 15px 20px !important;
-    font-size: 1.6em;
+    padding: 15px !important;
+    font-size: 1.4em;
     background: #fff;
 }
 button {
-    padding: 15px 20px !important;
-    font-size: 1.6em;
-    background: #090;
-    border:none;
+    font-size: 1.2em;
+    background: #f70;
 }
 .invalid-feedback {
     width: 100%;
     padding: 6px;
     margin: 0 0 5px 0;
-    border-radius: 3px;
-    background-color: #ffd;
     text-align: left;
-    color: #aa0000;
+    color: #ffff00;
 }
