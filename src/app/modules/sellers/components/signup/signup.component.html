@@ -1,9 +1,7 @@
 <div class="content p-4">
-    <div class="row p-4" [hidden]="confirmData">
-        
+    <div class="row p-4">
         <div class="col-6 p-4">
             <div class="row p-4">
-                <!-- <span class="logo material-icons">shopping_cart</span> -->
                 <h1 class="font-weight-bold">Abra sua <br> loja virtual <br> em segundos.</h1>
                 <ul class="w-50 no-style font-weight-bold p-2">
                     <li><span class="material-icons">done</span> Publique para milhares de pessoas</li>
@@ -21,54 +19,49 @@
             <div class="row p-4">
                 <h4>Crie sua conta gratuita:</h4>
                 <form class="w-75 text-right" [formGroup]="formSignup" (ngSubmit)="onSubmit()">
-
-                    <div class="form-row">
-                        <div class="form-group col-12">
-                            <!-- <label for="cnpj">Sobrenome:</label> -->
-                            <input type="text" class="form-control" id="cnpj" formControlName="cnpj" [ngClass]="{ 'is-invalid': submitted && f.cnpj.errors }" placeholder="Digite o CNPJ" maxlength="18" (input)="validatePhoneNo($event.target)" autocomplete="off">
-                            <div *ngIf="submitted && f.cnpj.errors" class="invalid-feedback">
-                                <div *ngIf="f.cnpj.errors.required">CNPJ é obrigatório</div>
-                                <div *ngIf="f.cnpj.errors.minlength">CNPJ incorreto.</div>
-                                <div *ngIf="f.cnpj.errors.maxlength">CNPJ incorreto.</div>
-                            </div>
-                        </div>
-                    
-                        <div class="form-group col-12">
-                            <!-- <label for="email">Seu E-mail:</label> -->
-                            <input type="text" class="form-control" id="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Digite seu e-mail" maxlength="255" autocomplete="off">
-                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                                <div *ngIf="f.email.errors.required">E-mail é obrigatório</div>
-                                <div *ngIf="f.email.errors.email">Precisamos de um endereço de e-mail válido.</div>
-                                <div *ngIf="f.email.errors.maxlength">Seu email é muito longo.</div>
-                            </div>
-                        </div>
-                        <div class="form-group col-12">
-                            <!-- <label for="email">Crie uma Senha:</label> -->
-                            <input type="password" class="form-control" id="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Crie uma senha" maxlength="25">
-                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                                <div *ngIf="f.password.errors.required">Senha é obrigatório</div>
-                                <div *ngIf="f.password.errors.minlength">Sua senha precisa ter, no mínimo, 6 caracteres.</div>
-                                <div *ngIf="f.password.errors.maxlength">Sua senha é muito longa.</div>
-                            </div>
-                        </div>
-                    
-                        <div class="form-group col-12">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="termsCheck" formControlName="termsCheck" [ngClass]="{ 'is-invalid': submitted && f.termsCheck.errors }">
-                                <label class="form-check-label" for="termsCheck"> Li e concordo com os termos de uso.</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group col-12">
-                            <button type="submit" class="btn btn-primary">Criar minha loja</button>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <!-- <label for="cnpj">Sobrenome:</label> -->
+                        <input type="text" class="form-control" id="cnpj" formControlName="cnpj" [ngClass]="{ 'is-invalid': submitted && f.cnpj.errors }" placeholder="Digite o CNPJ" maxlength="18" (input)="validatePhoneNo($event.target)" autocomplete="off">
+                        <div *ngIf="submitted && f.cnpj.errors" class="invalid-feedback">
+                            <div *ngIf="f.cnpj.errors.required">CNPJ é obrigatório</div>
+                            <div *ngIf="f.cnpj.errors.minlength">CNPJ incorreto.</div>
+                            <div *ngIf="f.cnpj.errors.maxlength">CNPJ incorreto.</div>
                         </div>
                     </div>
-
+                    <div class="form-group col-12">
+                        <!-- <label for="email">Seu E-mail:</label> -->
+                        <input type="text" class="form-control" id="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Digite seu e-mail" maxlength="255" autocomplete="off">
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">E-mail é obrigatório</div>
+                            <div *ngIf="f.email.errors.email">Precisamos de um endereço de e-mail válido.</div>
+                            <div *ngIf="f.email.errors.maxlength">Seu email é muito longo.</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <!-- <label for="email">Crie uma Senha:</label> -->
+                        <input type="password" class="form-control" id="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Crie uma senha" maxlength="25">
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Senha é obrigatório</div>
+                            <div *ngIf="f.password.errors.minlength">Sua senha precisa ter, no mínimo, 6 caracteres.</div>
+                            <div *ngIf="f.password.errors.maxlength">Sua senha é muito longa.</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="termsCheck" formControlName="termsCheck" [ngClass]="{ 'is-invalid': submitted && f.termsCheck.errors }">
+                            <label class="form-check-label" for="termsCheck"> Li e concordo com os termos de uso.</label>
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <button type="submit" class="btn btn-primary">Criar minha loja</button>
+                    </div>
+                </div>
                 </form>
             </div>
         </div>
-        <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
-            <p style="color: white">Carregando...</p>  
+        <ngx-spinner bdColor="rgba(255, 255, 255, 0.8)" size="medium" [fullScreen] = "true" type="ball-clip-rotate" color="#000">
+            <p style="color: black">Carregando...</p>
         </ngx-spinner>
     </div>
 </div>

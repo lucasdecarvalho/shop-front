@@ -1,12 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="col-12 pt-4">
-            <!-- <h1 class="font-weight-bold">Parabéns!</h1> -->
-            <h2 class="font-weight-bold">Sua loja virtual foi cadastrada.</h2>
+            <h2 class="font-weight-bold">Parabéns! Sua loja virtual foi cadastrada.</h2>
             <h5 class="mb-4">Para prosseguir, por favor, confirme os dados abaixo.</h5>
-            <!-- <h5>Para prosseguir, por favor, confirme os dados abaixo. Caso precise de ajuda, <a href="">clique aqui</a> e fale direto com o nosso suporte on-line.</h5> -->
-            <!-- <h5>Por favor, confirme os dados abaixo para prosseguir. É de extrema importância que estejam atualizados. Caso precise fazer alguma alteração, fique à vontade. E caso precise de ajuda, <a href="">clique aqui</a> e fale direto com o nosso suporte on-line.</h5> -->
-            <!-- <hr> -->
+            <hr>
         </div>
     </div>
     <div class="row">
@@ -36,437 +33,437 @@
                 </div>
                 <div class="bs-stepper-content">
                     <form [formGroup]="formConfirm" (ngSubmit)="onSubmit()" class="d-flex justify-content-center">
-                        <!-- Empresário -->
-                        <div id="test-l-1" class="content w-75">
-                            <h2 class="font-weight-bolder mt-4">Dados do(a) Responsável</h2>
-                            <p class="mt-2 mb-4">A pessoa responsável pela loja virtual pode ser a sócia proprietária, diretora, gerente ou outra que responda e mantenha contato, caso seja necessário.</p>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="firstName">Primeiro nome:</label>
-                                    <input type="text" class="form-control" id="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" formControlName="firstName" autocomplete="off" maxlength="255" />
-                                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                                        <div *ngIf="f.firstName.errors.required">Primeiro nome é obrigatório.</div>
-                                        <div *ngIf="f.firstName.errors.minlength">Primeiro nome não parece válido.</div>
-                                        <div *ngIf="f.firstName.errors.maxlength">Primeiro nome muito longo. Reduza ou abrevie.</div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="lastName">Sobrenome:</label>
-                                    <input type="text" class="form-control" id="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" formControlName="lastName" autocomplete="off" maxlength="255" />
-                                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                                        <div *ngIf="f.lastName.errors.required">Sobrenome é obrigatório.</div>
-                                        <div *ngIf="f.lastName.errors.minlength">Sobrenome não parece válido.</div>
-                                        <div *ngIf="f.lastName.errors.maxlength">Sobrenome muito longo. Reduza ou abrevie.</div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="cpf">CPF:</label>
-                                    <input type="text" class="form-control" id="cpf" [ngClass]="{ 'is-invalid': submitted && f.cpf.errors }" formControlName="cpf" (input)="validateCpf($event.target)" autocomplete="off" maxlength="14" />
-                                    <div *ngIf="submitted && f.cpf.errors" class="invalid-feedback">
-                                        <div *ngIf="f.cpf.errors.required">CPF é obrigatório.</div>
-                                        <div *ngIf="f.cpf.errors.minlength">CPF inválido.</div>
-                                        <div *ngIf="f.cpf.errors.maxlength">Formato de CPF incorreto.</div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="cel">Número de celular:</label>
-                                    <input type="text" class="form-control" id="cel" [ngClass]="{ 'is-invalid': submitted && f.cel.errors }" formControlName="cel" (input)="validateCel($event.target)" autocomplete="off" maxlength="15" />
-                                    <div *ngIf="submitted && f.cel.errors" class="invalid-feedback">
-                                        <div *ngIf="f.cel.errors.required">Celular é obrigatório.</div>
-                                        <div *ngIf="f.cel.errors.minlength">Celular inválido.</div>
-                                        <div *ngIf="f.cel.errors.maxlength">Formato de celular incorreto.</div>
-                                    </div>
+                    <!-- Empresário -->
+                    <div id="test-l-1" class="content w-75">
+                        <h2 class="font-weight-bolder mt-4">Dados do(a) Responsável</h2>
+                        <p class="mt-2 mb-4">A pessoa responsável pela loja virtual pode ser a sócia proprietária, diretora, gerente ou outra que responda e mantenha contato, caso seja necessário.</p>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="firstName">Primeiro nome:</label>
+                                <input type="text" class="form-control" id="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" formControlName="firstName" autocomplete="off" maxlength="255" />
+                                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.firstName.errors.required">Primeiro nome é obrigatório.</div>
+                                    <div *ngIf="f.firstName.errors.minlength">Primeiro nome não parece válido.</div>
+                                    <div *ngIf="f.firstName.errors.maxlength">Primeiro nome muito longo. Reduza ou abrevie.</div>
                                 </div>
                             </div>
-                            <button (click)="next(1)" class="btn btn-primary">Salvar</button>
+                            <div class="form-group col-md-6">
+                                <label for="lastName">Sobrenome:</label>
+                                <input type="text" class="form-control" id="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" formControlName="lastName" autocomplete="off" maxlength="255" />
+                                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.lastName.errors.required">Sobrenome é obrigatório.</div>
+                                    <div *ngIf="f.lastName.errors.minlength">Sobrenome não parece válido.</div>
+                                    <div *ngIf="f.lastName.errors.maxlength">Sobrenome muito longo. Reduza ou abrevie.</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="cpf">CPF:</label>
+                                <input type="text" class="form-control" id="cpf" [ngClass]="{ 'is-invalid': submitted && f.cpf.errors }" formControlName="cpf" (input)="validateCpf($event.target)" autocomplete="off" maxlength="14" />
+                                <div *ngIf="submitted && f.cpf.errors" class="invalid-feedback">
+                                    <div *ngIf="f.cpf.errors.required">CPF é obrigatório.</div>
+                                    <div *ngIf="f.cpf.errors.minlength">CPF inválido.</div>
+                                    <div *ngIf="f.cpf.errors.maxlength">Formato de CPF incorreto.</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="cel">Número de celular:</label>
+                                <input type="text" class="form-control" id="cel" [ngClass]="{ 'is-invalid': submitted && f.cel.errors }" formControlName="cel" (input)="validateCel($event.target)" autocomplete="off" maxlength="15" />
+                                <div *ngIf="submitted && f.cel.errors" class="invalid-feedback">
+                                    <div *ngIf="f.cel.errors.required">Celular é obrigatório.</div>
+                                    <div *ngIf="f.cel.errors.minlength">Celular inválido.</div>
+                                    <div *ngIf="f.cel.errors.maxlength">Formato de celular incorreto.</div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Empresa -->
-                        <div id="test-l-2" class="content w-75">
-                            <h2 class="font-weight-bolder mt-4">Dados da Empresa</h2>
-                            <p class="mt-2 mb-4">Confirme os dados abaixo. Caso estejam incorretos ou desatualizados, por favor, atualize.</p>
-                            <hr>
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="fantasia">Nome fantasia:</label>
-                                    <input type="text" class="form-control" id="fantasia" [ngClass]="{ 'is-invalid': submitted && f.fantasia.errors }" formControlName="fantasia" maxlength="255">
-                                    <div *ngIf="submitted && f.fantasia.errors" class="invalid-feedback">
-                                        <div *ngIf="f.fantasia.errors.required">Nome fantasia é obrigatório.</div>
-                                        <div *ngIf="f.fantasia.errors.maxlength">Nome fantasia muito longo. Reduza ou abrevie.</div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="telefone">Telefone:</label>
-                                    <input type="text" class="form-control" id="telefone" [ngClass]="{ 'is-invalid': submitted && f.telefone.errors }" formControlName="telefone" (input)="validatePhoneNo($event.target)" maxlength="14">
-                                    <div *ngIf="submitted && f.telefone.errors" class="invalid-feedback">
-                                        <div *ngIf="f.telefone.errors.required">Telefone é obrigatório.</div>
-                                        <div *ngIf="f.telefone.errors.minlength">Telefone inválido.</div>
-                                        <div *ngIf="f.telefone.errors.maxlength">Formato de telefone incorreto.</div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="telefone2">Telefone adicional (opcional):</label>
-                                    <input type="text" class="form-control" id="telefone2" [ngClass]="{ 'is-invalid': submitted && f.telefone2.errors }" formControlName="telefone2" (input)="validatePhoneNo($event.target)" maxlength="14">
-                                    <div *ngIf="submitted && f.telefone2.errors" class="invalid-feedback">
-                                        <div *ngIf="f.telefone2.errors.minlength">Telefone inválido.</div>
-                                        <div *ngIf="f.telefone2.errors.maxlength">Formato de telefone incorreto.</div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="cep">CEP:</label>
-                                    <input type="text" class="form-control" id="cep" [ngClass]="{ 'is-invalid': submitted && f.cep.errors }" formControlName="cep" (input)="validateCep($event.target)" (blur)="buscaCEP()" maxlength="10">
-                                    <div *ngIf="submitted && f.cep.errors" class="invalid-feedback">
-                                        <div *ngIf="f.cep.errors.required">CEP é obrigatório.</div>
-                                        <div *ngIf="f.cep.errors.minlength">CEP inválido.</div>
-                                        <div *ngIf="f.cep.errors.maxlength">Formato de CEP incorreto.</div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-7">
-                                    <label for="logradouro">Logradouro:</label>
-                                    <input type="text" class="form-control" id="logradouro" [ngClass]="{ 'is-invalid': submitted && f.logradouro.errors }" formControlName="logradouro" maxlength="255">
-                                    <div *ngIf="submitted && f.logradouro.errors" class="invalid-feedback">
-                                        <div *ngIf="f.logradouro.errors.required">Logradouro é obrigatório.</div>
-                                        <div *ngIf="f.logradouro.errors.maxlength">Formato de logradouro incorreto.</div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-2">
-                                    <label for="numero">Número:</label>
-                                    <input type="text" class="form-control" id="numero" [ngClass]="{ 'is-invalid': submitted && f.numero.errors }" formControlName="numero" maxlength="15">
-                                    <div *ngIf="submitted && f.numero.errors" class="invalid-feedback">
-                                        <div *ngIf="f.numero.errors.maxlength">Número muito longo. Reduza ou abrevie.</div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="complemento">Complemento:</label>
-                                    <input type="text" class="form-control" id="complemento" [ngClass]="{ 'is-invalid': submitted && f.complemento.errors }" formControlName="complemento" maxlength="255">
-                                    <div *ngIf="submitted && f.complemento.errors" class="invalid-feedback">
-                                        <div *ngIf="f.complemento.errors.maxlength">Complemento muito longo. Reduza ou abrevie.</div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="bairro">Bairro:</label>
-                                    <input type="text" class="form-control" id="bairro" [ngClass]="{ 'is-invalid': submitted && f.bairro.errors }" formControlName="bairro" maxlength="255">
-                                    <div *ngIf="submitted && f.bairro.errors" class="invalid-feedback">
-                                        <div *ngIf="f.bairro.errors.required">Bairro é obrigatório.</div>
-                                        <div *ngIf="f.bairro.errors.maxlength">Formato de bairro incorreto.</div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-9">
-                                    <label for="municipio">Município:</label>
-                                    <input type="text" class="form-control" id="municipio" [ngClass]="{ 'is-invalid': submitted && f.municipio.errors }" formControlName="municipio" maxlength="255">
-                                    <div *ngIf="submitted && f.municipio.errors" class="invalid-feedback">
-                                        <div *ngIf="f.municipio.errors.required">Município é obrigatório.</div>
-                                        <div *ngIf="f.municipio.errors.maxlength">Formato de município incorreto.</div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="uf">Estado (UF):</label>
-                                    <input type="text" class="form-control" id="uf" [ngClass]="{ 'is-invalid': submitted && f.uf.errors }" formControlName="uf" maxlength="2">
-                                    <div *ngIf="submitted && f.uf.errors" class="invalid-feedback">
-                                        <div *ngIf="f.uf.errors.required">Estado (UF) é obrigatório.</div>
-                                        <div *ngIf="f.uf.errors.maxlength">Formato de Estado (UF) incorreto.</div>
-                                    </div>
+                        <button (click)="next(1)" class="btn btn-primary">Salvar</button>
+                    </div>
+                    <!-- Empresa -->
+                    <div id="test-l-2" class="content w-75">
+                        <h2 class="font-weight-bolder mt-4">Dados da Empresa</h2>
+                        <p class="mt-2 mb-4">Confirme os dados abaixo. Caso estejam incorretos ou desatualizados, por favor, atualize.</p>
+                        <hr>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="fantasia">Nome fantasia:</label>
+                                <input type="text" class="form-control" id="fantasia" [ngClass]="{ 'is-invalid': submitted && f.fantasia.errors }" formControlName="fantasia" maxlength="255">
+                                <div *ngIf="submitted && f.fantasia.errors" class="invalid-feedback">
+                                    <div *ngIf="f.fantasia.errors.required">Nome fantasia é obrigatório.</div>
+                                    <div *ngIf="f.fantasia.errors.maxlength">Nome fantasia muito longo. Reduza ou abrevie.</div>
                                 </div>
                             </div>
-                            <button (click)="next(2)" class="btn btn-primary">Salvar</button>
-                            <button (click)="prev()" class="btn btn-light mr-1">Voltar</button>
+                            <div class="form-group col-md-6">
+                                <label for="telefone">Telefone:</label>
+                                <input type="text" class="form-control" id="telefone" [ngClass]="{ 'is-invalid': submitted && f.telefone.errors }" formControlName="telefone" (input)="validatePhoneNo($event.target)" maxlength="14">
+                                <div *ngIf="submitted && f.telefone.errors" class="invalid-feedback">
+                                    <div *ngIf="f.telefone.errors.required">Telefone é obrigatório.</div>
+                                    <div *ngIf="f.telefone.errors.minlength">Telefone inválido.</div>
+                                    <div *ngIf="f.telefone.errors.maxlength">Formato de telefone incorreto.</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="telefone2">Telefone adicional (opcional):</label>
+                                <input type="text" class="form-control" id="telefone2" [ngClass]="{ 'is-invalid': submitted && f.telefone2.errors }" formControlName="telefone2" (input)="validatePhoneNo($event.target)" maxlength="14">
+                                <div *ngIf="submitted && f.telefone2.errors" class="invalid-feedback">
+                                    <div *ngIf="f.telefone2.errors.minlength">Telefone inválido.</div>
+                                    <div *ngIf="f.telefone2.errors.maxlength">Formato de telefone incorreto.</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="cep">CEP:</label>
+                                <input type="text" class="form-control" id="cep" [ngClass]="{ 'is-invalid': submitted && f.cep.errors }" formControlName="cep" (input)="validateCep($event.target)" (blur)="buscaCEP()" maxlength="10">
+                                <div *ngIf="submitted && f.cep.errors" class="invalid-feedback">
+                                    <div *ngIf="f.cep.errors.required">CEP é obrigatório.</div>
+                                    <div *ngIf="f.cep.errors.minlength">CEP inválido.</div>
+                                    <div *ngIf="f.cep.errors.maxlength">Formato de CEP incorreto.</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-7">
+                                <label for="logradouro">Logradouro:</label>
+                                <input type="text" class="form-control" id="logradouro" [ngClass]="{ 'is-invalid': submitted && f.logradouro.errors }" formControlName="logradouro" maxlength="255">
+                                <div *ngIf="submitted && f.logradouro.errors" class="invalid-feedback">
+                                    <div *ngIf="f.logradouro.errors.required">Logradouro é obrigatório.</div>
+                                    <div *ngIf="f.logradouro.errors.maxlength">Formato de logradouro incorreto.</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="numero">Número:</label>
+                                <input type="text" class="form-control" id="numero" [ngClass]="{ 'is-invalid': submitted && f.numero.errors }" formControlName="numero" maxlength="15">
+                                <div *ngIf="submitted && f.numero.errors" class="invalid-feedback">
+                                    <div *ngIf="f.numero.errors.maxlength">Número muito longo. Reduza ou abrevie.</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="complemento">Complemento:</label>
+                                <input type="text" class="form-control" id="complemento" [ngClass]="{ 'is-invalid': submitted && f.complemento.errors }" formControlName="complemento" maxlength="255">
+                                <div *ngIf="submitted && f.complemento.errors" class="invalid-feedback">
+                                    <div *ngIf="f.complemento.errors.maxlength">Complemento muito longo. Reduza ou abrevie.</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="bairro">Bairro:</label>
+                                <input type="text" class="form-control" id="bairro" [ngClass]="{ 'is-invalid': submitted && f.bairro.errors }" formControlName="bairro" maxlength="255">
+                                <div *ngIf="submitted && f.bairro.errors" class="invalid-feedback">
+                                    <div *ngIf="f.bairro.errors.required">Bairro é obrigatório.</div>
+                                    <div *ngIf="f.bairro.errors.maxlength">Formato de bairro incorreto.</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-9">
+                                <label for="municipio">Município:</label>
+                                <input type="text" class="form-control" id="municipio" [ngClass]="{ 'is-invalid': submitted && f.municipio.errors }" formControlName="municipio" maxlength="255">
+                                <div *ngIf="submitted && f.municipio.errors" class="invalid-feedback">
+                                    <div *ngIf="f.municipio.errors.required">Município é obrigatório.</div>
+                                    <div *ngIf="f.municipio.errors.maxlength">Formato de município incorreto.</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="uf">Estado (UF):</label>
+                                <input type="text" class="form-control" id="uf" [ngClass]="{ 'is-invalid': submitted && f.uf.errors }" formControlName="uf" maxlength="2">
+                                <div *ngIf="submitted && f.uf.errors" class="invalid-feedback">
+                                    <div *ngIf="f.uf.errors.required">Estado (UF) é obrigatório.</div>
+                                    <div *ngIf="f.uf.errors.maxlength">Formato de Estado (UF) incorreto.</div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Banco -->
-                        <div id="test-l-3" class="content w-75">
-                            <h2 class="font-weight-bolder mt-4">Dados Bancários</h2>
-                            <p class="mt-2 mb-4">Suas vendas serão recebidas por transferência bancária. Por isso, precisamos de uma conta juridica que tenha como titular a sua empresa cadastrada.</p>
-                            <div class="form-row">
-                                <div class="col-12">
-                                    <p>Titular: <span class="font-weight-bold">{{ nome }}</span><p>
-                                </div>
+                        <button (click)="next(2)" class="btn btn-primary">Salvar</button>
+                        <button (click)="prev()" class="btn btn-light mr-1">Voltar</button>
+                    </div>
+                    <!-- Banco -->
+                    <div id="test-l-3" class="content w-75">
+                        <h2 class="font-weight-bolder mt-4">Dados Bancários</h2>
+                        <p class="mt-2 mb-4">Suas vendas serão recebidas por transferência bancária. Por isso, precisamos de uma conta juridica que tenha como titular a sua empresa cadastrada.</p>
+                        <div class="form-row">
+                            <div class="col-12">
+                                <p>Titular: <span class="font-weight-bold">{{ nome }}</span>
+                                <p>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="bankName">Banco:</label>
-                                    <select class="form-control" id="bankName" [ngClass]="{ 'is-invalid': submitted && f.bankName.errors }" formControlName="bankName" maxlength="5">
-                                        <option></option>
-                                        <option value="1">001 - BANCO DO BRASIL S/A</option>
-                                        <option value="2">002 - BANCO CENTRAL DO BRASIL</option>
-                                        <option value="3">003 - BANCO DA AMAZONIA S.A</option>
-                                        <option value="4">004 - BANCO DO NORDESTE DO BRASIL S.A</option>
-                                        <option value="7">007 - BANCO NAC DESENV. ECO. SOCIAL S.A</option>
-                                        <option value="8">008 - BANCO MERIDIONAL DO BRASIL</option>
-                                        <option value="220">020 - BANCO DO ESTADO DE ALAGOAS S.A</option>
-                                        <option value="221">021 - BANCO DO ESTADO DO ESPIRITO SANTO S.A</option>
-                                        <option value="222">022 - BANCO DE CREDITO REAL DE MINAS GERAIS SA</option>
-                                        <option value="224">024 - BANCO DO ESTADO DE PERNAMBUCO</option>
-                                        <option value="225">025 - BANCO ALFA S/A</option>
-                                        <option value="226">026 - BANCO DO ESTADO DO ACRE S.A</option>
-                                        <option value="227">027 - BANCO DO ESTADO DE SANTA CATARINA S.A</option>
-                                        <option value="228">028 - BANCO DO ESTADO DA BAHIA S.A</option>
-                                        <option value="229">029 - BANCO DO ESTADO DO RIO DE JANEIRO S.A</option>
-                                        <option value="330">030 - BANCO DO ESTADO DA PARAIBA S.A</option>
-                                        <option value="331">031 - BANCO DO ESTADO DE GOIAS S.A</option>
-                                        <option value="332">032 - BANCO DO ESTADO DO MATO GROSSO S.A.</option>
-                                        <option value="333">033 - BANCO DO ESTADO DE SAO PAULO S.A</option>
-                                        <option value="334">034 - BANCO DO ESADO DO AMAZONAS S.A</option>
-                                        <option value="335">035 - BANCO DO ESTADO DO CEARA S.A</option>
-                                        <option value="336">036 - BANCO DO ESTADO DO MARANHAO S.A</option>
-                                        <option value="337">037 - BANCO DO ESTADO DO PARA S.A</option>
-                                        <option value="338">038 - BANCO DO ESTADO DO PARANA S.A</option>
-                                        <option value="339">039 - BANCO DO ESTADO DO PIAUI S.A</option>
-                                        <option value="441">041 - BANCO DO ESTADO DO RIO GRANDE DO SUL S.A</option>
-                                        <option value="447">047 - BANCO DO ESTADO DE SERGIPE S.A</option>
-                                        <option value="448">048 - BANCO DO ESTADO DE MINAS GERAIS S.A</option>
-                                        <option value="559">059 - BANCO DO ESTADO DE RONDONIA S.A</option>
-                                        <option value="770">070 - BANCO DE BRASILIA S.A</option>
-                                        <option value="10104">104 - CAIXA ECONOMICA FEDERAL</option>
-                                        <option value="10106">106 - BANCO ITABANCO S.A.</option>
-                                        <option value="10107">107 - BANCO BBM S.A</option>
-                                        <option value="10109">109 - BANCO CREDIBANCO S.A</option>
-                                        <option value="11116">116 - BANCO B.N.L DO BRASIL S.A</option>
-                                        <option value="14148">148 - MULTI BANCO S.A</option>
-                                        <option value="15151">151 - CAIXA ECONOMICA DO ESTADO DE SAO PAULO</option>
-                                        <option value="15153">153 - CAIXA ECONOMICA DO ESTADO DO R.G.SUL</option>
-                                        <option value="16165">165 - BANCO NORCHEM S.A</option>
-                                        <option value="16166">166 - BANCO INTER-ATLANTICO S.A</option>
-                                        <option value="16168">168 - BANCO C.C.F. BRASIL S.A</option>
-                                        <option value="17175">175 - CONTINENTAL BANCO S.A</option>
-                                        <option value="18184">184 - BBA - CREDITANSTALT S.A</option>
-                                        <option value="19199">199 - BANCO FINANCIAL PORTUGUES</option>
-                                        <option value="20200">200 - BANCO FRICRISA AXELRUD S.A</option>
-                                        <option value="20201">201 - BANCO AUGUSTA INDUSTRIA E COMERCIAL S.A</option>
-                                        <option value="20204">204 - BANCO S.R.L S.A</option>
-                                        <option value="20205">205 - BANCO SUL AMERICA S.A</option>
-                                        <option value="20206">206 - BANCO MARTINELLI S.A</option>
-                                        <option value="20208">208 - BANCO PACTUAL S.A</option>
-                                        <option value="21210">210 - DEUTSCH SUDAMERIKANICHE BANK AG</option>
-                                        <option value="21211">211 - BANCO SISTEMA S.A</option>
-                                        <option value="21212">212 - BANCO MATONE S.A</option>
-                                        <option value="21213">213 - BANCO ARBI S.A</option>
-                                        <option value="21214">214 - BANCO DIBENS S.A</option>
-                                        <option value="21215">215 - BANCO AMERICA DO SUL S.A</option>
-                                        <option value="21216">216 - BANCO REGIONAL MALCON S.A</option>
-                                        <option value="21217">217 - BANCO AGROINVEST S.A</option>
-                                        <option value="21218">218 - BBS - BANCO BONSUCESSO S.A.</option>
-                                        <option value="21219">219 - BANCO DE CREDITO DE SAO PAULO S.A</option>
-                                        <option value="22220">220 - BANCO CREFISUL</option>
-                                        <option value="22221">221 - BANCO GRAPHUS S.A</option>
-                                        <option value="22222">222 - BANCO AGF BRASIL S. A.</option>
-                                        <option value="22223">223 - BANCO INTERUNION S.A</option>
-                                        <option value="22224">224 - BANCO FIBRA S.A</option>
-                                        <option value="22225">225 - BANCO BRASCAN S.A</option>
-                                        <option value="22228">228 - BANCO ICATU S.A</option>
-                                        <option value="22229">229 - BANCO CRUZEIRO S.A</option>
-                                        <option value="23230">230 - BANCO BANDEIRANTES S.A</option>
-                                        <option value="23231">231 - BANCO BOAVISTA S.A</option>
-                                        <option value="23232">232 - BANCO INTERPART S.A</option>
-                                        <option value="23233">233 - BANCO MAPPIN S.A</option>
-                                        <option value="23234">234 - BANCO LAVRA S.A.</option>
-                                        <option value="23235">235 - BANCO LIBERAL S.A</option>
-                                        <option value="23236">236 - BANCO CAMBIAL S.A</option>
-                                        <option value="23237">237 - BANCO BRADESCO S.A</option>
-                                        <option value="23239">239 - BANCO BANCRED S.A</option>
-                                        <option value="24240">240 - BANCO DE CREDITO REAL DE MINAS GERAIS S.</option>
-                                        <option value="24241">241 - BANCO CLASSICO S.A</option>
-                                        <option value="24242">242 - BANCO EUROINVEST S.A</option>
-                                        <option value="24243">243 - BANCO STOCK S.A</option>
-                                        <option value="24244">244 - BANCO CIDADE S.A</option>
-                                        <option value="24245">245 - BANCO EMPRESARIAL S.A</option>
-                                        <option value="24246">246 - BANCO ABC ROMA S.A</option>
-                                        <option value="24247">247 - BANCO OMEGA S.A</option>
-                                        <option value="24249">249 - BANCO INVESTCRED S.A</option>
-                                        <option value="25250">250 - BANCO SCHAHIN CURY S.A</option>
-                                        <option value="25251">251 - BANCO SAO JORGE S.A.</option>
-                                        <option value="25252">252 - BANCO FININVEST S.A</option>
-                                        <option value="25254">254 - BANCO PARANA BANCO S.A</option>
-                                        <option value="25255">255 - MILBANCO S.A.</option>
-                                        <option value="25256">256 - BANCO GULVINVEST S.A</option>
-                                        <option value="25258">258 - BANCO INDUSCRED S.A</option>
-                                        <option value="26261">261 - BANCO VARIG S.A</option>
-                                        <option value="26262">262 - BANCO BOREAL S.A</option>
-                                        <option value="26263">263 - BANCO CACIQUE</option>
-                                        <option value="26264">264 - BANCO PERFORMANCE S.A</option>
-                                        <option value="26265">265 - BANCO FATOR S.A</option>
-                                        <option value="26266">266 - BANCO CEDULA S.A</option>
-                                        <option value="26267">267 - BANCO BBM-COM.C.IMOB.CFI S.A.</option>
-                                        <option value="27275">275 - BANCO REAL S.A</option>
-                                        <option value="27277">277 - BANCO PLANIBANC S.A</option>
-                                        <option value="28282">282 - BANCO BRASILEIRO COMERCIAL</option>
-                                        <option value="29291">291 - BANCO DE CREDITO NACIONAL S.A</option>
-                                        <option value="29294">294 - BCR - BANCO DE CREDITO REAL S.A</option>
-                                        <option value="29295">295 - BANCO CREDIPLAN S.A</option>
-                                        <option value="30300">300 - BANCO DE LA NACION ARGENTINA S.A</option>
-                                        <option value="30302">302 - BANCO DO PROGRESSO S.A</option>
-                                        <option value="30303">303 - BANCO HNF S.A.</option>
-                                        <option value="30304">304 - BANCO PONTUAL S.A</option>
-                                        <option value="30308">308 - BANCO COMERCIAL BANCESA S.A.</option>
-                                        <option value="31318">318 - BANCO B.M.G. S.A</option>
-                                        <option value="32320">320 - BANCO INDUSTRIAL E COMERCIAL</option>
-                                        <option value="34341">341 - BANCO ITAU S.A</option>
-                                        <option value="34346">346 - BANCO FRANCES E BRASILEIRO S.A</option>
-                                        <option value="34347">347 - BANCO SUDAMERIS BRASIL S.A</option>
-                                        <option value="35351">351 - BANCO BOZANO SIMONSEN S.A</option>
-                                        <option value="35353">353 - BANCO GERAL DO COMERCIO S.A</option>
-                                        <option value="35356">356 - ABN AMRO S.A</option>
-                                        <option value="36366">366 - BANCO SOGERAL S.A</option>
-                                        <option value="36369">369 - PONTUAL</option>
-                                        <option value="37370">370 - BEAL - BANCO EUROPEU PARA AMERICA LATINA</option>
-                                        <option value="37372">372 - BANCO ITAMARATI S.A</option>
-                                        <option value="37375">375 - BANCO FENICIA S.A</option>
-                                        <option value="37376">376 - CHASE MANHATTAN BANK S.A</option>
-                                        <option value="38388">388 - BANCO MERCANTIL DE DESCONTOS S/A</option>
-                                        <option value="38389">389 - BANCO MERCANTIL DO BRASIL S.A</option>
-                                        <option value="39392">392 - BANCO MERCANTIL DE SAO PAULO S.A</option>
-                                        <option value="39394">394 - BANCO B.M.C. S.A</option>
-                                        <option value="39399">399 - BANCO BAMERINDUS DO BRASIL S.A</option>
-                                        <option value="40409">409 - UNIBANCO - UNIAO DOS BANCOS BRASILEIROS</option>
-                                        <option value="41412">412 - BANCO NACIONAL DA BAHIA S.A</option>
-                                        <option value="41415">415 - BANCO NACIONAL S.A</option>
-                                        <option value="42420">420 - BANCO NACIONAL DO NORTE S.A</option>
-                                        <option value="42422">422 - BANCO SAFRA S.A</option>
-                                        <option value="42424">424 - BANCO NOROESTE S.A</option>
-                                        <option value="43434">434 - BANCO FORTALEZA S.A</option>
-                                        <option value="45453">453 - BANCO RURAL S.A</option>
-                                        <option value="45456">456 - BANCO TOKIO S.A</option>
-                                        <option value="46464">464 - BANCO SUMITOMO BRASILEIRO S.A</option>
-                                        <option value="46466">466 - BANCO MITSUBISHI BRASILEIRO S.A</option>
-                                        <option value="47472">472 - LLOYDS BANK PLC</option>
-                                        <option value="47473">473 - BANCO FINANCIAL PORTUGUES S.A</option>
-                                        <option value="47477">477 - CITIBANK N.A</option>
-                                        <option value="47479">479 - BANCO DE BOSTON S.A</option>
-                                        <option value="48480">480 - BANCO PORTUGUES DO ATLANTICO-BRASIL S.A</option>
-                                        <option value="48483">483 - BANCO AGRIMISA S.A.</option>
-                                        <option value="48487">487 - DEUTSCHE BANK S.A - BANCO ALEMAO</option>
-                                        <option value="48488">488 - BANCO J. P. MORGAN S.A</option>
-                                        <option value="48489">489 - BANESTO BANCO URUGAUAY S.A</option>
-                                        <option value="49492">492 - INTERNATIONALE NEDERLANDEN BANK N.V.</option>
-                                        <option value="49493">493 - BANCO UNION S.A.C.A</option>
-                                        <option value="49494">494 - BANCO LA REP. ORIENTAL DEL URUGUAY</option>
-                                        <option value="49495">495 - BANCO LA PROVINCIA DE BUENOS AIRES</option>
-                                        <option value="49496">496 - BANCO EXTERIOR DE ESPANA S.A</option>
-                                        <option value="49498">498 - CENTRO HISPANO BANCO</option>
-                                        <option value="49499">499 - BANCO IOCHPE S.A</option>
-                                        <option value="50501">501 - BANCO BRASILEIRO IRAQUIANO S.A.</option>
-                                        <option value="50502">502 - BANCO SANTANDER S.A</option>
-                                        <option value="50504">504 - BANCO MULTIPLIC S.A</option>
-                                        <option value="50505">505 - BANCO GARANTIA S.A</option>
-                                        <option value="60600">600 - BANCO LUSO BRASILEIRO S.A</option>
-                                        <option value="60601">601 - BFC BANCO S.A.</option>
-                                        <option value="60602">602 - BANCO PATENTE S.A</option>
-                                        <option value="60604">604 - BANCO INDUSTRIAL DO BRASIL S.A</option>
-                                        <option value="60607">607 - BANCO SANTOS NEVES S.A</option>
-                                        <option value="60608">608 - BANCO OPEN S.A</option>
-                                        <option value="61610">610 - BANCO V.R. S.A</option>
-                                        <option value="61611">611 - BANCO PAULISTA S.A</option>
-                                        <option value="61612">612 - BANCO GUANABARA S.A</option>
-                                        <option value="61613">613 - BANCO PECUNIA S.A</option>
-                                        <option value="61616">616 - BANCO INTERPACIFICO S.A</option>
-                                        <option value="61617">617 - BANCO INVESTOR S.A.</option>
-                                        <option value="61618">618 - BANCO TENDENCIA S.A</option>
-                                        <option value="62621">621 - BANCO APLICAP S.A.</option>
-                                        <option value="62622">622 - BANCO DRACMA S.A</option>
-                                        <option value="62623">623 - BANCO PANAMERICANO S.A</option>
-                                        <option value="62624">624 - BANCO GENERAL MOTORS S.A</option>
-                                        <option value="62625">625 - BANCO ARAUCARIA S.A</option>
-                                        <option value="62626">626 - BANCO FICSA S.A</option>
-                                        <option value="62627">627 - BANCO DESTAK S.A</option>
-                                        <option value="62628">628 - BANCO CRITERIUM S.A</option>
-                                        <option value="62629">629 - BANCORP BANCO COML. E. DE INVESTMENTO</option>
-                                        <option value="63630">630 - BANCO INTERCAP S.A</option>
-                                        <option value="63633">633 - BANCO REDIMENTO S.A</option>
-                                        <option value="63634">634 - BANCO TRIANGULO S.A</option>
-                                        <option value="63635">635 - BANCO DO ESTADO DO AMAPA S.A</option>
-                                        <option value="63637">637 - BANCO SOFISA S.A</option>
-                                        <option value="63638">638 - BANCO PROSPER S.A</option>
-                                        <option value="63639">639 - BIG S.A. - BANCO IRMAOS GUIMARAES</option>
-                                        <option value="64640">640 - BANCO DE CREDITO METROPOLITANO S.A</option>
-                                        <option value="64641">641 - BANCO EXCEL ECONOMICO S/A</option>
-                                        <option value="64643">643 - BANCO SEGMENTO S.A</option>
-                                        <option value="64645">645 - BANCO DO ESTADO DE RORAIMA S.A</option>
-                                        <option value="64647">647 - BANCO MARKA S.A</option>
-                                        <option value="64648">648 - BANCO ATLANTIS S.A</option>
-                                        <option value="64649">649 - BANCO DIMENSAO S.A</option>
-                                        <option value="65650">650 - BANCO PEBB S.A</option>
-                                        <option value="65652">652 - BANCO FRANCES E BRASILEIRO SA</option>
-                                        <option value="65653">653 - BANCO INDUSVAL S.A</option>
-                                        <option value="65654">654 - BANCO A. J. RENNER S.A</option>
-                                        <option value="65655">655 - BANCO VOTORANTIM S.A.</option>
-                                        <option value="65656">656 - BANCO MATRIX S.A</option>
-                                        <option value="65657">657 - BANCO TECNICORP S.A</option>
-                                        <option value="65658">658 - BANCO PORTO REAL S.A</option>
-                                        <option value="70702">702 - BANCO SANTOS S.A</option>
-                                        <option value="70705">705 - BANCO INVESTCORP S.A.</option>
-                                        <option value="70707">707 - BANCO DAYCOVAL S.A</option>
-                                        <option value="71711">711 - BANCO VETOR S.A.</option>
-                                        <option value="71713">713 - BANCO CINDAM S.A</option>
-                                        <option value="71715">715 - BANCO VEGA S.A</option>
-                                        <option value="71718">718 - BANCO OPERADOR S.A</option>
-                                        <option value="71719">719 - BANCO PRIMUS S.A</option>
-                                        <option value="72720">720 - BANCO MAXINVEST S.A</option>
-                                        <option value="72721">721 - BANCO CREDIBEL S.A</option>
-                                        <option value="72722">722 - BANCO INTERIOR DE SAO PAULO S.A</option>
-                                        <option value="72724">724 - BANCO PORTO SEGURO S.A</option>
-                                        <option value="72725">725 - BANCO FINABANCO S.A</option>
-                                        <option value="72726">726 - BANCO UNIVERSAL S.A</option>
-                                        <option value="72728">728 - BANCO FITAL S.A</option>
-                                        <option value="72729">729 - BANCO FONTE S.A</option>
-                                        <option value="73730">730 - BANCO COMERCIAL PARAGUAYO S.A</option>
-                                        <option value="73731">731 - BANCO GNPP S.A.</option>
-                                        <option value="73732">732 - BANCO PREMIER S.A.</option>
-                                        <option value="73733">733 - BANCO NACOES S.A.</option>
-                                        <option value="73734">734 - BANCO GERDAU S.A</option>
-                                        <option value="73735">735 - BACO POTENCIAL</option>
-                                        <option value="73736">736 - BANCO UNITED S.A</option>
-                                        <option value="73737">737 - THECA</option>
-                                        <option value="73738">738 - MARADA</option>
-                                        <option value="73739">739 - BGN</option>
-                                        <option value="74740">740 - BCN BARCLAYS</option>
-                                        <option value="74741">741 - BRP</option>
-                                        <option value="74742">742 - EQUATORIAL</option>
-                                        <option value="74743">743 - BANCO EMBLEMA S.A</option>
-                                        <option value="74744">744 - THE FIRST NATIONAL BANK OF BOSTON</option>
-                                        <option value="74745">745 - CITIBAN N.A.</option>
-                                        <option value="74746">746 - MODAL S\A</option>
-                                        <option value="74747">747 - RAIBOBANK DO BRASIL</option>
-                                        <option value="74748">748 - SICREDI</option>
-                                        <option value="74749">749 - BRMSANTIL SA</option>
-                                        <option value="75750">750 - BANCO REPUBLIC NATIONAL OF NEW YORK (BRA</option>
-                                        <option value="75751">751 - DRESDNER BANK LATEINAMERIKA-BRASIL S/A</option>
-                                        <option value="75752">752 - BANCO BANQUE NATIONALE DE PARIS BRASIL S</option>
-                                        <option value="75753">753 - BANCO COMERCIAL URUGUAI S.A.</option>
-                                        <option value="75755">755 - BANCO MERRILL LYNCH S.A</option>
-                                        <option value="75756">756 - BANCO COOPERATIVO DO BRASIL S.A.</option>
-                                        <option value="75757">757 - BANCO KEB DO BRASIL S.A.</option>
-                                    </select>
-                                    <div *ngIf="submitted && f.bankName.errors" class="invalid-feedback">
-                                        <div *ngIf="f.bankName.errors.required">Banco é obrigatório.</div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="bankType">Tipo de conta:</label>
-                                    <select class="form-control" id="bankType" [ngClass]="{ 'is-invalid': submitted && f.bankType.errors }" formControlName="bankType" maxlength="2">
-                                      <option></option>
-                                      <option value="1">Corrente</option>
-                                      <option value="2">Poupança</option>
-                                    </select>
-                                    <div *ngIf="submitted && f.bankType.errors" class="invalid-feedback">
-                                        <div *ngIf="f.bankType.errors.required">Tipo de conta é obrigatório.</div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="bankAg">Agência:</label>
-                                    <input type="text" class="form-control" id="bankAg" [ngClass]="{ 'is-invalid': submitted && f.bankAg.errors }" formControlName="bankAg" autocomplete="off" maxlength="15" />
-                                    <div *ngIf="submitted && f.bankAg.errors" class="invalid-feedback">
-                                        <div *ngIf="f.bankAg.errors.required">Agência é obrigatório.</div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="bankAccount">Conta:</label>
-                                    <input type="text" class="form-control" id="bankAccount" [ngClass]="{ 'is-invalid': submitted && f.bankAccount.errors }" formControlName="bankAccount" autocomplete="off" maxlength="15" />
-                                    <div *ngIf="submitted && f.bankAccount.errors" class="invalid-feedback">
-                                        <div *ngIf="f.bankAccount.errors.required">Conta é obrigatório.</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="submit" (click)="next(3)" class="btn btn-primary">Concluir</button>
-                            <button (click)="prev()" class="btn btn-light mr-1">Voltar</button>
                         </div>
-                        
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="bankName">Banco:</label>
+                                <select class="form-control" id="bankName" [ngClass]="{ 'is-invalid': submitted && f.bankName.errors }" formControlName="bankName" maxlength="5">
+                                    <option></option>
+                                    <option value="1">001 - BANCO DO BRASIL S/A</option>
+                                    <option value="2">002 - BANCO CENTRAL DO BRASIL</option>
+                                    <option value="3">003 - BANCO DA AMAZONIA S.A</option>
+                                    <option value="4">004 - BANCO DO NORDESTE DO BRASIL S.A</option>
+                                    <option value="7">007 - BANCO NAC DESENV. ECO. SOCIAL S.A</option>
+                                    <option value="8">008 - BANCO MERIDIONAL DO BRASIL</option>
+                                    <option value="220">020 - BANCO DO ESTADO DE ALAGOAS S.A</option>
+                                    <option value="221">021 - BANCO DO ESTADO DO ESPIRITO SANTO S.A</option>
+                                    <option value="222">022 - BANCO DE CREDITO REAL DE MINAS GERAIS SA</option>
+                                    <option value="224">024 - BANCO DO ESTADO DE PERNAMBUCO</option>
+                                    <option value="225">025 - BANCO ALFA S/A</option>
+                                    <option value="226">026 - BANCO DO ESTADO DO ACRE S.A</option>
+                                    <option value="227">027 - BANCO DO ESTADO DE SANTA CATARINA S.A</option>
+                                    <option value="228">028 - BANCO DO ESTADO DA BAHIA S.A</option>
+                                    <option value="229">029 - BANCO DO ESTADO DO RIO DE JANEIRO S.A</option>
+                                    <option value="330">030 - BANCO DO ESTADO DA PARAIBA S.A</option>
+                                    <option value="331">031 - BANCO DO ESTADO DE GOIAS S.A</option>
+                                    <option value="332">032 - BANCO DO ESTADO DO MATO GROSSO S.A.</option>
+                                    <option value="333">033 - BANCO DO ESTADO DE SAO PAULO S.A</option>
+                                    <option value="334">034 - BANCO DO ESADO DO AMAZONAS S.A</option>
+                                    <option value="335">035 - BANCO DO ESTADO DO CEARA S.A</option>
+                                    <option value="336">036 - BANCO DO ESTADO DO MARANHAO S.A</option>
+                                    <option value="337">037 - BANCO DO ESTADO DO PARA S.A</option>
+                                    <option value="338">038 - BANCO DO ESTADO DO PARANA S.A</option>
+                                    <option value="339">039 - BANCO DO ESTADO DO PIAUI S.A</option>
+                                    <option value="441">041 - BANCO DO ESTADO DO RIO GRANDE DO SUL S.A</option>
+                                    <option value="447">047 - BANCO DO ESTADO DE SERGIPE S.A</option>
+                                    <option value="448">048 - BANCO DO ESTADO DE MINAS GERAIS S.A</option>
+                                    <option value="559">059 - BANCO DO ESTADO DE RONDONIA S.A</option>
+                                    <option value="770">070 - BANCO DE BRASILIA S.A</option>
+                                    <option value="10104">104 - CAIXA ECONOMICA FEDERAL</option>
+                                    <option value="10106">106 - BANCO ITABANCO S.A.</option>
+                                    <option value="10107">107 - BANCO BBM S.A</option>
+                                    <option value="10109">109 - BANCO CREDIBANCO S.A</option>
+                                    <option value="11116">116 - BANCO B.N.L DO BRASIL S.A</option>
+                                    <option value="14148">148 - MULTI BANCO S.A</option>
+                                    <option value="15151">151 - CAIXA ECONOMICA DO ESTADO DE SAO PAULO</option>
+                                    <option value="15153">153 - CAIXA ECONOMICA DO ESTADO DO R.G.SUL</option>
+                                    <option value="16165">165 - BANCO NORCHEM S.A</option>
+                                    <option value="16166">166 - BANCO INTER-ATLANTICO S.A</option>
+                                    <option value="16168">168 - BANCO C.C.F. BRASIL S.A</option>
+                                    <option value="17175">175 - CONTINENTAL BANCO S.A</option>
+                                    <option value="18184">184 - BBA - CREDITANSTALT S.A</option>
+                                    <option value="19199">199 - BANCO FINANCIAL PORTUGUES</option>
+                                    <option value="20200">200 - BANCO FRICRISA AXELRUD S.A</option>
+                                    <option value="20201">201 - BANCO AUGUSTA INDUSTRIA E COMERCIAL S.A</option>
+                                    <option value="20204">204 - BANCO S.R.L S.A</option>
+                                    <option value="20205">205 - BANCO SUL AMERICA S.A</option>
+                                    <option value="20206">206 - BANCO MARTINELLI S.A</option>
+                                    <option value="20208">208 - BANCO PACTUAL S.A</option>
+                                    <option value="21210">210 - DEUTSCH SUDAMERIKANICHE BANK AG</option>
+                                    <option value="21211">211 - BANCO SISTEMA S.A</option>
+                                    <option value="21212">212 - BANCO MATONE S.A</option>
+                                    <option value="21213">213 - BANCO ARBI S.A</option>
+                                    <option value="21214">214 - BANCO DIBENS S.A</option>
+                                    <option value="21215">215 - BANCO AMERICA DO SUL S.A</option>
+                                    <option value="21216">216 - BANCO REGIONAL MALCON S.A</option>
+                                    <option value="21217">217 - BANCO AGROINVEST S.A</option>
+                                    <option value="21218">218 - BBS - BANCO BONSUCESSO S.A.</option>
+                                    <option value="21219">219 - BANCO DE CREDITO DE SAO PAULO S.A</option>
+                                    <option value="22220">220 - BANCO CREFISUL</option>
+                                    <option value="22221">221 - BANCO GRAPHUS S.A</option>
+                                    <option value="22222">222 - BANCO AGF BRASIL S. A.</option>
+                                    <option value="22223">223 - BANCO INTERUNION S.A</option>
+                                    <option value="22224">224 - BANCO FIBRA S.A</option>
+                                    <option value="22225">225 - BANCO BRASCAN S.A</option>
+                                    <option value="22228">228 - BANCO ICATU S.A</option>
+                                    <option value="22229">229 - BANCO CRUZEIRO S.A</option>
+                                    <option value="23230">230 - BANCO BANDEIRANTES S.A</option>
+                                    <option value="23231">231 - BANCO BOAVISTA S.A</option>
+                                    <option value="23232">232 - BANCO INTERPART S.A</option>
+                                    <option value="23233">233 - BANCO MAPPIN S.A</option>
+                                    <option value="23234">234 - BANCO LAVRA S.A.</option>
+                                    <option value="23235">235 - BANCO LIBERAL S.A</option>
+                                    <option value="23236">236 - BANCO CAMBIAL S.A</option>
+                                    <option value="23237">237 - BANCO BRADESCO S.A</option>
+                                    <option value="23239">239 - BANCO BANCRED S.A</option>
+                                    <option value="24240">240 - BANCO DE CREDITO REAL DE MINAS GERAIS S.</option>
+                                    <option value="24241">241 - BANCO CLASSICO S.A</option>
+                                    <option value="24242">242 - BANCO EUROINVEST S.A</option>
+                                    <option value="24243">243 - BANCO STOCK S.A</option>
+                                    <option value="24244">244 - BANCO CIDADE S.A</option>
+                                    <option value="24245">245 - BANCO EMPRESARIAL S.A</option>
+                                    <option value="24246">246 - BANCO ABC ROMA S.A</option>
+                                    <option value="24247">247 - BANCO OMEGA S.A</option>
+                                    <option value="24249">249 - BANCO INVESTCRED S.A</option>
+                                    <option value="25250">250 - BANCO SCHAHIN CURY S.A</option>
+                                    <option value="25251">251 - BANCO SAO JORGE S.A.</option>
+                                    <option value="25252">252 - BANCO FININVEST S.A</option>
+                                    <option value="25254">254 - BANCO PARANA BANCO S.A</option>
+                                    <option value="25255">255 - MILBANCO S.A.</option>
+                                    <option value="25256">256 - BANCO GULVINVEST S.A</option>
+                                    <option value="25258">258 - BANCO INDUSCRED S.A</option>
+                                    <option value="26261">261 - BANCO VARIG S.A</option>
+                                    <option value="26262">262 - BANCO BOREAL S.A</option>
+                                    <option value="26263">263 - BANCO CACIQUE</option>
+                                    <option value="26264">264 - BANCO PERFORMANCE S.A</option>
+                                    <option value="26265">265 - BANCO FATOR S.A</option>
+                                    <option value="26266">266 - BANCO CEDULA S.A</option>
+                                    <option value="26267">267 - BANCO BBM-COM.C.IMOB.CFI S.A.</option>
+                                    <option value="27275">275 - BANCO REAL S.A</option>
+                                    <option value="27277">277 - BANCO PLANIBANC S.A</option>
+                                    <option value="28282">282 - BANCO BRASILEIRO COMERCIAL</option>
+                                    <option value="29291">291 - BANCO DE CREDITO NACIONAL S.A</option>
+                                    <option value="29294">294 - BCR - BANCO DE CREDITO REAL S.A</option>
+                                    <option value="29295">295 - BANCO CREDIPLAN S.A</option>
+                                    <option value="30300">300 - BANCO DE LA NACION ARGENTINA S.A</option>
+                                    <option value="30302">302 - BANCO DO PROGRESSO S.A</option>
+                                    <option value="30303">303 - BANCO HNF S.A.</option>
+                                    <option value="30304">304 - BANCO PONTUAL S.A</option>
+                                    <option value="30308">308 - BANCO COMERCIAL BANCESA S.A.</option>
+                                    <option value="31318">318 - BANCO B.M.G. S.A</option>
+                                    <option value="32320">320 - BANCO INDUSTRIAL E COMERCIAL</option>
+                                    <option value="34341">341 - BANCO ITAU S.A</option>
+                                    <option value="34346">346 - BANCO FRANCES E BRASILEIRO S.A</option>
+                                    <option value="34347">347 - BANCO SUDAMERIS BRASIL S.A</option>
+                                    <option value="35351">351 - BANCO BOZANO SIMONSEN S.A</option>
+                                    <option value="35353">353 - BANCO GERAL DO COMERCIO S.A</option>
+                                    <option value="35356">356 - ABN AMRO S.A</option>
+                                    <option value="36366">366 - BANCO SOGERAL S.A</option>
+                                    <option value="36369">369 - PONTUAL</option>
+                                    <option value="37370">370 - BEAL - BANCO EUROPEU PARA AMERICA LATINA</option>
+                                    <option value="37372">372 - BANCO ITAMARATI S.A</option>
+                                    <option value="37375">375 - BANCO FENICIA S.A</option>
+                                    <option value="37376">376 - CHASE MANHATTAN BANK S.A</option>
+                                    <option value="38388">388 - BANCO MERCANTIL DE DESCONTOS S/A</option>
+                                    <option value="38389">389 - BANCO MERCANTIL DO BRASIL S.A</option>
+                                    <option value="39392">392 - BANCO MERCANTIL DE SAO PAULO S.A</option>
+                                    <option value="39394">394 - BANCO B.M.C. S.A</option>
+                                    <option value="39399">399 - BANCO BAMERINDUS DO BRASIL S.A</option>
+                                    <option value="40409">409 - UNIBANCO - UNIAO DOS BANCOS BRASILEIROS</option>
+                                    <option value="41412">412 - BANCO NACIONAL DA BAHIA S.A</option>
+                                    <option value="41415">415 - BANCO NACIONAL S.A</option>
+                                    <option value="42420">420 - BANCO NACIONAL DO NORTE S.A</option>
+                                    <option value="42422">422 - BANCO SAFRA S.A</option>
+                                    <option value="42424">424 - BANCO NOROESTE S.A</option>
+                                    <option value="43434">434 - BANCO FORTALEZA S.A</option>
+                                    <option value="45453">453 - BANCO RURAL S.A</option>
+                                    <option value="45456">456 - BANCO TOKIO S.A</option>
+                                    <option value="46464">464 - BANCO SUMITOMO BRASILEIRO S.A</option>
+                                    <option value="46466">466 - BANCO MITSUBISHI BRASILEIRO S.A</option>
+                                    <option value="47472">472 - LLOYDS BANK PLC</option>
+                                    <option value="47473">473 - BANCO FINANCIAL PORTUGUES S.A</option>
+                                    <option value="47477">477 - CITIBANK N.A</option>
+                                    <option value="47479">479 - BANCO DE BOSTON S.A</option>
+                                    <option value="48480">480 - BANCO PORTUGUES DO ATLANTICO-BRASIL S.A</option>
+                                    <option value="48483">483 - BANCO AGRIMISA S.A.</option>
+                                    <option value="48487">487 - DEUTSCHE BANK S.A - BANCO ALEMAO</option>
+                                    <option value="48488">488 - BANCO J. P. MORGAN S.A</option>
+                                    <option value="48489">489 - BANESTO BANCO URUGAUAY S.A</option>
+                                    <option value="49492">492 - INTERNATIONALE NEDERLANDEN BANK N.V.</option>
+                                    <option value="49493">493 - BANCO UNION S.A.C.A</option>
+                                    <option value="49494">494 - BANCO LA REP. ORIENTAL DEL URUGUAY</option>
+                                    <option value="49495">495 - BANCO LA PROVINCIA DE BUENOS AIRES</option>
+                                    <option value="49496">496 - BANCO EXTERIOR DE ESPANA S.A</option>
+                                    <option value="49498">498 - CENTRO HISPANO BANCO</option>
+                                    <option value="49499">499 - BANCO IOCHPE S.A</option>
+                                    <option value="50501">501 - BANCO BRASILEIRO IRAQUIANO S.A.</option>
+                                    <option value="50502">502 - BANCO SANTANDER S.A</option>
+                                    <option value="50504">504 - BANCO MULTIPLIC S.A</option>
+                                    <option value="50505">505 - BANCO GARANTIA S.A</option>
+                                    <option value="60600">600 - BANCO LUSO BRASILEIRO S.A</option>
+                                    <option value="60601">601 - BFC BANCO S.A.</option>
+                                    <option value="60602">602 - BANCO PATENTE S.A</option>
+                                    <option value="60604">604 - BANCO INDUSTRIAL DO BRASIL S.A</option>
+                                    <option value="60607">607 - BANCO SANTOS NEVES S.A</option>
+                                    <option value="60608">608 - BANCO OPEN S.A</option>
+                                    <option value="61610">610 - BANCO V.R. S.A</option>
+                                    <option value="61611">611 - BANCO PAULISTA S.A</option>
+                                    <option value="61612">612 - BANCO GUANABARA S.A</option>
+                                    <option value="61613">613 - BANCO PECUNIA S.A</option>
+                                    <option value="61616">616 - BANCO INTERPACIFICO S.A</option>
+                                    <option value="61617">617 - BANCO INVESTOR S.A.</option>
+                                    <option value="61618">618 - BANCO TENDENCIA S.A</option>
+                                    <option value="62621">621 - BANCO APLICAP S.A.</option>
+                                    <option value="62622">622 - BANCO DRACMA S.A</option>
+                                    <option value="62623">623 - BANCO PANAMERICANO S.A</option>
+                                    <option value="62624">624 - BANCO GENERAL MOTORS S.A</option>
+                                    <option value="62625">625 - BANCO ARAUCARIA S.A</option>
+                                    <option value="62626">626 - BANCO FICSA S.A</option>
+                                    <option value="62627">627 - BANCO DESTAK S.A</option>
+                                    <option value="62628">628 - BANCO CRITERIUM S.A</option>
+                                    <option value="62629">629 - BANCORP BANCO COML. E. DE INVESTMENTO</option>
+                                    <option value="63630">630 - BANCO INTERCAP S.A</option>
+                                    <option value="63633">633 - BANCO REDIMENTO S.A</option>
+                                    <option value="63634">634 - BANCO TRIANGULO S.A</option>
+                                    <option value="63635">635 - BANCO DO ESTADO DO AMAPA S.A</option>
+                                    <option value="63637">637 - BANCO SOFISA S.A</option>
+                                    <option value="63638">638 - BANCO PROSPER S.A</option>
+                                    <option value="63639">639 - BIG S.A. - BANCO IRMAOS GUIMARAES</option>
+                                    <option value="64640">640 - BANCO DE CREDITO METROPOLITANO S.A</option>
+                                    <option value="64641">641 - BANCO EXCEL ECONOMICO S/A</option>
+                                    <option value="64643">643 - BANCO SEGMENTO S.A</option>
+                                    <option value="64645">645 - BANCO DO ESTADO DE RORAIMA S.A</option>
+                                    <option value="64647">647 - BANCO MARKA S.A</option>
+                                    <option value="64648">648 - BANCO ATLANTIS S.A</option>
+                                    <option value="64649">649 - BANCO DIMENSAO S.A</option>
+                                    <option value="65650">650 - BANCO PEBB S.A</option>
+                                    <option value="65652">652 - BANCO FRANCES E BRASILEIRO SA</option>
+                                    <option value="65653">653 - BANCO INDUSVAL S.A</option>
+                                    <option value="65654">654 - BANCO A. J. RENNER S.A</option>
+                                    <option value="65655">655 - BANCO VOTORANTIM S.A.</option>
+                                    <option value="65656">656 - BANCO MATRIX S.A</option>
+                                    <option value="65657">657 - BANCO TECNICORP S.A</option>
+                                    <option value="65658">658 - BANCO PORTO REAL S.A</option>
+                                    <option value="70702">702 - BANCO SANTOS S.A</option>
+                                    <option value="70705">705 - BANCO INVESTCORP S.A.</option>
+                                    <option value="70707">707 - BANCO DAYCOVAL S.A</option>
+                                    <option value="71711">711 - BANCO VETOR S.A.</option>
+                                    <option value="71713">713 - BANCO CINDAM S.A</option>
+                                    <option value="71715">715 - BANCO VEGA S.A</option>
+                                    <option value="71718">718 - BANCO OPERADOR S.A</option>
+                                    <option value="71719">719 - BANCO PRIMUS S.A</option>
+                                    <option value="72720">720 - BANCO MAXINVEST S.A</option>
+                                    <option value="72721">721 - BANCO CREDIBEL S.A</option>
+                                    <option value="72722">722 - BANCO INTERIOR DE SAO PAULO S.A</option>
+                                    <option value="72724">724 - BANCO PORTO SEGURO S.A</option>
+                                    <option value="72725">725 - BANCO FINABANCO S.A</option>
+                                    <option value="72726">726 - BANCO UNIVERSAL S.A</option>
+                                    <option value="72728">728 - BANCO FITAL S.A</option>
+                                    <option value="72729">729 - BANCO FONTE S.A</option>
+                                    <option value="73730">730 - BANCO COMERCIAL PARAGUAYO S.A</option>
+                                    <option value="73731">731 - BANCO GNPP S.A.</option>
+                                    <option value="73732">732 - BANCO PREMIER S.A.</option>
+                                    <option value="73733">733 - BANCO NACOES S.A.</option>
+                                    <option value="73734">734 - BANCO GERDAU S.A</option>
+                                    <option value="73735">735 - BACO POTENCIAL</option>
+                                    <option value="73736">736 - BANCO UNITED S.A</option>
+                                    <option value="73737">737 - THECA</option>
+                                    <option value="73738">738 - MARADA</option>
+                                    <option value="73739">739 - BGN</option>
+                                    <option value="74740">740 - BCN BARCLAYS</option>
+                                    <option value="74741">741 - BRP</option>
+                                    <option value="74742">742 - EQUATORIAL</option>
+                                    <option value="74743">743 - BANCO EMBLEMA S.A</option>
+                                    <option value="74744">744 - THE FIRST NATIONAL BANK OF BOSTON</option>
+                                    <option value="74745">745 - CITIBAN N.A.</option>
+                                    <option value="74746">746 - MODAL S\A</option>
+                                    <option value="74747">747 - RAIBOBANK DO BRASIL</option>
+                                    <option value="74748">748 - SICREDI</option>
+                                    <option value="74749">749 - BRMSANTIL SA</option>
+                                    <option value="75750">750 - BANCO REPUBLIC NATIONAL OF NEW YORK (BRA</option>
+                                    <option value="75751">751 - DRESDNER BANK LATEINAMERIKA-BRASIL S/A</option>
+                                    <option value="75752">752 - BANCO BANQUE NATIONALE DE PARIS BRASIL S</option>
+                                    <option value="75753">753 - BANCO COMERCIAL URUGUAI S.A.</option>
+                                    <option value="75755">755 - BANCO MERRILL LYNCH S.A</option>
+                                    <option value="75756">756 - BANCO COOPERATIVO DO BRASIL S.A.</option>
+                                    <option value="75757">757 - BANCO KEB DO BRASIL S.A.</option>
+                                </select>
+                                <div *ngIf="submitted && f.bankName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.bankName.errors.required">Banco é obrigatório.</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="bankType">Tipo de conta:</label>
+                                <select class="form-control" id="bankType" [ngClass]="{ 'is-invalid': submitted && f.bankType.errors }" formControlName="bankType" maxlength="2">
+                                    <option></option>
+                                    <option value="1">Corrente</option>
+                                    <option value="2">Poupança</option>
+                                </select>
+                                <div *ngIf="submitted && f.bankType.errors" class="invalid-feedback">
+                                    <div *ngIf="f.bankType.errors.required">Tipo de conta é obrigatório.</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="bankAg">Agência:</label>
+                                <input type="text" class="form-control" id="bankAg" [ngClass]="{ 'is-invalid': submitted && f.bankAg.errors }" formControlName="bankAg" autocomplete="off" maxlength="15" />
+                                <div *ngIf="submitted && f.bankAg.errors" class="invalid-feedback">
+                                    <div *ngIf="f.bankAg.errors.required">Agência é obrigatório.</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="bankAccount">Conta:</label>
+                                <input type="text" class="form-control" id="bankAccount" [ngClass]="{ 'is-invalid': submitted && f.bankAccount.errors }" formControlName="bankAccount" autocomplete="off" maxlength="15" />
+                                <div *ngIf="submitted && f.bankAccount.errors" class="invalid-feedback">
+                                    <div *ngIf="f.bankAccount.errors.required">Conta é obrigatório.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" (click)="next(3)" class="btn btn-primary">Concluir</button>
+                        <button (click)="prev()" class="btn btn-light mr-1">Voltar</button>
+                    </div>
                     </form>
                 </div>
             </div>

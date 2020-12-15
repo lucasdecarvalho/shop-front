@@ -42,15 +42,15 @@ export class SignupComponent implements OnInit {
   get f() { return this.formSignup.controls; }
 
   onSubmit() {
-      this.SpinnerService.show();
-      this.submitted = true;
+    this.submitted = true;
+    
+    if (this.formSignup.invalid) { 
+      return;
+    }
+    
+    this.SpinnerService.show();
 
-      if (this.formSignup.invalid) { 
-          this.SpinnerService.hide();
-          return;
-      }
-       
-      let cnpj = this.formSignup.value.cnpj.replace(/\D/g,'');
+    let cnpj = this.formSignup.value.cnpj.replace(/\D/g,'');
 
       this.signup.checkCnpj(cnpj)
       .subscribe(response => {
