@@ -1,150 +1,262 @@
-<div class="bg-primary">
+<div class="bg-primary" style="width:100%;float:left;position: relative;top:0;z-index:10;">
     <nav class="navbar navbar-expand-lg navbar-dark p-4">
         <a class="navbar-brand" href="/vendedores/confirmar-dados">
             <img src="https://logodownload.org/wp-content/uploads/2017/05/ifood-logo-3.png" style="width:120px;" alt="">
         </a>
 
-        <button class="navbar-toggler" type="button">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="isShown=!isShown">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" [ngClass]="{ 'show': isShown }">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link text-uppercase text-white" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Empresa</a>
+                    <a class="nav-link text-uppercase text-white" href="#">Sobre Nós</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Produtos</a>
+                    <a class="nav-link text-uppercase text-white" href="#">Termos de uso</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn bg-light p-2 text-primary text-uppercase" routerLink="/vendedores/cadastro">Crie sua loja grátis</a>
                 </li>
             </ul>
         </div>
     </nav>
 </div>
 
-<div class="container pt-4">
-<div class="container-fluid">
-    <div class="row flex-xl-nowrap">
-        <div class="col-12 p-0">
-            <div class="bd-example">
-                <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="30000">
-                    
-                    <!-- <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active">dgfdgfdgf</li>
-                    </ol> -->
+<app-slider></app-slider>
+<div class="container mt--4" style="position:relative;top:-20px;z-index: 9;">
+    <form>
+        <div class="form-row p-4 border rounded bg-light">
+            <h6 class="w-100 p-2">Lojas | Produtos | Serviços</h6>
+            <div class="col-8">
+                <input type="text" class="form-control pt-4 pb-4 pl-2 pr-2" placeholder="O que você procura?">
+            </div>
+            <div class="col-4">
+                <button type="submit" class="btn btn-primary w-100 pb-3 text-white">Buscar</button>
+            </div>
+        </div>
+    </form>
+</div>
 
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="block4-wrap">
-                                <div class="block4"><img class="d-block w-100" src="https://aquamar.vteximg.com.br/arquivos/ids/475016-1000-1500/01031128_1034_1-VESTIDO-LONGO-DECOTE-V-E-DETALHE-ARGOLA.jpg?v=637287885797700000" alt="First slide">
-                                    <div class="my-captions">
-                                        <h5>First slide</h5>
-                                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+<img src="https://3.bp.blogspot.com/-G6Nawwe-hFQ/WfMH02V5v8I/AAAAAAAADWM/sGr2Jo1KDQcqbGuOOvtgH3Fz3EJz6w9bACLcBGAs/s1600/Grinaldas%2Bgr%25C3%25A1ficas%2Bde%2BNatal%2Be%2Bbordas%2Bcom%2Bfundo%2Btransparente%2B%25284%2529.png" class="d-none" style="width:100%;float:left;position:absolute;top:-40px;z-index:7;" alt="">
+
+<div class="container">
+    <h5 class="p-2">Marcas em destaque</h5>
+    <div class="container-fluid">
+        <div class="row flex-xl-nowrap">
+            <div class="col-12 p-0">
+                <div class="bd-example">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="30000">
+                        
+                        <!-- <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active">dgfdgfdgf</li>
+                        </ol> -->
+
+                        <div class="carousel-inner mb-4">
+                            <div class="carousel-item active">
+                                <div class="block4-wrap">
+                                    <!-- <div class="block4">
+                                        <img class="d-block w-100 p-4" src="https://seeklogo.com/images/M/mcdonald-s-golden-arches-logo-93483062BF-seeklogo.com.png" alt="First slide">
+                                    </div> -->
+                                    <div class="block4">
+                                        <img class="d-block w-100 p-4" src="https://assets.stickpng.com/thumbs/584296aca6515b1e0ad75ad5.png" alt="First slide">
                                     </div>
-                                </div>
-                                <div class="block4"><img class="d-block w-100" src="https://www.atroa.com.br/images/Fotos/vestido-longo-jaqueline-cru-160-10-501.jpg" alt="First slide">
-                                    <div class="my-captions">
-                                        <h5>First slide</h5>
-                                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                    <div class="block4">
+                                        <img class="d-block w-100 p-4" style="margin-top:48px;" src="https://www.abonus.com.br//imagens/2018/12/Centauro_Abonus.png" alt="First slide">
                                     </div>
-                                </div>
-                                <div class="block4"><img class="d-block w-100" src="https://aquamar.vteximg.com.br/arquivos/ids/475016-1000-1500/01031128_1034_1-VESTIDO-LONGO-DECOTE-V-E-DETALHE-ARGOLA.jpg?v=637287885797700000" alt="First slide">
-                                    <div class="my-captions">
-                                        <h5>First slide</h5>
-                                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                    <!-- <div class="block4">
+                                        <img class="d-block w-100 p-4" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1a7b7aba-445c-44d8-b3d7-1465de190b00/d6uf7wz-9f43580a-5c7b-43bd-bc89-6d25e9eb95c1.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMWE3YjdhYmEtNDQ1Yy00NGQ4LWIzZDctMTQ2NWRlMTkwYjAwXC9kNnVmN3d6LTlmNDM1ODBhLTVjN2ItNDNiZC1iYzg5LTZkMjVlOWViOTVjMS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.KV0dK1FDuujavzSXBZxaquY5I7zlaWpBrE_ri1_DuNo" alt="First slide">
+                                    </div> -->
+                                    <div class="block4">
+                                        <img class="d-block w-100 p-4" src="https://lh3.googleusercontent.com/proxy/9230xCn-E683VTAqhYODQAQ3SWLLekmibzsPBOMytEOStuu-gTq_jlc1n2XMWqYombsmEbwqPlLXiXyiWYtIGrzFRFOalZbq-Y8FDGTU56ymF_6rLyQ_kqsU5tG-WAT21zxW60DH2IujfjMJdW7GIQ" alt="First slide">
                                     </div>
-                                </div>
-                                <div class="block4"><img class="d-block w-100" src="https://www.atroa.com.br/images/Fotos/vestido-longo-jaqueline-cru-160-10-501.jpg" alt="First slide">
-                                    <div class="my-captions">
-                                        <h5>First slide</h5>
-                                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                    </div>
-                                </div>
-                                <div class="block4"><img class="d-block w-100" src="https://aquamar.vteximg.com.br/arquivos/ids/475016-1000-1500/01031128_1034_1-VESTIDO-LONGO-DECOTE-V-E-DETALHE-ARGOLA.jpg?v=637287885797700000" alt="First slide">
-                                    <div class="my-captions">
-                                        <h5>First slide</h5>
-                                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                    </div>
-                                </div>
-                                <div class="block4"><img class="d-block w-100" src="https://www.atroa.com.br/images/Fotos/vestido-longo-jaqueline-cru-160-10-501.jpg" alt="First slide">
-                                    <div class="my-captions">
-                                        <h5>First slide</h5>
-                                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                    </div>
-                                </div>
-                                <div class="block4"><img class="d-block w-100" src="https://aquamar.vteximg.com.br/arquivos/ids/475016-1000-1500/01031128_1034_1-VESTIDO-LONGO-DECOTE-V-E-DETALHE-ARGOLA.jpg?v=637287885797700000" alt="First slide">
-                                    <div class="my-captions">
-                                        <h5>First slide</h5>
-                                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                    </div>
-                                </div>
-                                <div class="block4"><img class="d-block w-100" src="https://www.atroa.com.br/images/Fotos/vestido-longo-jaqueline-cru-160-10-501.jpg" alt="First slide">
-                                    <div class="my-captions">
-                                        <h5>First slide</h5>
-                                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                    <div class="block4">
+                                        <div class="w-100 h-100 text-center">
+                                            <br><br><br>
+                                            <p class="p-4 text-secondary">Adicione sua loja aqui <br><span class="w-100 pt-1 pb-1 pl-2 pr-2 rounded-circle bg-secondary text-white font-weight-bold">+</span></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <a class="control carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="control carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span>
+                        </a> 
                     </div>
-                    <a class="control carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="control carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span>
-                    </a> 
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<div class="container">
+    <h5 class="p-2">Coleções em destaque</h5>
+    <div class="container-fluid">
+        <div class="row flex-xl-nowrap">
+            <div class="col-12 p-0">
+                <div class="bd-example">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="30000">
+                        
+                        <!-- <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active">dgfdgfdgf</li>
+                        </ol> -->
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="block4-wrap">
+                                    <div class="block4"><img class="d-block w-100" src="https://aquamar.vteximg.com.br/arquivos/ids/475016-1000-1500/01031128_1034_1-VESTIDO-LONGO-DECOTE-V-E-DETALHE-ARGOLA.jpg?v=637287885797700000" alt="First slide">
+                                        <div class="my-captions">
+                                            <h5>First slide</h5>
+                                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                        </div>
+                                    </div>
+                                    <div class="block4"><img class="d-block w-100" src="https://www.atroa.com.br/images/Fotos/vestido-longo-jaqueline-cru-160-10-501.jpg" alt="First slide">
+                                        <div class="my-captions">
+                                            <h5>First slide</h5>
+                                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                        </div>
+                                    </div>
+                                    <div class="block4"><img class="d-block w-100" src="https://aquamar.vteximg.com.br/arquivos/ids/475016-1000-1500/01031128_1034_1-VESTIDO-LONGO-DECOTE-V-E-DETALHE-ARGOLA.jpg?v=637287885797700000" alt="First slide">
+                                        <div class="my-captions">
+                                            <h5>First slide</h5>
+                                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                        </div>
+                                    </div>
+                                    <div class="block4"><img class="d-block w-100" src="https://www.atroa.com.br/images/Fotos/vestido-longo-jaqueline-cru-160-10-501.jpg" alt="First slide">
+                                        <div class="my-captions">
+                                            <h5>First slide</h5>
+                                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                        </div>
+                                    </div>
+                                    <div class="block4"><img class="d-block w-100" src="https://aquamar.vteximg.com.br/arquivos/ids/475016-1000-1500/01031128_1034_1-VESTIDO-LONGO-DECOTE-V-E-DETALHE-ARGOLA.jpg?v=637287885797700000" alt="First slide">
+                                        <div class="my-captions">
+                                            <h5>First slide</h5>
+                                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                        </div>
+                                    </div>
+                                    <div class="block4"><img class="d-block w-100" src="https://www.atroa.com.br/images/Fotos/vestido-longo-jaqueline-cru-160-10-501.jpg" alt="First slide">
+                                        <div class="my-captions">
+                                            <h5>First slide</h5>
+                                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                        </div>
+                                    </div>
+                                    <div class="block4"><img class="d-block w-100" src="https://aquamar.vteximg.com.br/arquivos/ids/475016-1000-1500/01031128_1034_1-VESTIDO-LONGO-DECOTE-V-E-DETALHE-ARGOLA.jpg?v=637287885797700000" alt="First slide">
+                                        <div class="my-captions">
+                                            <h5>First slide</h5>
+                                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                        </div>
+                                    </div>
+                                    <div class="block4"><img class="d-block w-100" src="https://www.atroa.com.br/images/Fotos/vestido-longo-jaqueline-cru-160-10-501.jpg" alt="First slide">
+                                        <div class="my-captions">
+                                            <h5>First slide</h5>
+                                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="control carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="control carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span>
+                        </a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<!-- <app-slider></app-slider> -->
-<div class="container pt-4">
+<div class="container">
+    <h5 class="pt-4 pb-2 pl-2">Produtos em destaque</h5>
     <div class="card-deck">
-        <div class="card">
-            <img class="card-img-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <div class="col-6 col-md-3 float-left p-1">
+            <div class="card">
+                <img class="card-img-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with.</p>
+                    <p class="card-text">R$ 124,99</p>
+                </div>
+                <div class="card-footer">
+                    <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
+                </div>
             </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+        <div class="col-6 col-md-3 float-left p-1">
+            <div class="card">
+                <img class="card-img-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with.</p>
+                    <p class="card-text">R$ 124,99</p>
+                </div>
+                <div class="card-footer">
+                    <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
+                </div>
             </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        <div class="col-6 col-md-3 float-left p-1">
+            <div class="card">
+                <img class="card-img-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with.</p>
+                    <p class="card-text">R$ 124,99</p>
+                </div>
+                <div class="card-footer">
+                    <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
+                </div>
             </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+        <div class="col-6 col-md-3 float-left p-1">
+            <div class="card">
+                <img class="card-img-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with.</p>
+                    <p class="card-text">R$ 124,99</p>
+                </div>
+                <div class="card-footer">
+                    <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
+                </div>
             </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        </div>
+        <div class="col-6 col-md-3 float-left p-1">
+            <div class="card">
+                <img class="card-img-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with.</p>
+                    <p class="card-text">R$ 124,99</p>
+                </div>
+                <div class="card-footer">
+                    <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
+                </div>
             </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+        <div class="col-6 col-md-3 float-left p-1">
+            <div class="card">
+                <img class="card-img-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with.</p>
+                    <p class="card-text">R$ 124,99</p>
+                </div>
+                <div class="card-footer">
+                    <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
+                </div>
             </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-          </div>
+        </div>
+          
     </div>
 </div>
 <router-outlet></router-outlet>

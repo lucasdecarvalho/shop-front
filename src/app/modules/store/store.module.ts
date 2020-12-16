@@ -5,7 +5,6 @@ import { StoreRoutingModule } from './store-routing.module';
 import { StoreComponent } from './store.component';
 import { SharedModule } from '../../shared/shared.module';
 
-
 @NgModule({
   declarations: [
     StoreComponent,
