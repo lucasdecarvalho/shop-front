@@ -17,7 +17,6 @@ export class SellersService {
            "Access-Control-Allow-Origin": "*",
            "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
            "Access-Control-Allow-Methods": "GET, POST, DELETE, PUT, OPTIONS"
-          //  "Authorization": "Bearer " + window.localStorage.getItem('token')
            })
       };
   }
@@ -49,13 +48,5 @@ export class SellersService {
   verifyAccess(data: any) {
     return this.http.post(`${environment.api_url}/api/seller/verify-access`, data, this.httpOptions);
   }
-  
-  // sellersList() {
-  //   return this.http.get(`${environment.api_url}/api/seller`, this.httpOptions);
-  // } 
-  
-  // getVerifyAccess(id: any) {
-  //   return this.http.get(`${environment.api_url}/api/seller/verify-access/${id}`, this.httpOptions);
-  // }
   
 }
