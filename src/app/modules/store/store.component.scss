@@ -1,40 +1,59 @@
-.carousel-item img {
-    margin:0px;
+.block4Brand {
+    flex: 1 0 9.36%;
 }
-.block4-wrap {
-	display:flex;
+
+.block4Collection {
+    flex: 1 0 24.36%;
+    // min-width: 30%;
 }
-.block4 {
-    margin:0 4px;
-	flex:1 0 24.27%;
-    color:#000;
-    background-color: #fff;
-    border: solid 1px #ddd;
-    border-radius:4px;
-}
-.carousel-inner {
-    border-radius: 4px;
-}
+
 .carousel-inner::-webkit-scrollbar {
     display: none;
-  }
-.carousel-inner::-webkit-scrollbar {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-  }
-.my-captions{margin:10px;padding-bottom:3em}
-ol li {
-    background:#000;
 }
+
+form button {
+    padding:0.6em;
+    font-size: 1.2em;
+    background: #666;
+    border: solid 1px #555;
+}
+
+input {
+    padding:1.35em 1em;
+    font-size: 1.2em;
+}
+
+a.create {
+    background: #fff;
+    border: solid 1px #06f;
+}
+nav li {
+    padding: 0 20px !important;
+}
+
 /* fix width and make user scroll with mouse/touch to see the items */
 @media screen and (max-width:768px){
 	.block4{max-width:280px;flex:1 0 100%;overflow:hidden}	
 	.carousel{overflow:hidden;}
     .carousel-inner{overflow-x:visible;}
-    .control {display: none;}
 }
 @media screen and (max-width:480px){
-    .block4{max-width:240px;}	
-    .control {display: none;}
+    .block4Brand{min-width:150px;}	
+    .block4Collection{min-width:280px;}	
+    // .block4Collection img {max-height:390px;}	
+
+    input {
+        padding:1.7em .5em;
+        font-size: 1em;
+    }
+
+    a.create {
+        width: 100%;
+        margin:1em 0;
+        background: #fff;
+        border: solid 1px #06f;
+    }
 }
 
