@@ -30,7 +30,7 @@ export class SellersService {
   }
   
   createCompany(data: any) {
-    return this.http.post(`${environment.api_url}/api/seller/create`, data);
+    return this.http.post(`${environment.api_url}/api/seller/create`, data, this.httpOptions);
   }
   
   updateCompany(data: any) {
