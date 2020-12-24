@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SellersRoutingModule } from './sellers-routing.module';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     SellersRoutingModule,
     [SweetAlert2Module.forRoot()],
     NgxSpinnerModule,
+    SharedModule,
   ]
 })
 export class SellersModule { }

@@ -1,0 +1,21 @@
+a.create {
+    background: #fff;
+    border: solid 1px #06f;
+}
+
+nav li {
+    padding: 0 20px !important;
+}
+
+@media screen and (max-width:768px){
+	
+}
+
+@media screen and (max-width:480px){
+    a.create {
+        width: 100%;
+        margin:1em 0;
+        background: #fff;
+        border: solid 1px #06f;
+    }
+}

@@ -1,0 +1,26 @@
+.block4Brand {
+    flex: 1 0 9.36%;
+}
+
+.block4Collection {
+    flex: 1 0 24.36%;
+    // min-width: 30%;
+}
+
+.carousel-inner::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* fix width and make user scroll with mouse/touch to see the items */
+@media screen and (max-width:768px){
+	.block4{max-width:280px;flex:1 0 100%;overflow:hidden}	
+	.carousel{overflow:hidden;}
+    .carousel-inner{overflow-x:visible;}
+}
+@media screen and (max-width:480px){
+    .block4Brand{min-width:150px;}	
+    .block4Collection{min-width:280px;}	
+    // .block4Collection img {max-height:390px;}	
+}

@@ -11,7 +11,7 @@ import { AuthGuard } from 'src/app/core/guards/auth.guard';
 import { RoleGuard } from 'src/app/core/guards/role.guard';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenInterceptor } from '../../core/token.interceptor';
+import { TokenInterceptor } from '../../core/interceptors/token.interceptor';
 
 const routes: Routes = [
   {
