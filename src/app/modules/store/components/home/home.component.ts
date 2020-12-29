@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { StoreService } from '../../store.service';
 
 @Component({
   selector: 'app-home',
@@ -9,18 +10,21 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class HomeComponent implements OnInit {
 
   showLoad: boolean = false;
+  products: any;
 
-  constructor(private SpinnerService: NgxSpinnerService) { 
+  constructor(private storeService: StoreService, private SpinnerService: NgxSpinnerService) { 
 
   }
   
   ngOnInit() {
     
-    window.addEventListener('beforeunload', (event) => {
-      this.SpinnerService.show();
-    });
-
-    this.SpinnerService.hide();
+    this.storeService.allProducts()
+        .subscribe(data => {
+          this.products = data;
+        },
+        error => {
+          // console.log('erros: ', error);          
+        });
   }
 
 }

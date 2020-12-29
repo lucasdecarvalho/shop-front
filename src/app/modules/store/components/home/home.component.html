@@ -124,83 +124,22 @@
 </section>
 
 <section class="divisor pt-4">
-    <!-- Produtos em destaque -->
     <div class="container mb-4">
         <div class="row">
             <div class="col-12">
     
                 <h5>Produtos em destaque</h5>
-                <div class="w-100 m-1">
-                    <div class="col-6 col-md-3 float-left rounded">
-                        <img class="d-block w-100 rounded-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="First slide">
-                        <div class="my-captions m-0 p-2 border-top">
-                            <h5>First slide</h5>
-                            <p>Nulla vitae elit libero, a pharetra.</p>
-                            <h6>R$ 129,90</h6>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3 float-left rounded">
-                        <img class="d-block w-100 rounded-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="First slide">
-                        <div class="my-captions m-0 p-2 border-top">
-                            <h5>First slide</h5>
-                            <p>Nulla vitae elit libero, a pharetra.</p>
-                            <h6>R$ 129,90</h6>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3 float-left rounded">
-                        <img class="d-block w-100 rounded-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="First slide">
-                        <div class="my-captions m-0 p-2 border-top">
-                            <h5>First slide</h5>
-                            <p>Nulla vitae elit libero, a pharetra.</p>
-                            <h6>R$ 129,90</h6>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3 float-left rounded">
-                        <img class="d-block w-100 rounded-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="First slide">
-                        <div class="my-captions m-0 p-2 border-top">
-                            <h5>First slide</h5>
-                            <p>Nulla vitae elit libero, a pharetra.</p>
-                            <h6>R$ 129,90</h6>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3 float-left rounded">
-                        <img class="d-block w-100 rounded-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="First slide">
-                        <div class="my-captions m-0 p-2 border-top">
-                            <h5>First slide</h5>
-                            <p>Nulla vitae elit libero, a pharetra.</p>
-                            <h6>R$ 129,90</h6>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3 float-left rounded">
-                        <img class="d-block w-100 rounded-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="First slide">
-                        <div class="my-captions m-0 p-2 border-top">
-                            <h5>First slide</h5>
-                            <p>Nulla vitae elit libero, a pharetra.</p>
-                            <h6>R$ 129,90</h6>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3 float-left rounded">
-                        <img class="d-block w-100 rounded-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="First slide">
-                        <div class="my-captions m-0 p-2 border-top">
-                            <h5>First slide</h5>
-                            <p>Nulla vitae elit libero, a pharetra.</p>
-                            <h6>R$ 129,90</h6>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3 float-left rounded">
-                        <img class="d-block w-100 rounded-top" src="https://somarmalhas.com.br/site/wp-content/uploads/2018/03/camiseta-branca-510x510.jpg" alt="First slide">
-                        <div class="my-captions m-0 p-2 border-top">
-                            <h5>First slide</h5>
-                            <p>Nulla vitae elit libero, a pharetra.</p>
-                            <h6>R$ 129,90</h6>
-                        </div>
-                    </div>
+
+                <!-- <div class="w-100 m-1" *ngFor="let p of products | slice: 0:8"> -->
+                <div class="w-100 m-1" *ngFor="let p of products">
+                    <app-card [products]="p"></app-card>
                 </div>
-    
+
             </div>
         </div>
     </div>
 </section>
+
 <ngx-spinner bdColor="rgba(255, 255, 255, 1)" size="medium" [fullScreen]="true" type="ball-clip-rotate" color="#0000ff">
     <small class="text-primary">Carregando...</small>
 </ngx-spinner>
