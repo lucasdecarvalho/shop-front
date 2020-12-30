@@ -14,21 +14,20 @@ ul span {
     color:#aa0000;
 }
 input[type='text'],input[type='password'] {
-    padding: 15px !important;
-    font-size: 1.4em;
     background: #fff;
 }
-button {
-    font-size: 1.2em;
-    background: #f70;
+
+.form-check-label {
+    font-size: .8em;
 }
+
 .invalid-feedback {
     width: 100%;
-    padding: 6px;
+    padding: 6px 13px;
     margin: 0 0 5px 0;
     text-align: left;
-    color: #ffff00;
+    color: #aa0000;
 }
 .form-check-input.is-invalid~.form-check-label, .was-validated .form-check-input:invalid~.form-check-label {
-    color: #ffff00 !important;
+    color: #aa0000 !important;
 }
