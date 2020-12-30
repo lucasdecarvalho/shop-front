@@ -55,7 +55,6 @@ export class DashboardComponent implements OnInit {
           this.storeServive.companyProducts(response['seller']['id'])
           .subscribe(data => {
               this.products = data;
-              console.log(this.products)
           },
           error => {
 

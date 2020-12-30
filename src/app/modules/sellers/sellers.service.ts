@@ -45,6 +45,10 @@ export class SellersService {
     return this.http.get(`${environment.api_url}/api/seller/data`, this.httpOptions);
   }
   
+  addProduct(data: any) {
+    return this.http.post(`${environment.api_url}/api/products`, data);
+  }
+  
   verifyAccess(data: any) {
     return this.http.post(`${environment.api_url}/api/seller/verify-access`, data, this.httpOptions);
   }

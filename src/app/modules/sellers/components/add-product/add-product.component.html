@@ -1,0 +1,49 @@
+<p>Adicionar Produto</p>
+
+  
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col-4">
+
+                <img [src]="url" *ngIf="format==='image' && url" height="200" class="rounded m-2">
+                <input type='file' class="form-control" name="photo1" (change)="uploadFile($event)" />
+                
+            </div>
+
+            <div class="col-4">
+
+                <!-- <img [src]="url" *ngIf="format==='image' && url" height="200"> <br/>
+                <video [src]="url" *ngIf="format==='video' && url" height="200" controls></video> <br/>
+                <input type='file' class="form-control" (change)="onSelectFile($event)" /> -->
+                
+            </div>
+
+            <div class="col-4">
+
+                <!-- <img [src]="url" *ngIf="format==='image' && url" height="200"> <br/>
+                <video [src]="url" *ngIf="format==='video' && url" height="200" controls></video> <br/>
+                <input type='file' class="form-control" (change)="onSelectFile($event)" /> -->
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="name" formControlName="name">
+    </div>
+
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="storage_initial" formControlName="storage_initial">
+    </div>
+
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="price" formControlName="price">
+    </div>
+
+    <div class="form-group text-md-right">
+        <button type="submit" class="btn btn-danger">Adicionar Produto</button>
+    </div>
+    
+</form>
