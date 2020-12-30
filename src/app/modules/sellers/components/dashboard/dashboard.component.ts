@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SellersService } from '../../sellers.service';
+import { StoreService } from '../../../store/store.service';
+import { AuthGuard } from 'src/app/core/guards/auth.guard';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,8 +11,10 @@ import { SellersService } from '../../sellers.service';
 export class DashboardComponent implements OnInit {
 
   firstName: string;
+  products: any;
+  id: number;
 
-  constructor(private seller: SellersService) { }
+  constructor(private seller: SellersService, private storeServive: StoreService) { }
 
   ngOnInit(): void {
 
@@ -22,6 +26,9 @@ export class DashboardComponent implements OnInit {
 
         // @ts-ignore
         this.firstName = company.firstName;
+
+        // @ts-ignore
+        this.id = company.id;
 
           // fantasia: this.company.seller.fantasia,
           // nome: this.company.seller.nome,
@@ -44,6 +51,17 @@ export class DashboardComponent implements OnInit {
           // bankType: this.company.seller.bankType,
           // bankAg: this.company.seller.bankAg,
           // bankAccount: this.company.seller.bankAccount,
+
+          this.storeServive.companyProducts(response['seller']['id'])
+          .subscribe(data => {
+              this.products = data;
+              console.log(this.products)
+          },
+          error => {
+
+          });
       });
+
+      
   }
 }

@@ -13,11 +13,10 @@
                 <li class="w-100 float-left border-bottom"><a class="w-100 float-left p-3 text-dark" routerLink="">Produtos à Venda</a></li>
             </ul>
         </nav>
-        <div class="col-9 p-4 bg-white h-100">
-
-            <app-card></app-card>
-            <app-card></app-card>
-            <app-card></app-card>
+        <div class="col-9 p-4 bg-white h-100 text-dark">
+            <div class="w-100 m-1" *ngFor="let p of products">
+                <app-card [products]="p"></app-card>
+            </div>
         </div>
     </div>
 </div>
