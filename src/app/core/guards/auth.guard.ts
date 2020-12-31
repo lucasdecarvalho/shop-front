@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
       const decodedToken = jwtHelper.decodeToken(token);
       
       if (!token || jwtHelper.isTokenExpired(token)) {
-        window.localStorage.clear();
+        window.localStorage.removeItem('token');
         this.router.navigateByUrl('vendedores/login');
         return false;
       }
@@ -30,7 +30,7 @@ export class AuthGuard implements CanActivate {
 
       //       // @ts-ignore
       //       if(token !== response.access_token) {
-      //         window.localStorage.clear();
+      //         window.localStorage.removeItem('token');
       //         this.router.navigateByUrl('vendedores/login');
       //         return false;
       //       }

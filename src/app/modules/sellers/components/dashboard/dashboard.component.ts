@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SellersService } from '../../sellers.service';
 import { StoreService } from '../../../store/store.service';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnInit {
   products: any;
   id: number;
 
-  constructor(private seller: SellersService, private storeServive: StoreService) { }
+  constructor(private seller: SellersService, private storeServive: StoreService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -61,6 +62,11 @@ export class DashboardComponent implements OnInit {
           });
       });
 
-      
+    }
+
+    logout() {
+      window.localStorage.removeItem('token');
+      this.router.navigateByUrl('/');
+    }
+
   }
-}
