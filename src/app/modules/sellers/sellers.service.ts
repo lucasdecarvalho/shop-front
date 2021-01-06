@@ -45,6 +45,10 @@ export class SellersService {
     return this.http.get(`${environment.api_url}/api/seller/data`, this.httpOptions);
   }
   
+  store(id: any) {
+    return this.http.get(`${environment.api_url}/api/store/${id}`);
+  }
+  
   addProduct(data: any) {
     return this.http.post(`${environment.api_url}/api/products`, data);
   }

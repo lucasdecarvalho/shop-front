@@ -12,7 +12,17 @@ const routes: Routes = [
               path: '',
               component: HomeComponent,
             }
-        ]
+        ],
+  },
+  { 
+    path: 'loja/:store',
+        component: StoreComponent,
+        children: [
+            {
+              path: '',
+              component: HomeComponent,
+            }
+        ],
   }];
 
 @NgModule({

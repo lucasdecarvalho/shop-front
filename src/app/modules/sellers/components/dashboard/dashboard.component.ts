@@ -3,6 +3,7 @@ import { SellersService } from '../../sellers.service';
 import { StoreService } from '../../../store/store.service';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
 import { Router } from '@angular/router';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-dashboard',
@@ -60,6 +61,16 @@ export class DashboardComponent implements OnInit {
           error => {
 
           });
+      },
+      error => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Usuário não encontrado',
+            text: '',
+            footer: '<a href> Precisa de ajuda? Chat com nosso atendimento</a>'
+          })
+          window.localStorage.removeItem('token');
+          this.router.navigateByUrl('/');
       });
 
     }
