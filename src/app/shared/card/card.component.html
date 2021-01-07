@@ -1,7 +1,7 @@
 <div class="card col-6 col-md-3 float-left rounded border-0">
     <img class="d-block w-100 rounded" src="{{ url + products.photo1 }}" alt="{{ products.name }}">
     <div class="my-captions m-0 p-2">
-        <small (click)="navToStore(products.store)">{{ products.brand }}</small>
+        <small (click)="navToStore(products.store)">{{ company }}</small>
         <h5>{{ products.name }}</h5>
         <p>{{ products.caption }}</p>
         <h6>{{ products.price | currency: 'BRL' }}</h6>

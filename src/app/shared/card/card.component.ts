@@ -13,6 +13,7 @@ export class CardComponent implements OnInit {
   @Input() products = [];
   p: any = [];
   url: string;
+  company: string;
   
   constructor(private SellerService: SellersService, private router: Router) {
     this.p = this.products;
@@ -21,12 +22,18 @@ export class CardComponent implements OnInit {
   
   ngOnInit() {
 
+    this.SellerService.sellerData()
+        .subscribe(user => {
+          this.company = user['seller']['fantasia'];
+        })
+
   }
   
   navToStore(id) {
     this.SellerService.store(id)
         .subscribe(
           response => { 
+            this.company = response['seller']['fantasia'];
             this.router.navigateByUrl('loja/'+response['alias']);
           },
           error => { console.log(error) }
