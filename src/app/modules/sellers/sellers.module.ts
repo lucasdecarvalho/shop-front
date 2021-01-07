@@ -17,6 +17,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { CompanyDataComponent } from './components/company-data/company-data.component';
+import { ShortcutsComponent } from './components/shortcuts/shortcuts.component';
+import { SalesComponent } from './components/sales/sales.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { CompanyDataComponent } from './components/company-data/company-data.com
     AddProductComponent,
     ProductsListComponent,
     CompanyDataComponent,
+    ShortcutsComponent,
+    SalesComponent,
   ],
   imports: [
     CommonModule,

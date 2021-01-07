@@ -15,6 +15,8 @@ import { TokenInterceptor } from '../../core/interceptors/token.interceptor';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { CompanyDataComponent } from './components/company-data/company-data.component';
+import { ShortcutsComponent } from './components/shortcuts/shortcuts.component';
+import { SalesComponent } from './components/sales/sales.component';
 
 const routes: Routes = [
   {
@@ -33,7 +35,7 @@ const routes: Routes = [
               children: [
                 {
                   path: '',
-                  component: ProductsListComponent,
+                  component: ShortcutsComponent,
                   canActivate: [AuthGuard],
                 }
               ]
@@ -45,7 +47,7 @@ const routes: Routes = [
                 children: [
                   {
                     path: '',
-                    component: ProductsListComponent,
+                    component: SalesComponent,
                   }
                 ]
             },

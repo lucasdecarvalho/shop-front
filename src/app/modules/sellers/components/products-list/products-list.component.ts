@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 export class ProductsListComponent implements OnInit {
 
   products: any;
+  sim: boolean = false;
 
   constructor(private seller: SellersService, private storeServive: StoreService, private router: Router) { }
 
@@ -54,6 +55,12 @@ export class ProductsListComponent implements OnInit {
           this.storeServive.companyProducts(response['seller']['id'])
           .subscribe(data => {
               this.products = data;
+
+              if(this.products.length !== 0) {
+                this.sim = true;
+              } else {
+                this.sim = false;
+              }
           },
           error => {
 

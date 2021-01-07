@@ -1,14 +1,14 @@
-<h3>Lista de produtos</h3>
+<h3>Suas vendas</h3>
 <hr>
 <div class="container">
-    <table class="w-100 border" [hidden]="!sim">
+    <table class="w-100 border" [hidden]="!hasSale">
         <thead class="bg-light text-dark">
             <tr>
                 <td class="w-auto p-3 text-center">ID</td>
                 <td class="w-auto p-3" colspan="2">Produto</td>
                 <td class="w-auto p-3 text-center">Quantidade</td>
-                <td class="w-auto p-3 text-center">Visibilidade</td>
-                <td class="w-auto p-3 text-center">Ações</td>
+                <td class="w-auto p-3 text-center">Status</td>
+                <td class="w-auto p-3 text-center">Detalhes</td>
             </tr>
         </thead>
         <tbody *ngFor="let p of products" class="border">
@@ -38,7 +38,7 @@
             </tr>
         </tbody>
     </table>
-    <div class="text-center" [hidden]="sim">
-        <p>Seus produtos cadastrados aparecerão aqui. <a routerLink="/vendedores/adicionar-produtos">Adicionar produtos</a>.</p>
+    <div class="text-center" [hidden]="hasSale">
+        <p>Suas vendas aparecerão aqui. Até esse momento sua loja não efetuou nenhuma venda.</p>
     </div>
 </div>
