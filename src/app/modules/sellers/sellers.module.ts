@@ -15,6 +15,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { ProductsListComponent } from './components/products-list/products-list.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     SignupComponent,
     SellersComponent,
     AddProductComponent,
+    ProductsListComponent,
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,5 @@
-<div class="col-12 bg-dark text-light h-100">
-    <div class="row">
+<div class="col-12 text-light h-100">
+    <div class="row bg-dark">
         <div class="col-12 pt-4 pb-3">
             <h2 class="font-weight-bold">Olá{{ ', ' + firstName }}!</h2>
         </div>
@@ -10,16 +10,13 @@
                 <li class="w-100 float-left border-bottom"><a class="w-100 float-left p-3 text-dark" routerLink="">Painel de Controle</a></li>
                 <li class="w-100 float-left border-bottom"><a class="w-100 float-left p-3 text-dark" routerLink="">Suas Vendas</a></li>
                 <li class="w-100 float-left border-bottom"><a class="w-100 float-left p-3 text-dark" routerLink="">Dados da Empresa</a></li>
-                <li class="w-100 float-left border-bottom"><a class="w-100 float-left p-3 text-dark" routerLink="">Produtos à Venda</a></li>
+                <li class="w-100 float-left border-bottom"><a class="w-100 float-left p-3 text-dark" routerLink="/vendedores">Produtos à Venda</a></li>
+                <li class="w-100 float-left border-bottom"><a class="w-100 float-left p-3 text-dark" routerLink="/vendedores/adicionar-produtos">Adicionar produtos</a></li>
                 <li class="w-100 float-left border-bottom"><a class="w-100 float-left p-3 text-dark" (click)="logout()">Sair</a></li>
             </ul>
         </nav>
         <div class="col-9 p-4 bg-white h-100 text-dark">
-            <app-add-product></app-add-product>
-            <hr>
-            <div class="w-100 m-1" *ngFor="let p of products">
-                <app-card [products]="p"></app-card>
-            </div>
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>

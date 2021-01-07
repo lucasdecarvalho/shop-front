@@ -12,6 +12,8 @@ import { RoleGuard } from 'src/app/core/guards/role.guard';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from '../../core/interceptors/token.interceptor';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { ProductsListComponent } from './components/products-list/products-list.component';
 
 const routes: Routes = [
   {
@@ -26,10 +28,24 @@ const routes: Routes = [
               // data: {
               //   expectedRole: 'seller'
               // }
+
+              children: [
+                {
+                  path: '',
+                  component: ProductsListComponent,
+                }
+              ]
             },
             {
-              path: 'cadastro',
-              component: SignupComponent
+              path: 'adicionar-produtos',
+              component: DashboardComponent,
+              canActivate: [AuthGuard],
+                children: [
+                  {
+                    path: '',
+                    component: AddProductComponent,
+                  }
+                ]
             },
             {
               path: 'confirmar-dados',
@@ -37,8 +53,12 @@ const routes: Routes = [
               canActivate: [AuthGuard],
             },
             {
-                path: 'login',
-                component: LoginComponent,
+              path: 'cadastro',
+              component: SignupComponent
+            },
+            {
+              path: 'login',
+              component: LoginComponent,
             },
         ]
   }];

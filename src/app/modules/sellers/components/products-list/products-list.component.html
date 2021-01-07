@@ -1,0 +1,55 @@
+<h3>Lista de produtos</h3>
+<br>
+<table class="w-100 border rounded" border>
+    <thead class="bg-light">
+        <tr>
+            <td class="w-auto p-3 text-center">ID</td>
+            <td class="w-auto p-3 text-center">Imagem</td>
+            <td class="w-75 p-3">Nome do produto</td>
+            <td class="w-auto p-3 text-center">Quantidade</td>
+            <td class="w-auto p-3 text-center">Visibilidade</td>
+            <td class="w-25 p-3 text-center">Ações</td>
+        </tr>
+    </thead>
+    <tbody *ngFor="let p of products">
+        <tr>
+            <td class="p-3 text-center">{{ p.id }}</td>
+            <td class="p-3 text-center">
+                <img class="rounded" style="width:75px;" src="http://192.168.0.14:8000/storage/{{ p.photo1 }}" alt="foto1">
+            </td>
+            <td class="p-3">{{ p.name }}</td>
+            <td class="p-3 text-center">{{ p.storage_initial || 3 }}</td>
+            <td class="p-3 text-center">
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
+            </td>
+            <td class="p-3 text-center">
+                <a href="" style="font-size:1.6em;" class="p-3"><i class="bi bi-pencil-square text-secondary"></i></a>
+                <a href="" style="font-size:1.6em;" class="p-3"><i class="bi bi-trash text-danger"></i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- <section>
+    <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+    </label>
+
+    <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+    </label><br><br>
+
+    <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+    </label>
+
+    <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider round"></span>
+    </label>
+</section> -->
