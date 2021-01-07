@@ -21,19 +21,16 @@ export class CardComponent implements OnInit {
   }
   
   ngOnInit() {
-
     this.SellerService.sellerData()
         .subscribe(user => {
           this.company = user['seller']['fantasia'];
         })
-
   }
   
   navToStore(id) {
     this.SellerService.store(id)
         .subscribe(
           response => { 
-            this.company = response['seller']['fantasia'];
             this.router.navigateByUrl('loja/'+response['alias']);
           },
           error => { console.log(error) }
