@@ -35,7 +35,7 @@ const routes: Routes = [
               children: [
                 {
                   path: '',
-                  component: ShortcutsComponent,
+                  component: ProductsListComponent,
                   canActivate: [AuthGuard],
                 }
               ]

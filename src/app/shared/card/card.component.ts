@@ -21,10 +21,7 @@ export class CardComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.SellerService.sellerData()
-        .subscribe(user => {
-          this.company = user['seller']['fantasia'];
-        })
+
   }
   
   navToStore(id) {
