@@ -33,8 +33,20 @@ const routes: Routes = [
                 {
                   path: '',
                   component: ProductsListComponent,
+                  canActivate: [AuthGuard],
                 }
               ]
+            },
+            {
+              path: 'lista-produtos',
+              component: DashboardComponent,
+              canActivate: [AuthGuard],
+                children: [
+                  {
+                    path: '',
+                    component: ProductsListComponent,
+                  }
+                ]
             },
             {
               path: 'adicionar-produtos',
