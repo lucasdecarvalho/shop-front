@@ -14,6 +14,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from '../../core/interceptors/token.interceptor';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
+import { CompanyDataComponent } from './components/company-data/company-data.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,28 @@ const routes: Routes = [
                   canActivate: [AuthGuard],
                 }
               ]
+            },
+            {
+              path: 'vendas',
+              component: DashboardComponent,
+              canActivate: [AuthGuard],
+                children: [
+                  {
+                    path: '',
+                    component: ProductsListComponent,
+                  }
+                ]
+            },
+            {
+              path: 'dados-empresa',
+              component: DashboardComponent,
+              canActivate: [AuthGuard],
+                children: [
+                  {
+                    path: '',
+                    component: CompanyDataComponent,
+                  }
+                ]
             },
             {
               path: 'lista-produtos',

@@ -6,13 +6,37 @@
     </div>
     <div class="row h-100">
         <nav class="col-3 bg-light h-100">
-            <ul class="p-0">
-                <li class="w-100 float-left border-bottom"><a class="w-100 float-left p-3 text-dark" routerLink="/vendedores">Painel de Controle</a></li>
-                <li class="w-100 float-left border-bottom"><a class="w-100 float-left p-3 text-dark" routerLink="">Suas Vendas</a></li>
-                <li class="w-100 float-left border-bottom"><a class="w-100 float-left p-3 text-dark" routerLink="">Dados da Empresa</a></li>
-                <li class="w-100 float-left border-bottom"><a class="w-100 float-left p-3 text-dark" routerLink="/vendedores/lista-produtos">Produtos à Venda</a></li>
-                <li class="w-100 float-left border-bottom"><a class="w-100 float-left p-3 text-dark" routerLink="/vendedores/adicionar-produtos">Adicionar produtos</a></li>
-                <li class="w-100 float-left border-bottom"><a class="w-100 float-left p-3 text-dark" (click)="logout()">Sair</a></li>
+            <ul class="list-group text-dark">
+
+                <li class="list-group-item bg-light border-left-0 border-right-0">
+                    <i class="w-auto float-left p-3 bi bi-graph-up"></i>
+                    <a class="w-75 float-left p-3 text-dark" routerLink="/vendedores">Painel de controle</a>
+                </li>
+                
+                <li class="list-group-item bg-light border-left-0 border-right-0">
+                    <i class="w-auto float-left p-3 bi bi-credit-card-2-back"></i>
+                    <a class="w-75 float-left p-3 text-dark" routerLink="/vendedores/vendas">Suas vendas</a>
+                </li>
+                
+                <li class="list-group-item bg-light border-left-0 border-right-0">
+                    <i class="w-auto float-left p-3 bi bi-building"></i>
+                    <a class="w-75 float-left p-3 text-dark" routerLink="/vendedores/dados-empresa">Dados da empresa</a>
+                </li>
+                
+                <li class="list-group-item bg-light border-left-0 border-right-0">
+                    <i class="w-auto float-left p-3 bi bi-plus-circle"></i>
+                    <a class="w-75 float-left p-3 text-dark" routerLink="/vendedores/adicionar-produtos">Adicionar produtos</a>
+                </li>
+                
+                <li class="list-group-item bg-light border-left-0 border-right-0">
+                    <i class="w-auto float-left p-3 bi bi-cart3"></i>
+                    <a class="w-75 float-left p-3 text-dark" routerLink="/vendedores/lista-produtos">Produtos à venda</a>
+                </li>
+                
+                <li class="list-group-item bg-light border-left-0 border-right-0">
+                    <i class="w-auto float-left p-3 bi bi-box-arrow-left text-danger"></i>
+                    <a class="w-75 float-left p-3 text-dark" (click)="logout()">Sair</a>
+                </li>
             </ul>
         </nav>
         <div class="col-9 p-4 bg-white h-100 text-dark">

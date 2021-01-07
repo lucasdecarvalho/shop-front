@@ -16,6 +16,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
+import { CompanyDataComponent } from './components/company-data/company-data.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ProductsListComponent } from './components/products-list/products-list.
     SellersComponent,
     AddProductComponent,
     ProductsListComponent,
+    CompanyDataComponent,
   ],
   imports: [
     CommonModule,
