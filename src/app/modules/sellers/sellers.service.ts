@@ -53,6 +53,14 @@ export class SellersService {
     return this.http.post(`${environment.api_url}/api/products`, data);
   }
   
+  editProduct(id: any, data: any) {
+    return this.http.put(`${environment.api_url}/api/products/${id}`, data);
+  }
+  
+  showProduct(id: any) {
+    return this.http.get(`${environment.api_url}/api/products/${id}`);
+  }
+  
   verifyAccess(data: any) {
     return this.http.post(`${environment.api_url}/api/seller/verify-access`, data, this.httpOptions);
   }

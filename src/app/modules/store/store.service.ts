@@ -13,8 +13,8 @@ export class StoreService {
     return this.http.get(`${environment.api_url}/api/products`);
   }
 
-  companyProducts(id: number) {
-    return this.http.get(`${environment.api_url}/api/products/${id}`);
+  companyProducts(store: number) {
+    return this.http.get(`${environment.api_url}/api/product/${store}`);
   }
 
 }

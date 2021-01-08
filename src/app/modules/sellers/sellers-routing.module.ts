@@ -17,6 +17,7 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { CompanyDataComponent } from './components/company-data/company-data.component';
 import { ShortcutsComponent } from './components/shortcuts/shortcuts.component';
 import { SalesComponent } from './components/sales/sales.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 const routes: Routes = [
   {
@@ -70,6 +71,17 @@ const routes: Routes = [
                   {
                     path: '',
                     component: ProductsListComponent,
+                  }
+                ]
+            },
+            {
+              path: 'editar-produto',
+              component: DashboardComponent,
+              canActivate: [AuthGuard],
+                children: [
+                  {
+                    path: ':id',
+                    component: EditProductComponent,
                   }
                 ]
             },
