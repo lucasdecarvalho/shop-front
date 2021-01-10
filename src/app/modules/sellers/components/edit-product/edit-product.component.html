@@ -1,6 +1,6 @@
 <h3>Editar Produto</h3>
 <hr>
-<form [formGroup]="form" (ngSubmit)="submitForm()">
+<form #editProduct="ngForm" (ngSubmit)="onSubmit(editProduct.value)">
 
     <div class="form-group">
         <div class="form-row">
@@ -9,7 +9,7 @@
                 <div class="form-group border rounded">
                     <label for="upload1" class="w-100 text-center">
                         <img [src]="url1" style="max-width:100%;height:220px;background-size: cover;" class="rounded m-2" aria-hidden="true">
-                        <input type="file" style="display:none;" id="upload1" class="form-control" name="photo1" (change)="uploadFile1($event)" />
+                        <input type="file" style="display:none;" id="upload1" class="form-control" (change)="uploadFile1($event)" />
                     </label>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                 <div class="form-group border rounded">
                     <label for="upload2" class="w-100 text-center">
                         <img [src]="url2" style="max-width:100%;height:220px;background-size: cover;" class="rounded m-2" aria-hidden="true">
-                        <input type="file" style="display:none;" id="upload2" class="form-control" name="photo2" (change)="uploadFile2($event)" />
+                        <input type="file" style="display:none;" id="upload2" class="form-control" (change)="uploadFile2($event)" />
                     </label>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                 <div class="form-group border rounded">
                     <label for="upload3" class="w-100 text-center">
                         <img [src]="url3" style="max-width:100%;height:220px;background-size: cover;" class="rounded m-2" aria-hidden="true">
-                        <input type="file" style="display:none;" id="upload3" class="form-control" name="photo3" (change)="uploadFile3($event)" />
+                        <input type="file" style="display:none;" id="upload3" class="form-control" (change)="uploadFile3($event)" />
                     </label>
                 </div>
             </div>
@@ -38,20 +38,20 @@
 
     <div class="form-row">
         <div class="form-group col-8">
-            <input type="text" class="form-control" formControlName="name" placeholder="Nome do produto">
+            <input type="text" class="form-control" name="name" [(ngModel)]="p.name" placeholder="Nome do produto">
         </div>
         
         <div class="form-group col-4">
-            <input type="text" class="form-control" formControlName="price" placeholder="Preço do produto">
+            <input type="text" class="form-control" name="price" [(ngModel)]="p.price" placeholder="Preço do produto">
         </div>
     </div>
 
     <div class="form-group">
-        <input type="text" class="form-control" formControlName="caption" placeholder="Descrição curta do produto (opcional)">
+        <input type="text" class="form-control" name="caption" [(ngModel)]="p.caption" placeholder="Descrição curta do produto (opcional)">
     </div>
 
     <div class="form-group">
-        <textarea class="form-control" formControlName="description" placeholder="Descrição longa do produto (opcional)"></textarea>
+        <textarea class="form-control" name="description" [(ngModel)]="p.description" placeholder="Descrição longa do produto (opcional)"></textarea>
     </div>
 
     <div class="form-group text-md-right">

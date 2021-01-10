@@ -135,11 +135,11 @@ export class AddProductComponent implements OnInit {
 
           this.SellerService.addProduct(formData)
               .subscribe(data => {
-                console.log('enviado: ', data);
+
                 Swal.fire({
                   position: 'center',
                   icon: 'success',
-                  title: 'Produto editado com sucesso!',
+                  title: 'Produto cadastrado com sucesso!',
                   showConfirmButton: false,
                   timer: 1500
                 })
