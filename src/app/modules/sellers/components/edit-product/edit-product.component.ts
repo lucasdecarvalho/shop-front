@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { SellersService } from '../../sellers.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { NgForm } from '@angular/forms';
 import Swal from "sweetalert2";
 import { environment } from 'src/environments/environment';
-import { isObject, isString } from 'util';
+import { NgForm } from '@angular/forms';
+import { isArray, isObject, isString } from 'util';
+import { isDefined } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-edit-product',
@@ -55,9 +56,6 @@ export class EditProductComponent implements OnInit {
 
         });
   }
-
-  // get f() { return this.form.controls; }
-  
 
   uploadFile1(event) {
 
@@ -131,16 +129,14 @@ export class EditProductComponent implements OnInit {
 
           formData.append("store", response['seller']['id']);
           formData.append("brand", response['seller']['fantasia']);
-
           formData.append("name", data.name);
           formData.append("price", data.price);
-          
-          // formData.append("storage_initial", data.storage_initial);
-          // formData.append("caption", data.caption);
-          // formData.append("description", data.description);
-          // formData.append("details", data.details);
-          // formData.append("discount", data.discount);
-          // formData.append("video", data.video);
+          formData.append("storage_initial", data.storage_initial);
+          formData.append("caption", data.caption);
+          formData.append("description", data.description);
+          formData.append("details", data.details);
+          formData.append("discount", data.discount);
+          formData.append("video", data.video);
           
           let nice = JSON.parse(this.id);
           // const jsonData = {};

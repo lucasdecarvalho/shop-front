@@ -54,7 +54,7 @@ export class SellersService {
   }
   
   editProduct(id: any, data: any) {
-    return this.http.put(`${environment.api_url}/api/products/${id}`, data);
+    return this.http.post(`${environment.api_url}/api/products/${id}?_method=PUT`, data);
   }
   
   showProduct(id: any) {
