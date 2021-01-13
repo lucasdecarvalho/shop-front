@@ -60,6 +60,10 @@ export class SellersService {
   showProduct(id: any) {
     return this.http.get(`${environment.api_url}/api/products/${id}`);
   }
+
+  deleteProduct(id: any) {
+    return this.http.delete(`${environment.api_url}/api/products/${id}`);
+  }
   
   verifyAccess(data: any) {
     return this.http.post(`${environment.api_url}/api/seller/verify-access`, data, this.httpOptions);

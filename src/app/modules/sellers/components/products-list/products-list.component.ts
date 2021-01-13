@@ -18,6 +18,16 @@ export class ProductsListComponent implements OnInit {
 
   constructor(private seller: SellersService, private storeServive: StoreService, private router: Router) { }
 
+  deleteProd(id) {
+    console.log(id)
+    this.seller.deleteProduct(id)
+        .subscribe(data => {
+          console.log('deletou: ', data);
+        }, error => {
+          console.log('erro', error);
+        });
+  }
+
   showHiden(data) {
 
     this.seller.showProduct(data.id)
