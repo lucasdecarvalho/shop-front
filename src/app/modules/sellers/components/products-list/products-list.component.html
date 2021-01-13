@@ -21,7 +21,7 @@
                 <td class="w-auto p-3 text-center">{{ p.storage_initial || 3 }}</td>
                 <td class="w-auto p-3 text-center">
                     <label class="switch">
-                        <input type="checkbox" checked>
+                        <input type="checkbox" [checked]="p.available" (click)="showHiden(p)">
                         <span class="slider round"></span>
                     </label>
                 </td>

@@ -112,8 +112,9 @@ export class EditProductComponent implements OnInit {
   
   onSubmit(data: any) {
 
-    this.SellerService.sellerData()
+    this.SellerService.showProduct(this.id)
         .subscribe(response => {
+          console.log('foco: ',response['id'])
 
           let formData = new FormData();
 
@@ -127,20 +128,21 @@ export class EditProductComponent implements OnInit {
             formData.append("photo3", this.ph3);
           }
 
-          formData.append("store", response['seller']['id']);
-          formData.append("brand", response['seller']['fantasia']);
-          formData.append("name", data.name);
-          formData.append("price", data.price);
-          formData.append("storage_initial", data.storage_initial);
-          formData.append("caption", data.caption);
-          formData.append("description", data.description);
-          formData.append("details", data.details);
-          formData.append("discount", data.discount);
-          formData.append("video", data.video);
+          formData.append("store", response['store']);
+          formData.append("brand", response['brand']);
+          formData.append("name", data['name']);
+          formData.append("available", response['available']);
+          formData.append("price", data['price']);
+          formData.append("storage_initial", response['storage_initial']);
+          formData.append("caption", data['caption']);
+          formData.append("description", data['description']);
+          formData.append("details", response['details']);
+          formData.append("discount", response['discount']);
+          formData.append("video", response['video']);
           
           let nice = JSON.parse(this.id);
-          // const jsonData = {};
 
+          // const jsonData = {};
           // for(const [key, value] of formData) {
           //     jsonData[key] = value;
           // }
