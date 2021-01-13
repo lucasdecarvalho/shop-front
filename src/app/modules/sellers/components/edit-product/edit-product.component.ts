@@ -114,7 +114,6 @@ export class EditProductComponent implements OnInit {
 
     this.SellerService.showProduct(this.id)
         .subscribe(response => {
-          console.log('foco: ',response['id'])
 
           let formData = new FormData();
 

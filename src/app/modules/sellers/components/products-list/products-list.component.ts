@@ -18,14 +18,41 @@ export class ProductsListComponent implements OnInit {
 
   constructor(private seller: SellersService, private storeServive: StoreService, private router: Router) { }
 
-  deleteProd(id) {
-    console.log(id)
-    this.seller.deleteProduct(id)
-        .subscribe(data => {
-          console.log('deletou: ', data);
-        }, error => {
-          console.log('erro', error);
-        });
+  ngOnInit(): void {
+
+    this.seller.sellerData()
+      .subscribe(response => {
+
+          this.storeServive.companyProducts(response['seller']['id'])
+          .subscribe(data => {
+
+              this.products = data;
+
+              if(this.products.length !== 0) {
+                this.sim = true;
+              } else {
+                this.sim = false;
+              }
+          },
+          error => {
+
+          });
+      },
+      error => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Usuário não encontrado',
+            text: '',
+            footer: '<a href> Precisa de ajuda? Chat com nosso atendimento</a>'
+          })
+          window.localStorage.removeItem('token');
+          this.router.navigateByUrl('/');
+      });
+
+  }
+
+  editProduct(id){
+    this.router.navigateByUrl('/vendedores/editar-produto/' + id);
   }
 
   showHiden(data) {
@@ -64,42 +91,34 @@ export class ProductsListComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
+  deleteProd(id) {
 
-    this.seller.sellerData()
-      .subscribe(response => {
+    Swal.fire({
+      title: 'Atenção!',
+      text: "Tem certeza que deseja deletar este produto?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Sim, deletar'
+    }).then((result) => {
 
-          this.storeServive.companyProducts(response['seller']['id'])
+      if (result.isConfirmed) {
+        this.seller.deleteProduct(id)
           .subscribe(data => {
-
-              this.products = data;
-
-              if(this.products.length !== 0) {
-                this.sim = true;
-              } else {
-                this.sim = false;
-              }
-          },
-          error => {
-
+            Swal.fire({
+              title: 'Produto deletado com sucesso!',
+              text: '',
+              icon: 'success',
+              showConfirmButton: false,
+              timer: 1500
+            })  
+          }, error => {
+            console.log('erro', error);
           });
-      },
-      error => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Usuário não encontrado',
-            text: '',
-            footer: '<a href> Precisa de ajuda? Chat com nosso atendimento</a>'
-          })
-          window.localStorage.removeItem('token');
-          this.router.navigateByUrl('/');
-      });
-
-    }
-
-    editProduct(id){
-      this.router.navigateByUrl('/vendedores/editar-produto/' + id);
-    }
-  
+      }
+    })
+  }
 
 }
