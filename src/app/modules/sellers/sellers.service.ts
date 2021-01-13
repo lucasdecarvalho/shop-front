@@ -68,5 +68,17 @@ export class SellersService {
   verifyAccess(data: any) {
     return this.http.post(`${environment.api_url}/api/seller/verify-access`, data, this.httpOptions);
   }
+
+  consultaCEP(cep: string) {
+    cep = cep.replace(/\D/g, '');
+    if(cep != '') {
+      const validacep = /^[0-9]{8}$/;
+      
+          if(validacep.test(cep)) {
+            
+            return this.http.get(`//viacep.com.br/ws/${cep}/json`);
+          }
+    }
+  }
   
 }

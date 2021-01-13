@@ -19,6 +19,7 @@ export class DataConfirmComponent implements OnInit {
   public submitted: boolean = false;
   public nome: string;
   isValidFlg:boolean = true;
+  address: any;
   
   constructor(
     private formBuilder: FormBuilder, 
@@ -35,12 +36,13 @@ export class DataConfirmComponent implements OnInit {
         fantasia: ['', [Validators.required, Validators.maxLength(255)]],
         // nome: ['', [Validators.required, Validators.maxLength(255)]],
         // abertura: ['', [Validators.required, Validators.maxLength(10)]],
-        logradouro: [{value: '', disabled: true}, Validators.required, Validators.maxLength(255)],
+        logradouro: ['', [Validators.required, Validators.maxLength(255)]],
         numero: ['', [Validators.required, Validators.maxLength(15)]],
         complemento: ['', [Validators.maxLength(255)]],
-        bairro: [{value: '', disabled: true}, [Validators.required, Validators.maxLength(255)]],
-        municipio: [{value: '', disabled: true}, [Validators.required, Validators.maxLength(255)]],
-        uf: [{value: '', disabled: true}, [Validators.required, Validators.maxLength(2)]],
+        bairro: ['', [Validators.required, Validators.maxLength(255)]],
+        // bairro: [{value: '', disabled: true}, [Validators.required, Validators.maxLength(255)]],
+        municipio: ['', [Validators.required, Validators.maxLength(255)]],
+        uf: ['', [Validators.required, Validators.maxLength(2)]],
         cep: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
         telefone: ['', [Validators.required, Validators.minLength(14), Validators.maxLength(14)]],
         telefone2: ['', [Validators.minLength(14), Validators.maxLength(14)]],
@@ -124,7 +126,7 @@ export class DataConfirmComponent implements OnInit {
         return;
       }
 
-      if(this.formConfirm.controls.municipio.value !== 'RIO CLARO' && this.formConfirm.controls.uf.value !== 'SP' ) {
+      if(this.formConfirm.controls.municipio.value !== 'Rio Claro' || this.formConfirm.controls.uf.value !== 'SP' ) {
         event.preventDefault();
         Swal.fire({
           icon: 'error',
@@ -181,7 +183,25 @@ export class DataConfirmComponent implements OnInit {
   }
 
   buscaCEP() {
-    console.log("muito malandro");
+
+    const cep = this.formConfirm.get('cep').value;
+
+    if(cep != null && cep !== '') {
+      this.seller.consultaCEP(cep)
+          .subscribe(dados => this.populateAddress(dados));
+    }
+  }
+
+  populateAddress(dados) {
+    this.formConfirm.patchValue({
+      logradouro: dados.logradouro,
+      bairro: dados.bairro,
+      municipio: dados.localidade,
+      uf: dados.uf,
+      complemento: '',
+      numero: ''
+
+    })
   }
 
   validateCpf(field) {
