@@ -3,6 +3,7 @@ import { StoreService } from 'src/app/modules/store/store.service';
 import { SellersService } from '../../sellers.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-products-list',
@@ -16,7 +17,14 @@ export class ProductsListComponent implements OnInit {
   status: string;
   result: string;
 
-  constructor(private seller: SellersService, private storeServive: StoreService, private router: Router) { }
+  constructor(
+    private title: Title,
+    private seller: SellersService, 
+    private storeServive: StoreService, 
+    private router: Router) { 
+
+      this.title.setTitle('Lista de produtos');
+    }
 
   ngOnInit(): void {
 

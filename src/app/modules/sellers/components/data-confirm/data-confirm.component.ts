@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import Swal from "sweetalert2";
 import { SellersService } from '../../sellers.service';
 import Stepper from 'bs-stepper';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-data-confirm',
@@ -22,10 +23,13 @@ export class DataConfirmComponent implements OnInit {
   address: any;
   
   constructor(
+    private title: Title,
     private formBuilder: FormBuilder, 
     private seller: SellersService, 
     private router: Router) 
     {  
+
+      this.title.setTitle('Confirme seus dados');
       this.formConfirm = this.formBuilder.group({
 
         firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],

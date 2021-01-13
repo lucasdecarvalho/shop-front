@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { Title, BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppComponent } from './app.component';

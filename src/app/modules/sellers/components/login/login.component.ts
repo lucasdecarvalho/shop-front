@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from "@angular/router";
 import { SellersService } from '../../sellers.service';
 
@@ -11,7 +12,13 @@ export class LoginComponent implements OnInit {
 
   errors: any[] = [];
 
-  constructor(private auth: SellersService, private router: Router) { }
+  constructor(
+    private title: Title,
+    private auth: SellersService, 
+    private router: Router) { 
+
+      this.title.setTitle('Login');
+    }
 
   ngOnInit() {
 

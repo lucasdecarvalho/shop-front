@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { NgForm } from '@angular/forms';
 import { isArray, isObject, isString } from 'util';
 import { isDefined } from '@angular/compiler/src/util';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit-product',
@@ -29,9 +30,13 @@ export class EditProductComponent implements OnInit {
   ph3: any;
 
   constructor(
+    private title: Title,
     private SellerService: SellersService, 
     private router: Router, 
-    private activatedRoute: ActivatedRoute) {  }
+    private activatedRoute: ActivatedRoute) {  
+
+      this.title.setTitle('Editar produto');
+    }
   
   ngOnInit(): void {
 

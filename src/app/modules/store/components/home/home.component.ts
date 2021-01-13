@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { StoreService } from '../../store.service';
 
@@ -12,8 +13,12 @@ export class HomeComponent implements OnInit {
   showLoad: boolean = false;
   products: any;
 
-  constructor(private storeService: StoreService, private SpinnerService: NgxSpinnerService) { 
+  constructor(
+    private title: Title,
+    private storeService: StoreService, 
+    private SpinnerService: NgxSpinnerService) { 
 
+      this.title.setTitle('Shop Rio Claro');
   }
   
   ngOnInit() {

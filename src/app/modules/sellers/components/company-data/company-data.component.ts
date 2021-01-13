@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { SellersService } from '../../sellers.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-company-data',
@@ -18,9 +19,12 @@ export class CompanyDataComponent implements OnInit {
   public errors: any;
 
   constructor(
+    private title: Title,
     private formBuilder: FormBuilder, 
     private seller: SellersService, 
     private router: Router) { 
+
+      this.title.setTitle('Dados da empresa');
 
       this.formConfirm = this.formBuilder.group({
 

@@ -3,6 +3,7 @@ import { SellersService } from '../../sellers.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from "sweetalert2";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-product',
@@ -18,7 +19,13 @@ export class AddProductComponent implements OnInit {
   format: any;
   position: any;
 
-  constructor(public fb: FormBuilder, private SellerService: SellersService, private router: Router) {
+  constructor(
+    private title: Title,
+    public fb: FormBuilder, 
+    private SellerService: SellersService, 
+    private router: Router) {
+
+    this.title.setTitle('Adicionar produtos');
 
     this.form = this.fb.group({
       store: [''],

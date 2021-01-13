@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { Signup } from './signup';
 import { SellersService } from 'src/app/modules/sellers/sellers.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-signup',
@@ -21,10 +22,14 @@ export class SignupComponent implements OnInit {
   dataCompany: Object[];
 
   constructor(
+    private title: Title,
     private formBuilder: FormBuilder, 
     public signup: SellersService, 
     private router: Router, 
-    private SpinnerService: NgxSpinnerService) { }
+    private SpinnerService: NgxSpinnerService) { 
+
+      this.title.setTitle('Crie sua loja virtual');
+    }
   
   ngOnInit() {
     this.createForm(new Signup());

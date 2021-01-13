@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-shortcuts',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShortcutsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private title: Title,
+  ) { 
+
+    this.title.setTitle('Painel de controle');
+  }
 
   ngOnInit(): void {
   }

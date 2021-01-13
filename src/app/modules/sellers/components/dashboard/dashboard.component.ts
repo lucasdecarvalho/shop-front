@@ -4,6 +4,7 @@ import { StoreService } from '../../../store/store.service';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
 import { Router } from '@angular/router';
 import Swal from "sweetalert2";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,14 @@ export class DashboardComponent implements OnInit {
   products: any;
   id: number;
 
-  constructor(private seller: SellersService, private storeServive: StoreService, private router: Router) { }
+  constructor(
+    private title: Title,
+    private seller: SellersService, 
+    private storeServive: StoreService, 
+    private router: Router) { 
+
+      this.title.setTitle('Painel de controle');
+    }
 
   ngOnInit(): void {
 
