@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { StoreComponent } from './modules/store/store.component';
 import { HomeComponent } from './modules/store/components/home/home.component';
+import { CompanyComponent } from './modules/store/components/company/company.component';
 
 const routes: Routes = [
   { 
@@ -20,7 +21,7 @@ const routes: Routes = [
         children: [
             {
               path: '',
-              component: HomeComponent,
+              component: CompanyComponent,
             }
         ],
   }];

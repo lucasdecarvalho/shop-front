@@ -60,6 +60,10 @@ export class SellersService {
   showProduct(id: any) {
     return this.http.get(`${environment.api_url}/api/products/${id}`);
   }
+  
+  showSellerByAlias(store: string) {
+    return this.http.get(`${environment.api_url}/api/company/${store}`);
+  }
 
   deleteProduct(id: any) {
     return this.http.delete(`${environment.api_url}/api/products/${id}`);
