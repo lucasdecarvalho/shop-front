@@ -20,6 +20,9 @@ import { CompanyDataComponent } from './components/company-data/company-data.com
 import { ShortcutsComponent } from './components/shortcuts/shortcuts.component';
 import { SalesComponent } from './components/sales/sales.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
+import { NgxCurrencyModule } from "ngx-currency";
 
 @NgModule({
   declarations: [
@@ -44,6 +47,8 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     [SweetAlert2Module.forRoot()],
     NgxSpinnerModule,
     SharedModule,
+    NgxMaskModule.forRoot(),
+    NgxCurrencyModule,
   ]
 })
 export class SellersModule { }

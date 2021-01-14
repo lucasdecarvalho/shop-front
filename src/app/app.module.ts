@@ -11,7 +11,7 @@ import { StoreModule } from './modules/store/store.module';
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
 registerLocaleData(ptBr)
-
+ 
 @NgModule({
   declarations: [
     AppComponent,
