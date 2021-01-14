@@ -23,6 +23,7 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
 import { NgxMaskModule, IConfig } from 'ngx-mask'
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 import { NgxCurrencyModule } from "ngx-currency";
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { NgxCurrencyModule } from "ngx-currency";
     SharedModule,
     NgxMaskModule.forRoot(),
     NgxCurrencyModule,
+    CKEditorModule,
   ]
 })
 export class SellersModule { }

@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from "sweetalert2";
 import { Title } from '@angular/platform-browser';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-add-product',
@@ -13,6 +14,7 @@ import { Title } from '@angular/platform-browser';
 export class AddProductComponent implements OnInit {
 
   form: FormGroup;
+  public Editor = ClassicEditor;
   url1: any = 'https://icons-for-free.com/iconfiles/png/512/add+board+new+plus+icon-1320186882821780394.png';
   url2: any = 'https://icons-for-free.com/iconfiles/png/512/add+board+new+plus+icon-1320186882821780394.png';
   url3: any = 'https://icons-for-free.com/iconfiles/png/512/add+board+new+plus+icon-1320186882821780394.png';

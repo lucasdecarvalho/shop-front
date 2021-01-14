@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
 import { isArray, isObject, isString } from 'util';
 import { isDefined } from '@angular/compiler/src/util';
 import { Title } from '@angular/platform-browser';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-edit-product',
@@ -15,6 +16,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class EditProductComponent implements OnInit {
 
+  public Editor = ClassicEditor;
   url1: any = 'https://icons-for-free.com/iconfiles/png/512/add+board+new+plus+icon-1320186882821780394.png';
   url2: any = 'https://icons-for-free.com/iconfiles/png/512/add+board+new+plus+icon-1320186882821780394.png';
   url3: any = 'https://icons-for-free.com/iconfiles/png/512/add+board+new+plus+icon-1320186882821780394.png';

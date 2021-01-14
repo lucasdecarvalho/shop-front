@@ -39,20 +39,24 @@
     
     <div class="form-row">
         <div class="form-group col-8">
-            <input type="text" class="form-control" formControlName="name" placeholder="Nome do produto" maxlength="40">
+            <label for="name">Nome do produto:</label>
+            <input type="text" id="name" class="form-control" formControlName="name" maxlength="40">
         </div>
         
         <div class="form-group col-4">
-            <input type="text" class="form-control" formControlName="price" placeholder="Preço do produto" currencyMask [options]="{ align: 'left', prefix: 'R$ ', thousands: '.', decimal: ',', min: '0' }" maxlength="8">
+            <label for="price">Preço:</label>
+            <input type="text" id="price" class="form-control" formControlName="price" currencyMask [options]="{ align: 'left', prefix: 'R$ ', thousands: '.', decimal: ',', min: '0' }" maxlength="8">
         </div>
     </div>
 
     <div class="form-group">
-        <input type="text" class="form-control" formControlName="caption" placeholder="Descrição curta do produto (opcional)" maxlength="60">
+        <label for="caption">Descrição curta sobre o produto (opcional):</label>
+        <input type="text" id="caption" class="form-control" formControlName="caption" maxlength="60">
     </div>
 
     <div class="form-group">
-        <textarea class="form-control" formControlName="description" placeholder="Descrição longa do produto (opcional)"></textarea>
+        <label for="description">Descrição longa sobre o produto (opcional):</label>
+        <ckeditor id="description" class="description" [editor]="Editor" formControlName="description"></ckeditor>
     </div>
 
     <!-- <div class="form-group">

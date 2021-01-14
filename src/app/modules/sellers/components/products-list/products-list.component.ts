@@ -83,6 +83,8 @@ export class ProductsListComponent implements OnInit {
             formData.append("name", data.name);
             formData.append("price", data.price);
             formData.append("brand", data.brand);
+            formData.append("caption", data.caption);
+            formData.append("description", data.description);
             formData.append("available", this.result);
 
             this.seller.editProduct(data.id, formData)
