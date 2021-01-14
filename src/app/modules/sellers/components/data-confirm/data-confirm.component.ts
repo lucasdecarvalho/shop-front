@@ -47,9 +47,9 @@ export class DataConfirmComponent implements OnInit {
         // bairro: [{value: '', disabled: true}, [Validators.required, Validators.maxLength(255)]],
         municipio: ['', [Validators.required, Validators.maxLength(255)]],
         uf: ['', [Validators.required, Validators.maxLength(2)]],
-        cep: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-        telefone: ['', [Validators.required, Validators.minLength(14), Validators.maxLength(14)]],
-        telefone2: ['', [Validators.minLength(14), Validators.maxLength(14)]],
+        cep: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(10)]],
+        telefone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(14)]],
+        telefone2: ['', [Validators.minLength(10), Validators.maxLength(14)]],
         // alias: ['', [Validators.required, Validators.maxLength(255)]],
         
         bankName: ['', [Validators.required]],
@@ -66,6 +66,13 @@ export class DataConfirmComponent implements OnInit {
 
         this.company = response;
         this.nome = this.company.seller.nome;
+
+        if(this.company.seller.telefone.length > 14) {
+          
+          let fone = this.company.seller.telefone.split('/ ');
+          this.company.seller.telefone = fone[0];
+          this.company.seller.telefone2 = fone[1];
+        }
 
         this.formConfirm.patchValue({
           fantasia: this.company.seller.fantasia,
@@ -130,7 +137,7 @@ export class DataConfirmComponent implements OnInit {
         return;
       }
 
-      if(this.formConfirm.controls.municipio.value !== 'Rio Claro' || this.formConfirm.controls.uf.value !== 'SP' ) {
+      if(this.formConfirm.controls.municipio.value !== 'Rio Claro' && this.formConfirm.controls.municipio.value !== 'RIO CLARO' || this.formConfirm.controls.uf.value !== 'SP' ) {
         event.preventDefault();
         Swal.fire({
           icon: 'error',
@@ -206,70 +213,6 @@ export class DataConfirmComponent implements OnInit {
       numero: ''
 
     })
-  }
-
-  validateCpf(field) {
-    let phoneNumDigits = field.value.replace(/\D/g, '');
-  
-    this.isValidFlg = (phoneNumDigits.length == 0 || phoneNumDigits.length == 18);
-  
-    let formattedNumber = phoneNumDigits;
-    if (phoneNumDigits.length >= 4)
-      formattedNumber = phoneNumDigits.substring(0, 3) + '.' + phoneNumDigits.substring(3);
-    if (phoneNumDigits.length >= 7)
-      formattedNumber = phoneNumDigits.substring(0, 3) + '.' + phoneNumDigits.substring(3, 6) + '.' + phoneNumDigits.substring(6);
-    if (phoneNumDigits.length >= 10)
-      formattedNumber = phoneNumDigits.substring(0, 3) + '.' + phoneNumDigits.substring(3, 6) + '.' + phoneNumDigits.substring(6,9) +'-'+ phoneNumDigits.substring(9);
-    if (phoneNumDigits.length >= 11)
-      formattedNumber = phoneNumDigits.substring(0, 3) + '.' + phoneNumDigits.substring(3, 6) + '.' + phoneNumDigits.substring(6,9) +'-'+ phoneNumDigits.substring(9,11) + phoneNumDigits.substring(11);
-  
-    field.value = formattedNumber;
-  }
-
-  validateCel(field) {
-    let phoneNumDigits = field.value.replace(/\D/g, '');
-  
-    this.isValidFlg = (phoneNumDigits.length == 0 || phoneNumDigits.length == 18);
-  
-    let formattedNumber = phoneNumDigits;
-    if (phoneNumDigits.length >= 3)
-      formattedNumber = '(' + phoneNumDigits.substring(0, 2) + ') ' + phoneNumDigits.substring(2);
-    if (phoneNumDigits.length >= 8)
-      formattedNumber = '(' + phoneNumDigits.substring(0, 2) + ') ' + phoneNumDigits.substring(2, 7) + '-' + phoneNumDigits.substring(7);
-    if (phoneNumDigits.length >= 12)
-      formattedNumber = '(' + phoneNumDigits.substring(0, 2) + ') ' + phoneNumDigits.substring(2, 7) + '-' + phoneNumDigits.substring(7,11);
-  
-    field.value = formattedNumber;
-  }
-
-  validatePhoneNo(field) {
-    let phoneNumDigits = field.value.replace(/\D/g, '');
-  
-    this.isValidFlg = (phoneNumDigits.length == 0 || phoneNumDigits.length == 18);
-  
-    let formattedNumber = phoneNumDigits;
-    if (phoneNumDigits.length >= 3)
-      formattedNumber = '(' + phoneNumDigits.substring(0, 2) + ') ' + phoneNumDigits.substring(2);
-    if (phoneNumDigits.length >= 7)
-      formattedNumber = '(' + phoneNumDigits.substring(0, 2) + ') ' + phoneNumDigits.substring(2, 6) + '-' + phoneNumDigits.substring(6);
-    if (phoneNumDigits.length >= 11)
-      formattedNumber = '(' + phoneNumDigits.substring(0, 2) + ') ' + phoneNumDigits.substring(2, 6) + '-' + phoneNumDigits.substring(6,10);
-  
-    field.value = formattedNumber;
-  }
-
-  validateCep(field) {
-    let phoneNumDigits = field.value.replace(/\D/g, '');
-  
-    this.isValidFlg = (phoneNumDigits.length == 0 || phoneNumDigits.length == 18);
-  
-    let formattedNumber = phoneNumDigits;
-    if (phoneNumDigits.length >= 3)
-      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2);
-    if (phoneNumDigits.length >= 6)
-      formattedNumber = phoneNumDigits.substring(0, 2) + '.' + phoneNumDigits.substring(2, 5) + '-' + phoneNumDigits.substring(5);
-  
-    field.value = formattedNumber;
   }
 
 }
