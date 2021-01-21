@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { StoreComponent } from './modules/store/store.component';
 import { HomeComponent } from './modules/store/components/home/home.component';
 import { CompanyComponent } from './modules/store/components/company/company.component';
+import { DetailsComponent } from './modules/store/components/details/details.component';
 
 const routes: Routes = [
   { 
@@ -22,9 +23,16 @@ const routes: Routes = [
             {
               path: '',
               component: CompanyComponent,
-            }
+              
+            },
+            {
+              path: 'detalhes',
+              component: DetailsComponent,
+              
+            },
         ],
-  }];
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
