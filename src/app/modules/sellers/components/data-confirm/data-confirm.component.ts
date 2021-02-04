@@ -34,8 +34,8 @@ export class DataConfirmComponent implements OnInit {
 
         firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
         lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
-        cpf: ['', [Validators.required, Validators.minLength(14), Validators.maxLength(14)]],
-        cel: ['', [Validators.required, Validators.minLength(15), Validators.maxLength(15)]],
+        cpf: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(14)]],
+        cel: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(15)]],
         
         fantasia: ['', [Validators.required, Validators.maxLength(255)]],
         // nome: ['', [Validators.required, Validators.maxLength(255)]],
