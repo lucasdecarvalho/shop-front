@@ -6,7 +6,7 @@
             <tr>
                 <td class="w-auto p-3 text-center">ID</td>
                 <td class="w-auto p-3" colspan="2">Produto</td>
-                <td class="w-auto p-3 text-center">Quantidade</td>
+                <!-- <td class="w-auto p-3 text-center">Quantidade</td> -->
                 <td class="w-auto p-3 text-center">Visibilidade</td>
                 <td class="w-auto p-3 text-center">Ações</td>
             </tr>
@@ -18,7 +18,7 @@
                     <img class="rounded" style="width:75px;" src="http://192.168.0.14:8000/storage/{{ p.photo1 }}" alt="foto1">
                 </td>
                 <td class="w-50 p-3">{{ p.name }}</td>
-                <td class="w-auto p-3 text-center">{{ p.storage_initial || 3 }}</td>
+                <!-- <td class="w-auto p-3 text-center">{{ p.storage_initial || 3 }}</td> -->
                 <td class="w-auto p-3 text-center">
                     <label class="switch">
                         <input type="checkbox" [checked]="p.available" (click)="showHiden(p)">
