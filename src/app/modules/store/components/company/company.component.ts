@@ -14,6 +14,12 @@ export class CompanyComponent implements OnInit {
 
   products: any;
   alias: string;
+  cnpj: string;
+  endereco: string;
+  since: string;
+  fantasia: string;
+  fone: string;
+  brand: string;
 
   constructor(
     private title: Title,
@@ -34,11 +40,17 @@ export class CompanyComponent implements OnInit {
 
                 let id = data['id'];
 
+                this.fantasia = data['fantasia'];
+                this.cnpj = data['cnpj'];
+                this.since = data['abertura'];
+                this.fone = data['telefone'];
+                this.endereco = data['logradouro'] + ', ' + data['numero'] + ' - ' + data['complemento'] + ' - ' + data['bairro'] + ' - CEP: ' + data['cep'] + ' - ' + data['municipio'] + '/' + data['uf'];
+
                 this.storeService.companyProducts(id)
                     .subscribe(data => {
-      
+                      
                       this.products = data;
-      
+                      
                     },
                     error => {
                       console.log('erros: ', error);

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SellersService } from 'src/app/modules/sellers/sellers.service';
 import { environment } from '../../../environments/environment.prod';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -15,13 +15,20 @@ export class CardComponent implements OnInit {
   url: string;
   company: string;
   
-  constructor(private SellerService: SellersService, private router: Router) {
-    this.p = this.products;
-    this.url = environment.api_url + '/storage/';
+  constructor(
+    private SellerService: SellersService, 
+    private router: Router,
+    private activatedRoute: ActivatedRoute) {
+      this.p = this.products;
+      this.url = environment.api_url + '/storage/';
   }
   
   ngOnInit() {
-
+    
+    let alias = this.activatedRoute.snapshot.paramMap.get('store');
+    if (alias) {
+      this.products['brand'] = null;
+    }
   }
   
   navToProd(store, id) {
