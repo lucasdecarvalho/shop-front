@@ -35,7 +35,8 @@ export class CardComponent implements OnInit {
     this.SellerService.store(store)
         .subscribe(
           response => { 
-            this.router.navigateByUrl('loja/'+response['alias']+'/detalhes');
+
+            this.router.navigateByUrl('loja/'+response['alias'] + '/' + id);
           },
           error => { console.log(error) }
           );
