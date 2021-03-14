@@ -57,6 +57,15 @@
                     <p class="mt-2 mb-4">Confirme os dados abaixo. Caso estejam incorretos ou desatualizados, por favor, atualize.</p>
                     <hr>
                     <div class="form-row">
+                        <div class="col-12 col-md-6">
+                            <p>Logo da empresa:</p>
+                            <div class="form-group border rounded">
+                                <label for="upload1" class="w-100 text-center">
+                                    <img [src]="url1" style="max-width:100%;height:220px;background-size: cover;" class="rounded m-2" aria-hidden="true">
+                                    <input type="file" style="display:none;" id="upload1" class="form-control" name="logo" (change)="uploadFile1($event)" />
+                                </label>
+                            </div>
+                        </div>
                         <div class="form-group col-md-12">
                             <label for="fantasia">Nome fantasia:</label>
                             <input type="text" class="form-control" id="fantasia" [ngClass]="{ 'is-invalid': submitted && f.fantasia.errors }" formControlName="fantasia" maxlength="255">
@@ -187,7 +196,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="submit" (click)="next(2)" class="btn btn-primary">Concluir</button>
                 </div>
 
             </form>

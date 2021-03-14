@@ -7,24 +7,22 @@
         <div class="col-12">
             <div id="stepper1" class="bs-stepper">
                 <div class="bs-stepper-header">
+                        <button class="step-trigger">
+                            <span class="bs-stepper-circle">1</span>
+                            <span class="bs-stepper-label">Cadastro</span>
+                        </button>
+                    <div class="line"></div>
                     <div class="step" data-target="#test-l-1">
                         <button class="step-trigger">
-                        <span class="bs-stepper-circle">1</span>
+                        <span class="bs-stepper-circle">2</span>
                         <span class="bs-stepper-label">Responsável</span>
                         </button>
                     </div>
                     <div class="line"></div>
                     <div class="step" data-target="#test-l-2">
                         <button class="step-trigger">
-                        <span class="bs-stepper-circle">2</span>
-                        <span class="bs-stepper-label">Dados da Empresa</span>
-                        </button>
-                    </div>
-                    <div class="line"></div>
-                    <div class="step" data-target="#test-l-3">
-                        <button class="step-trigger">
                         <span class="bs-stepper-circle">3</span>
-                        <span class="bs-stepper-label">Dados Bancários</span>
+                        <span class="bs-stepper-label">Dados da Empresa</span>
                         </button>
                     </div>
                 </div>
@@ -164,11 +162,12 @@
                                 </div>
                             </div>
                         </div>
-                        <button (click)="next(2)" class="btn btn-primary">Salvar</button>
+                        <!-- <button (click)="next(2)" class="btn btn-primary">Salvar</button> -->
+                        <button type="submit" (click)="next(2)" class="btn btn-primary">Concluir</button>
                         <button (click)="prev()" class="btn btn-light mr-1">Voltar</button>
                     </div>
                     <!-- Banco -->
-                    <div id="test-l-3" class="content w-75">
+                    <!-- <div id="test-l-3" class="content w-75">
                         <h2 class="font-weight-bolder mt-4">Dados Bancários</h2>
                         <p class="mt-2 mb-4">Suas vendas serão recebidas por transferência bancária. Por isso, precisamos de uma conta juridica que tenha como titular a sua empresa cadastrada.</p>
                         <div class="form-row">
@@ -463,7 +462,7 @@
                         </div>
                         <button type="submit" (click)="next(3)" class="btn btn-primary">Concluir</button>
                         <button (click)="prev()" class="btn btn-light mr-1">Voltar</button>
-                    </div>
+                    </div> -->
                     </form>
                 </div>
             </div>

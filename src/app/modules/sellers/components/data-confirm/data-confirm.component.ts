@@ -121,22 +121,28 @@ export class DataConfirmComponent implements OnInit {
   next(id: number) {
     
     this.submitted = true;
-
+    
     if(id == 1) {
-
+      
       event.preventDefault();
       if (this.f.firstName.invalid || this.f.lastName.invalid || this.f.cpf.invalid || this.f.cel.invalid) {
         return;
       }
+      
     }
-
-    if(id == 2) {
-
-      event.preventDefault();
+    
+    if (id == 2) {
+      
+      // if (this.formConfirm.invalid) {
+        //   event.preventDefault();
+        //   return;
+        // }
+              
       if (this.f.fantasia.invalid || this.f.telefone.invalid || this.f.telefone2.invalid || this.f.cep.invalid || this.f.logradouro.invalid || this.f.numero.invalid || this.f.complemento.invalid || this.f.bairro.invalid || this.f.municipio.invalid || this.f.uf.invalid) {
+        event.preventDefault();
         return;
       }
-
+  
       if(this.formConfirm.controls.municipio.value !== 'Rio Claro' && this.formConfirm.controls.municipio.value !== 'RIO CLARO' || this.formConfirm.controls.uf.value !== 'SP' ) {
         event.preventDefault();
         Swal.fire({
@@ -147,14 +153,7 @@ export class DataConfirmComponent implements OnInit {
         })
         return;
       }
-    }
-    
-    if (id == 3) {
 
-      if (this.formConfirm.invalid) {
-        event.preventDefault();
-        return;
-      }
     }
 
     this.seller.updateCompany(this.formConfirm.value)

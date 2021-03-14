@@ -8,6 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class SellersService {
 
   protected httpOptions: object;
+  protected httpOptions2: object;
 
   constructor(public http: HttpClient) {
 
@@ -34,7 +35,7 @@ export class SellersService {
   }
   
   updateCompany(data: any) {
-    return this.http.put(`${environment.api_url}/api/seller/update`, data, this.httpOptions);
+    return this.http.post(`${environment.api_url}/api/seller/update?_method=PUT`, data);
   }
 
   sellerLogin(data: object) {
