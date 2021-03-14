@@ -15,7 +15,7 @@
             <tr>
                 <td class="w-auto p-3 text-center">{{ p.id }}</td>
                 <td class="w-auto p-3">
-                    <img class="rounded" style="width:75px;" src="http://192.168.0.14:8000/storage/{{ p.photo1 }}" alt="foto1">
+                    <img class="rounded" style="width:75px;" src="{{ url + p.photo1 }}" alt="">
                 </td>
                 <td class="w-50 p-3">{{ p.name }}</td>
                 <!-- <td class="w-auto p-3 text-center">{{ p.storage_initial || 3 }}</td> -->

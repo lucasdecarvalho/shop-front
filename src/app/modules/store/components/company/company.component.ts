@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SellersService } from 'src/app/modules/sellers/sellers.service';
 import { StoreService } from '../../store.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-company',
@@ -20,6 +21,8 @@ export class CompanyComponent implements OnInit {
   fantasia: string;
   fone: string;
   brand: string;
+  logo: string = 'https://icons-for-free.com/iconfiles/png/512/add+board+new+plus+icon-1320186882821780394.png';
+  available: boolean = true;
 
   constructor(
     private title: Title,
@@ -39,6 +42,15 @@ export class CompanyComponent implements OnInit {
               .subscribe(data => {
 
                 let id = data['id'];
+
+                if(data['logo']) {
+                  this.logo = environment.api_url+'/storage/'+ data['logo'];
+                }
+
+                if(data['available'] == true) {
+
+                  this.available = false;
+                }
 
                 this.fantasia = data['fantasia'];
                 this.cnpj = data['cnpj'];

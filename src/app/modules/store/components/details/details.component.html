@@ -9,10 +9,36 @@
           <hr>
         </div>
         <!-- Image -->
-        <div class="col-12 col-md-6 rounded">
-          <h1 class="p-0">
-            <img src="http://192.168.0.14:8000/storage/{{ prod?.photo1 }}" class="w-100 rounded" alt="">
-          </h1>
+        <div class="col-12 col-md-6 rounded pb-4">
+
+            <!-- <h1 class="p-0">
+              <img src="http://192.168.0.14:8000/storage/{{ prod?.photo1 }}" class="w-100 rounded" alt="">
+            </h1> -->
+
+            <!-- carousel -->
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
+                              <!-- slides -->
+                              <div class="carousel-inner">
+                                  <div class="carousel-item active"> <img src="{{ url + prod?.photo1 }}" alt=""> </div>
+                                  <div class="carousel-item"> <img src="{{ url + prod?.photo2 }}" alt=""> </div>
+                                  <div class="carousel-item"> <img src="{{ url + prod?.photo3 }}" alt=""> </div>
+                                  <!-- <div class="carousel-item"> <img src="https://i.imgur.com/JiQ9Ppv.jpg" alt="Hills"> </div> -->
+                              </div> <!-- Left right --> <a class="carousel-control-prev" href="#custCarousel" data-slide="prev"> <span class="carousel-control-prev-icon"></span> </a> <a class="carousel-control-next" href="#custCarousel" data-slide="next"> <span class="carousel-control-next-icon"></span> </a> <!-- Thumbnails -->
+                              <ol class="carousel-indicators list-inline">
+                                  <li class="list-inline-item active"> <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#custCarousel"> <img src="{{ url + prod?.photo1 }}" class="img-fluid"> </a> </li>
+                                  <li class="list-inline-item"> <a id="carousel-selector-1" data-slide-to="1" data-target="#custCarousel"> <img src="{{ url + prod?.photo2 }}" class="img-fluid"> </a> </li>
+                                  <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="2" data-target="#custCarousel"> <img src="{{ url + prod?.photo3 }}" class="img-fluid"> </a> </li>
+                                  <!-- <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="3" data-target="#custCarousel"> <img src="https://i.imgur.com/JiQ9Ppv.jpg" class="img-fluid"> </a> </li> -->
+                              </ol>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            <!-- carousel end -->
+
         </div>
         <!-- Aside -->
         <div class="col-12 col-md-6 h-50 rounded bg-light">
@@ -26,14 +52,15 @@
             </div>
             <div class="col-12 col-md-6 p-4">
             <div class="text-center">
-              <h2> <strong> {{ prod?.price | currency }} </strong></h2>
+              <h2> <strong> {{ prod?.price | currency: 'BRL' }} </strong></h2>
               <p><i class="bi bi-credit-card-2-back"></i> até 10x de <b> R$ 18,79 </b></p>
               <label for="cep"><i class="bi bi-truck"></i> Calcular o frete:</label>
               <input type="text" id="cep" class="form-control rounded" placeholder="Digite seu CEP: _____-____">
             </div>
             </div>
             <div class="col-12 col-md-6 text-center p-0 p-md-4">
-              <button class="btn btn-success rounded-pill p-3 mt-4">Adicionar ao carrinho <i class="bi bi-cart3"></i></button>
+              <p *ngIf="available" class="text-white text-center bg-danger rounded">Produto Indisponível</p>
+              <button *ngIf="!available" class="btn btn-success rounded-pill p-3 mt-4">Adicionar ao carrinho <i class="bi bi-cart3"></i></button>
               <button class="btn rounded-pill p-4">Adicionar à sua lista de desejos <i class="bi bi-suit-heart text-danger"></i></button>
             </div>
           </div>

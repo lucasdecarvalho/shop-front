@@ -4,6 +4,7 @@ import { SellersService } from '../../sellers.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Title } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-products-list',
@@ -16,6 +17,8 @@ export class ProductsListComponent implements OnInit {
   sim: boolean = false;
   status: string;
   result: string;
+  url: string = environment.api_url+'/storage/';
+  photo1: string = 'https://icons-for-free.com/iconfiles/png/512/add+board+new+plus+icon-1320186882821780394.png';
 
   constructor(
     private title: Title,
@@ -31,8 +34,9 @@ export class ProductsListComponent implements OnInit {
     this.seller.sellerData()
       .subscribe(response => {
 
-          this.storeServive.companyProducts(response['seller']['id'])
-          .subscribe(data => {
+        
+        this.storeServive.companyProducts(response['seller']['id'])
+        .subscribe(data => {
 
               this.products = data;
 
