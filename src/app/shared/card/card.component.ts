@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SellersService } from 'src/app/modules/sellers/sellers.service';
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -20,7 +20,7 @@ export class CardComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute) {
       this.p = this.products;
-      this.url = environment.api_url + '/storage/';
+      this.url = environment.api_url+'/storage/';
   }
   
   ngOnInit() {
@@ -38,7 +38,7 @@ export class CardComponent implements OnInit {
 
             this.router.navigateByUrl('loja/'+response['alias'] + '/' + id);
           },
-          error => { console.log(error) }
+          
           );
   }
   
@@ -48,7 +48,7 @@ export class CardComponent implements OnInit {
           response => { 
             this.router.navigateByUrl('loja/'+response['alias']);
           },
-          error => { console.log(error) }
+          
           );
   }
 

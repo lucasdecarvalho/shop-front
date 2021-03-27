@@ -129,7 +129,7 @@ export class ProductsListComponent implements OnInit {
               timer: 1500
             })  
           }, error => {
-            console.log('erro', error);
+            
           });
       }
     })

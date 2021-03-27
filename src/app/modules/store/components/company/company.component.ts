@@ -65,7 +65,7 @@ export class CompanyComponent implements OnInit {
                       
                     },
                     error => {
-                      console.log('erros: ', error);
+                      
                     });
               });
 

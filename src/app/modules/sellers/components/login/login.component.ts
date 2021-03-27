@@ -51,8 +51,6 @@ export class LoginComponent implements OnInit {
 
             if (error.error.errors)
                 this.errors = error.error.errors;
-            else
-                console.log("Erro ao logar");
         }
         
     );

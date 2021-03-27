@@ -27,7 +27,7 @@ export class SellersService {
   }
 
   checkCnpj(cnpj: number) {
-    return this.http.get(`https://cors-anywhere.herokuapp.com/https://www.receitaws.com.br/v1/cnpj/${cnpj}`);
+    return this.http.get(`https://cors.bridged.cc/https://www.receitaws.com.br/v1/cnpj/${cnpj}`);
   }
   
   createCompany(data: any) {

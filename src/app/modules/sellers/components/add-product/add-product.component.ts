@@ -155,7 +155,7 @@ export class AddProductComponent implements OnInit {
                 this.router.navigateByUrl(`vendedores/lista-produtos`);
               },
               error => {
-                console.log('falha: ', formData);
+
               });
         });
 

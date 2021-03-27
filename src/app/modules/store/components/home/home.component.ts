@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
           this.products = data;
         },
         error => {
-          // console.log('erros: ', error);
+          
         });
   }
 

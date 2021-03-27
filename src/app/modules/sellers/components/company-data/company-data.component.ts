@@ -66,11 +66,11 @@ export class CompanyDataComponent implements OnInit {
     this.seller.sellerData()
       .subscribe(response => {
 
-        
+
         this.company = response;
         this.nome = this.company.seller.nome;
 
-        if(response['logo'] !== null) {
+        if(response['seller']['logo'] !== null) {
           this.url1 = environment.api_url+'/storage/'+ response['seller']['logo'];
         }
 
@@ -214,13 +214,10 @@ export class CompanyDataComponent implements OnInit {
     this.formData.append('bankAccount', this.formConfirm.get('bankAccount').value);
     // 
 
-    console.log('form data: ', [...this.formData]);
-    console.log('form confirm: ', this.formConfirm.value);
-
     this.seller.updateCompany(this.formData)
           .subscribe(res => {
-              console.log('sucesso!');
-            },
+
+          },
             error => {
               this.errors = error.error.errors;
               
