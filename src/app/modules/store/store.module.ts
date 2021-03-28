@@ -10,6 +10,7 @@ import { CompanyComponent } from './components/company/company.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { TermsComponent } from './components/terms/terms.component';
 import { DetailsComponent } from './components/details/details.component';
+import { SearchResultComponent } from './components/search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DetailsComponent } from './components/details/details.component';
     AboutUsComponent,
     TermsComponent,
     DetailsComponent,
+    SearchResultComponent,
   ],
   imports: [
   CommonModule,

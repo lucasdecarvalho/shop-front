@@ -9,7 +9,6 @@ import { NewsletterComponent } from './newsletter/newsletter.component';
 import { SharedRoutingModule } from './shared-routing.module';
 import { SearchComponent } from './search/search.component';
 
-
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -20,7 +19,7 @@ import { SearchComponent } from './search/search.component';
     SearchComponent,
   ],
   imports: [
-CommonModule,
+    CommonModule,
     SharedRoutingModule
   ],
   exports: [

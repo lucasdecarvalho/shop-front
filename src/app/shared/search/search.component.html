@@ -4,10 +4,10 @@
 
             <div class="search pt-4 pb-4 pl-3 pr-3 rounded bg-light text-dark">
                 <p class="text-left">Lojas | Produtos</p>
-                <form>
+                <form (submit)="search($event.target.keyword.value)" class="form-group">
                     <div class="row">
                         <div class="col-12 col-md-9">
-                            <input type="text" class="form-control" placeholder="Busque por lojas ou produtos">
+                            <input type="text" class="form-control" name="keyword" placeholder="Busque por produto">
                         </div>
                         <div class="col-12 col-md-3 pt-1 pt-md-0 pl-md-0">
                             <button type="submit" class="btn btn-secondary w-100 text-white">Buscar</button>

@@ -20,7 +20,6 @@ export class DetailsComponent implements OnInit {
     private seller: SellersService,
     private storeService: StoreService,
     private activatedRoute: ActivatedRoute) { 
-
     }
 
   ngOnInit(): void {

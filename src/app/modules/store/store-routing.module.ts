@@ -4,6 +4,7 @@ import { StoreComponent } from './store.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { TermsComponent } from './components/terms/terms.component';
+import { SearchResultComponent } from './components/search-result/search-result.component';
 
 const routes: Routes = [
   {
@@ -35,11 +36,21 @@ const routes: Routes = [
               component: TermsComponent,
             }
         ],
+  },
+  { 
+    path: 'search',
+    component: StoreComponent,
+        children: [
+            {
+              path: ':keyword',
+              component: SearchResultComponent,
+            }
+        ],
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-exports: [RouterModule]
+  exports: [RouterModule]
 })
 export class StoreRoutingModule { }
