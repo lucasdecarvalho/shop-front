@@ -15,6 +15,7 @@ export class DetailsComponent implements OnInit {
   prod: any;
   url: string = environment.api_url+'/storage/';
   available: boolean = true;
+  data: any = [];
 
   constructor(
     private seller: SellersService,
@@ -28,14 +29,24 @@ export class DetailsComponent implements OnInit {
     
     this.seller.showProduct(this.prodId)
     .subscribe(prod => {
-                    
-              this.prod = prod;
 
-              if(this.prod.available == true) {
+          this.prod = prod;
 
-                this.available = false;
-              }
-            });
-  }
+          if(this.prod.available == true) {
+
+            this.available = false;
+          }
+
+        });
+    }
+
+    addToCart(product) {
+      this.storeService.addToCart(this.prod);
+      window.alert('Your product has been added to the cart!');
+    }
+
+    cleanCart() {
+      this.storeService.clearCart();
+    }
 
 }

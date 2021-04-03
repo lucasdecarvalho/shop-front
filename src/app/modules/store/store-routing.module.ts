@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { TermsComponent } from './components/terms/terms.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,16 @@ const routes: Routes = [
             {
               path: ':keyword',
               component: SearchResultComponent,
+            }
+        ],
+  },
+  { 
+    path: 'carrinho',
+    component: StoreComponent,
+        children: [
+            {
+              path: '',
+              component: CartComponent,
             }
         ],
   }

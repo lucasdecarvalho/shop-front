@@ -11,6 +11,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { TermsComponent } from './components/terms/terms.component';
 import { DetailsComponent } from './components/details/details.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SearchResultComponent } from './components/search-result/search-result.
     TermsComponent,
     DetailsComponent,
     SearchResultComponent,
+    CartComponent,
   ],
   imports: [
   CommonModule,

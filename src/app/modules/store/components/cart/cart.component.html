@@ -1,0 +1,29 @@
+<section>
+    <div class="container">
+        <div class="col-12">
+            <div class="row">
+
+                <h3>Carrinho</h3>
+
+                <div class="col-12 cart-item rounded" *ngFor="let item of items">
+                    <div class="row border-bottom">
+                        <p class="col-3 pt-2 pt-2 pb-2">
+                            <img style="height:60px" class="rounded" src="{{ url + item?.photo1 }}" alt="">
+                        </p>
+                        <p class="col-6 pt-2 pt-2 pb-2">{{ item.name }}</p>
+                        <p class="col-3 pt-2 pt-2 pb-2">{{ item.price | currency: 'BRL' }}</p>
+                    </div>
+                </div>
+
+                <div class="col-12 cart-item text-right p-4">
+                    <h5>Subtotal: {{ subtotal | currency: 'BRL' }}</h5>
+                </div>
+
+                <!-- <div class="col-12 cart-item text-center p-4">
+                    <p>Adicione produtos em seu carrinho <a routerLink="/">clicando aqui</a>.</p>
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+</section>
