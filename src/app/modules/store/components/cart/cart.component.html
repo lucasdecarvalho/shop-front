@@ -3,20 +3,105 @@
         <div class="col-12">
             <div class="row">
 
-                <h3>Carrinho</h3>
+                <h3>Carrinho </h3>
 
-                <div class="col-12 cart-item rounded" *ngFor="let item of items">
-                    <div class="row border-bottom">
-                        <p class="col-3 pt-2 pt-2 pb-2">
-                            <img style="height:60px" class="rounded" src="{{ url + item?.photo1 }}" alt="">
-                        </p>
-                        <p class="col-6 pt-2 pt-2 pb-2">{{ item.name }}</p>
-                        <p class="col-3 pt-2 pt-2 pb-2">{{ item.price | currency: 'BRL' }}</p>
+                <div class="col-12 cart-item rounded border mb-4" *ngFor="let item of groupByCompany | keyvalue">
+                    <h5 class="w-100 pt-3 pb-3 border-bottom">{{ item.key }}</h5>
+                    <div class="col-12" id="{{ item.key }}">
+                        <div class="row border-bottom" *ngFor="let value of item.value">
+                            <p class="col-1 pt-2 pt-2 pb-2 text-left">
+                                <button class="btn btn-danger" (click)="cleanItem(index)">X</button>
+                            </p>
+                            <p class="col-2 pt-2 pb-2 text-left">
+                                <img style="height:60px" class="rounded" src="{{ url + value?.photo1 }}" alt="">
+                            </p>
+                            <p class="col-6 pt-2 pt-2 pb-2 text-left">{{ value.id }} - {{ value.name }}</p>
+                            <p class="col-1 pt-2 pt-2 pb-2 text-left">
+                                <input class="w-100" type="number" min="1" value="1">
+                            </p>
+                            <p class="col-2 pt-2 pt-2 pb-2 text-right">{{ value.price | currency: 'BRL' }}</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-12 cart-item text-right p-4">
+                <div class="col-12 cart-item text-right">
                     <h5>Subtotal: {{ subtotal | currency: 'BRL' }}</h5>
+                </div>
+                
+                <div class="col-12 cart-item text-right pb-4">
+                    <button type="button" class="btn btn-success" (click)="clientLogon()" data-toggle="modal" data-target="#exampleModal">Continuar para pagamento</button>
+                </div>
+
+                <!-- login -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header bg-light">
+                                <h5 class="modal-title" id="exampleModalLabel">Fazer login</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form #userlogin="ngForm" (ngSubmit)="onSubmit(userlogin.value)">
+                                <div class="form-group">
+                                    <label for="email" class="col-form-label">E-mail:</label>
+                                    <input type="text" class="form-control" name="email" id="email" ngModel="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pass" class="col-form-label">Senha:</label>
+                                    <input type="password" class="form-control" name="password" id="pass" ngModel="">
+                                </div>
+                                <div class="w-100 pt-2 text-center">
+                                    <button type="submit" class="btn btn-primary">Entrar</button>
+                                </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer text-center">
+                                    <div class="w-100 pt-2">
+                                    <p>Não tem cadastro? <a style="cursor:pointer;" class="text-primary" data-dismiss="modal" data-toggle="modal" data-target="#exampleModal2">Cadastre-se</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- cadastro -->
+                <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header bg-light">
+                                <h5 class="modal-title" id="exampleModalLabel">Cadastre-se</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                <div class="form-group">
+                                    <label for="name" class="col-form-label">Seu primeiro nome:</label>
+                                    <input type="text" class="form-control" name="name" id="name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="remail" class="col-form-label">E-mail:</label>
+                                    <input type="text" class="form-control" name="email" id="remail">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="col-form-label">Senha:</label>
+                                    <input type="password" class="form-control" name="password" id="password">
+                                </div>
+                                <div class="w-100 pt-2 text-center">
+                                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer text-center">
+                                <div class="w-100 pt-2">
+                                    <p>Já tem cadastro? <a style="cursor:pointer;" class="text-primary" data-dismiss="modal" data-toggle="modal" data-target="#exampleModal">Faça login</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- <div class="col-12 cart-item text-center p-4">

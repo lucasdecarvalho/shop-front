@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { exit } from 'process';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,9 @@ import { environment } from 'src/environments/environment';
 export class StoreService {
 
   items: any = [];
+  storage: any = [];
+  groupByCompany: any = [];
+  storaged: any = {};
 
   constructor(public http: HttpClient) { }
 
@@ -20,17 +24,34 @@ export class StoreService {
   }
 
   addToCart(event) {
-    this.items.push(event);
-    console.log('data service: ', this.items);
+    this.storaged = JSON.parse(localStorage.getItem('cart'));
+
+       this.storaged.some(function(el) {
+          if(el.id === event.id) {
+          alert('ja tem');
+          exit();
+          }
+        }); 
+    
+      if(this.storaged !== null) {
+        this.storaged.push(event);
+      } else {
+        this.items.push(event);
+        this.storaged = this.items;
+      }
+
+    localStorage.setItem('cart', JSON.stringify(this.storaged));
   }
 
   getItems() {
-    return this.items;
+    // return this.items;
+    JSON.parse(localStorage.getItem('cart'));
   }
 
   clearCart() {
     this.items = [];
-    return this.items;
+    this.storaged = [];
+    localStorage.removeItem('cart');
   }
 
 }

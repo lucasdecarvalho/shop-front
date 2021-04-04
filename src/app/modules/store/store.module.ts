@@ -13,6 +13,9 @@ import { DetailsComponent } from './components/details/details.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { CartComponent } from './components/cart/cart.component';
 
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     StoreComponent,
@@ -28,6 +31,8 @@ import { CartComponent } from './components/cart/cart.component';
   CommonModule,
     StoreRoutingModule,
     SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgxSpinnerModule,
   ]
 })

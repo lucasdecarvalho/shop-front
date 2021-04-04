@@ -42,7 +42,7 @@ export class DetailsComponent implements OnInit {
 
     addToCart(product) {
       this.storeService.addToCart(this.prod);
-      window.alert('Your product has been added to the cart!');
+      // window.alert('Your product has been added to the cart!');
     }
 
     cleanCart() {
