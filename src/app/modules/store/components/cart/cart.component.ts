@@ -3,6 +3,7 @@ import { StoreService } from '../../store.service';
 import { environment } from 'src/environments/environment';
 import { Router } from "@angular/router";
 import { SellersService } from 'src/app/modules/sellers/sellers.service';
+import { UsersService } from 'src/app/modules/users/users.service';
 
 @Component({
   selector: 'app-cart',
@@ -20,7 +21,7 @@ export class CartComponent implements OnInit {
   order; any = {};
   errors: any[] = [];
 
-  constructor(public storeService: StoreService, private auth: SellersService, private router: Router) {  }
+  constructor(public storeService: StoreService, public auth: UsersService, private router: Router) {  }
   
   ngOnInit(): void {
 
@@ -65,22 +66,23 @@ export class CartComponent implements OnInit {
 
   onSubmit(data: any) {
 
-    console.log('chegou aqui');
+    console.log('chegou aqui, clientes');
         
-    this.auth.sellerLogin(data)
+    this.auth.userLogin(data)
         .subscribe(response => {
 
           // response['typeAccount'] = 'seller';
           // this.dataAccess(response);
           
+          // console.log('TOKEEN: ', response);
           //@ts-ignore;
-          window.localStorage.setItem('token',response.token);
+          window.localStorage.setItem('token',response.access_token);
           // @ts-ignore
           
           //@ts-ignore;
           // window.localStorage.setItem('typeAccount',response.role);
           
-          return this.router.navigateByUrl('vendedores');
+          return this.router.navigateByUrl('clientes');
         },
         error => {
 

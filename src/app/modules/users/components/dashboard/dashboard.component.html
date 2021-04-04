@@ -1,0 +1,49 @@
+<div class="col-12 text-light h-100">
+    <div class="row bg-dark">
+        <div class="col-6 pt-4 pb-3">
+            <h2 class="font-weight-bold">Olá{{ ', ' + firstName }}!</h2>
+        </div>
+        <div class="col-6 pt-4 pb-3 mt-2 text-right">
+            <!-- <p class="font-weight-bold"><a routerLink="/loja/{{ alias }}" target="_blank" class="p-2 rounded bg-success text-white">Acesse sua loja</a></p> -->
+        </div>
+    </div>
+    <div class="row h-100">
+        <nav class="col-3 bg-light h-100">
+            <ul class="list-group text-dark">
+
+                <li class="list-group-item bg-light border-left-0 border-right-0">
+                    <i class="w-auto float-left p-3 bi bi-graph-up"></i>
+                    <a class="w-75 float-left p-3 text-dark" routerLink="/vendedores">Painel de controle</a>
+                </li>
+                
+                <li class="list-group-item bg-light border-left-0 border-right-0">
+                    <i class="w-auto float-left p-3 bi bi-credit-card-2-back"></i>
+                    <a class="w-75 float-left p-3 text-dark" routerLink="/vendedores/vendas">Suas vendas</a>
+                </li>
+                
+                <li class="list-group-item bg-light border-left-0 border-right-0">
+                    <i class="w-auto float-left p-3 bi bi-building"></i>
+                    <a class="w-75 float-left p-3 text-dark" routerLink="/vendedores/dados-empresa">Dados da empresa</a>
+                </li>
+                
+                <li class="list-group-item bg-light border-left-0 border-right-0">
+                    <i class="w-auto float-left p-3 bi bi-plus-circle"></i>
+                    <a class="w-75 float-left p-3 text-dark" routerLink="/vendedores/adicionar-produtos">Adicionar produtos</a>
+                </li>
+                
+                <li class="list-group-item bg-light border-left-0 border-right-0">
+                    <i class="w-auto float-left p-3 bi bi-cart3"></i>
+                    <a class="w-75 float-left p-3 text-dark" routerLink="/vendedores/lista-produtos">Lista de produtos</a>
+                </li>
+                
+                <li class="list-group-item bg-light border-left-0 border-right-0">
+                    <i class="w-auto float-left p-3 bi bi-box-arrow-left text-danger"></i>
+                    <a class="w-75 float-left p-3 text-dark" (click)="logout()">Sair</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="col-9 p-4 bg-white h-100 text-dark">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
