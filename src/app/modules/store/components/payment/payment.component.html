@@ -1,0 +1,135 @@
+<section>
+    <div class="container">
+        <div class="col-12">
+
+            <!-- content -->
+            <div class="row">
+                <!-- section -->
+                <div class="col-12">
+                
+                    <div class="row border rounded-top bg-light">
+                        <!-- cupom de desconto -->
+                        <div class="col-12 col-xl-6 mt-2 mb-2">
+                            <form class="w-100 float-left" action="LINK" method="POST">
+                                <input class="w-100 p-2 border rounded text-uppercase" type="text" name="cod" maxlength="8" placeholder="Cupom de desconto" value="CUPOM DE DESCONTO">
+                            </form>
+                        </div>
+                        <!-- valor do total -->
+                        <div class="col-12 col-xl-6 text-center text-xl-right">
+                            <h4 class="w-100 pt-3"><span style="font-size:.7em;">Total:</span> R$ 1.245,00</h4>
+                            <!-- <p class="w-100 text-primary">MENSAGEM</p> -->
+                        </div>
+                    </div>
+
+                    <div class="row border border-top-0 rounded-bottom bg-white">
+                        <div class="col-12 col-xl-6 d-none d-xl-block">
+                            <div class="row border-right">
+                                <div class="col-12 p-3">
+                                <h4>Dados da Entrega</h4>
+
+                                <h6 class="mt-3"><b>Comprador(a):</b></h6>
+                                <p><span>{{ buyer.user?.name }}</span>
+                                        <br><span>{{ buyer.user?.cpf }}</span></p>
+                                
+                                <h6><b>Contato:</b></h6>
+                                <p><span>{{ buyer.user?.email }}</span>
+                                <br><span>{{ buyer.user?.cel }}</span></p>
+
+                                <h6><b>Endereço de entrega:</b></h6>
+                                <p><span>{{ buyer.user?.logradouro }}, 
+                                        {{ buyer.user?.number }}<br>
+                                        {{ buyer.user?.comp }}<br>
+                                        {{ buyer.user?.neigh }} - 
+                                        {{ buyer.user?.state }}<br>
+                                        CEP: {{ buyer.user?.cep }} -
+                                        {{ buyer.user?.country }}</span>
+                                </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-xl-6">
+                            <div class="row">
+                                <div class="col-12 p-3">
+                                <h4>Forma de Pagamento</h4>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <button class="btn btn-light active mr-1">Cartão de Crédito</button>
+                                        <form action="" method="POST">
+                                            <input type="hidden" name="fpag" value="debito">
+                                            <button class="btn btn-light">Débito</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-12 pb-2">
+                                <!-- form credit -->
+                                <form #payment="ngForm" (ngSubmit)="submitPayment(payment.value)">
+                                    <input type="hidden" name="fpag" ngModel="credit">
+                                    <div class="row">
+                                        <div class="col-12 col-xl-6 mb-2">
+                                            <select class="form-control" name="flag" id="flag" required ngModel="">
+                                                <option value="">Bandeira:</option>
+                                                <option value="elo">Elo</option>
+                                                <option value="dinners">Dinners</option>
+                                                <option value="mastercard">Mastercard</option>
+                                                <option value="visa">Visa</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 col-xl-6 mb-2">
+                                            <select class="form-control" name="installments" id="installments" required ngModel="">
+                                            <option value="">Parcelamento:</option>
+                                            <option value="1">À vista</option>
+                                            <option value="2">Parcelar em 02x</option>
+                                            <option value="3">Parcelar em 03x</option>
+                                            <option value="4">Parcelar em 04x</option>
+                                            <option value="5">Parcelar em 05x</option>
+                                            <option value="6">Parcelar em 06x</option>
+                                            <option value="7">Parcelar em 07x</option>
+                                            <option value="8">Parcelar em 08x</option>
+                                            <option value="9">Parcelar em 09x</option>
+                                            <option value="10">Parcelar em 10x</option>
+                                            <option value="11">Parcelar em 11x</option>
+                                            <option value="12">Parcelar em 12x</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 mb-2">
+                                            <input type="text" name="numberCard" class="form-control ccnumber" id="cc-number" placeholder="Número do cartão:" required ngModel="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 mb-2 pr-0">
+                                            <input type="text" name="date" class="form-control exp" id="cc-expiration" placeholder="_ _ / _ _ _ _" required ngModel="">
+                                        </div>
+                                        <div class="col-6 mb-2">
+                                            <input type="text" name="cvv" class="form-control cvv" id="cc-cvv" placeholder="CVV:" required ngModel="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 mb-2">
+                                            <input type="text" name="holder" class="form-control" id="cc-name" maxlength="65" placeholder="Nome completo (como impresso no cartão):" required ngModel="">
+                                            <!-- <small class="text-muted"></small> -->
+                                        </div>
+                                        <!-- <div class="col-12 mb-2">
+                                            <input type="number" name="doc" class="form-control" id="cc-number" placeholder="CPF:" required>
+                                        </div> -->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <button class="btn btn-primary btn-block" type="submit"><i class="far fa-credit-card"></i> Efetuar Pagamento</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                </div> <!-- fim form credit -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- fim section -->
+            </div>
+            <!-- fim content -->
+
+        </div>
+    </div>
+</section>

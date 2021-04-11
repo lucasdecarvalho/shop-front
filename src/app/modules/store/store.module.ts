@@ -14,6 +14,7 @@ import { SearchResultComponent } from './components/search-result/search-result.
 import { CartComponent } from './components/cart/cart.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PaymentComponent } from './components/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     DetailsComponent,
     SearchResultComponent,
     CartComponent,
+    PaymentComponent,
   ],
   imports: [
     CommonModule,

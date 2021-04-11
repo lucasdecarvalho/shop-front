@@ -6,6 +6,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { TermsComponent } from './components/terms/terms.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { CartComponent } from './components/cart/cart.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,16 @@ const routes: Routes = [
             {
               path: '',
               component: CartComponent,
+            }
+        ],
+  },
+  { 
+    path: 'pagamento',
+    component: StoreComponent,
+        children: [
+            {
+              path: '',
+              component: PaymentComponent,
             }
         ],
   }

@@ -26,12 +26,14 @@ export class StoreService {
   addToCart(event) {
     this.storaged = JSON.parse(localStorage.getItem('cart'));
 
+    if(this.storaged){
        this.storaged.some(function(el) {
           if(el.id === event.id) {
           alert('ja tem');
           exit();
           }
-        }); 
+        })
+      }
     
       if(this.storaged !== null) {
         this.storaged.push(event);

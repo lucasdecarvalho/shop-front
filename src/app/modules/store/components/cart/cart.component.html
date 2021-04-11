@@ -77,18 +77,18 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form>
+                                <form #usercreate="ngForm" (ngSubmit)="onSubmitRegister(usercreate.value)">
                                 <div class="form-group">
                                     <label for="name" class="col-form-label">Seu primeiro nome:</label>
-                                    <input type="text" class="form-control" name="name" id="name">
+                                    <input type="text" class="form-control" name="name" id="name" ngModel="">
                                 </div>
                                 <div class="form-group">
                                     <label for="remail" class="col-form-label">E-mail:</label>
-                                    <input type="text" class="form-control" name="email" id="remail">
+                                    <input type="text" class="form-control" name="email" id="remail" ngModel="">
                                 </div>
                                 <div class="form-group">
                                     <label for="password" class="col-form-label">Senha:</label>
-                                    <input type="password" class="form-control" name="password" id="password">
+                                    <input type="password" class="form-control" name="password" id="password" ngModel="">
                                 </div>
                                 <div class="w-100 pt-2 text-center">
                                     <button type="submit" class="btn btn-primary">Cadastrar</button>
