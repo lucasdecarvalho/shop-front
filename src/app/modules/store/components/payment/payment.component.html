@@ -28,21 +28,22 @@
                                 <h4>Dados da Entrega</h4>
 
                                 <h6 class="mt-3"><b>Comprador(a):</b></h6>
-                                <p><span>{{ buyer.user?.name }}</span>
-                                        <br><span>{{ buyer.user?.cpf }}</span></p>
+                                <p><span>{{ buyer.user?.name }} {{ buyer.user?.lastname }}</span>
+                                        <br><span>{{ buyer.user?.doc }}</span></p>
                                 
                                 <h6><b>Contato:</b></h6>
                                 <p><span>{{ buyer.user?.email }}</span>
-                                <br><span>{{ buyer.user?.cel }}</span></p>
+                                <br><span>{{ buyer.user?.phone1 }}</span></p>
 
                                 <h6><b>Endereço de entrega:</b></h6>
-                                <p><span>{{ buyer.user?.logradouro }}, 
-                                        {{ buyer.user?.number }}<br>
-                                        {{ buyer.user?.comp }}<br>
-                                        {{ buyer.user?.neigh }} - 
-                                        {{ buyer.user?.state }}<br>
-                                        CEP: {{ buyer.user?.cep }} -
-                                        {{ buyer.user?.country }}</span>
+                                <p><span>{{ buyer.user?.street }}, 
+                                        {{ buyer.user?.number }}
+                                        {{ ' - ' + buyer.user?.comp }}<br/>
+                                        {{ buyer.user?.neigh }}<br/>
+                                        {{ buyer.user?.city + "-" }}
+                                        {{ buyer.user?.state }}<br/>
+                                        CEP: {{ buyer.user?.zipcode }}<br/>
+                                        {{ buyer.user?.country || 'Brasil' }}</span>
                                 </p>
                                 </div>
                             </div>
