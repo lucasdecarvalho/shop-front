@@ -56,4 +56,8 @@ export class StoreService {
     localStorage.removeItem('cart');
   }
 
+  payment(data: any) {
+    return this.http.post(`${environment.api_url}/api/payment`, data);
+  }
+
 }
