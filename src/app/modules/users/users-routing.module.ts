@@ -9,6 +9,7 @@ import { TokenInterceptor } from '../../core/interceptors/token.interceptor';
 import { UsersComponent } from './users.component';
 import { DashboardComponent } from '../users/components/dashboard/dashboard.component';
 import { UserDataComponent } from './components/user-data/user-data.component';
+import { PurchasesComponent } from './components/purchases/purchases.component';
 
 const routes: Routes = [
   {
@@ -26,8 +27,25 @@ const routes: Routes = [
 
               children: [
                 {
-                  path: '',
+                  path: 'dados-cadastro',
                   component: UserDataComponent,
+                  // canActivate: [AuthGuard],
+                }
+              ]
+            },
+            {
+              path: '',
+              component: DashboardComponent,
+              // canActivate: [AuthGuard],
+              // canActivate: [AuthGuard, RoleGuard],
+              // data: {
+              //   expectedRole: 'seller'
+              // }
+
+              children: [
+                {
+                  path: 'compras',
+                  component: PurchasesComponent,
                   // canActivate: [AuthGuard],
                 }
               ]

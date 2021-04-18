@@ -1,1 +1,126 @@
-<p>user-data works!</p>
+<h3>Dados de cadastro</h3>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+                
+            <form [formGroup]="formConfirm" (ngSubmit)="onSubmit()">
+
+                <!-- Empresário -->
+                <div class="bloco">
+                    <h2 class="font-weight-bolder mt-4">Dados pessoais</h2>
+                    <p class="mt-2 mb-4"></p>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Primeiro nome:</label>
+                            <input type="text" class="form-control" id="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" formControlName="name" autocomplete="off" maxlength="255" />
+                            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                <div *ngIf="f.name.errors.required">Primeiro nome é obrigatório.</div>
+                                <div *ngIf="f.name.errors.minlength">Primeiro nome não parece válido.</div>
+                                <div *ngIf="f.name.errors.maxlength">Primeiro nome muito longo. Reduza ou abrevie.</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="lastname">Sobrenome:</label>
+                            <input type="text" class="form-control" id="lastname" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }" formControlName="lastname" autocomplete="off" maxlength="255" />
+                            <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                                <div *ngIf="f.lastname.errors.required">Sobrenome é obrigatório.</div>
+                                <div *ngIf="f.lastname.errors.minlength">Sobrenome não parece válido.</div>
+                                <div *ngIf="f.lastname.errors.maxlength">Sobrenome muito longo. Reduza ou abrevie.</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="doc">CPF:</label>
+                            <input type="text" class="form-control" id="doc" [ngClass]="{ 'is-invalid': submitted && f.doc.errors }" formControlName="doc" mask="000.000.000-00" autocomplete="off" maxlength="14" />
+                            <div *ngIf="submitted && f.doc.errors" class="invalid-feedback">
+                                <div *ngIf="f.doc.errors.required">doc é obrigatório.</div>
+                                <div *ngIf="f.doc.errors.minlength">doc inválido.</div>
+                                <div *ngIf="f.doc.errors.maxlength">Formato de doc incorreto.</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="phone1">Número de celular:</label>
+                            <input type="text" class="form-control" id="phone1" [ngClass]="{ 'is-invalid': submitted && f.phone1.errors }" formControlName="phone1" mask="(00) 00000-0000" autocomplete="off" maxlength="15" />
+                            <div *ngIf="submitted && f.phone1.errors" class="invalid-feedback">
+                                <div *ngIf="f.phone1.errors.required">phone1ular é obrigatório.</div>
+                                <div *ngIf="f.phone1.errors.minlength">phone1ular inválido.</div>
+                                <div *ngIf="f.phone1.errors.maxlength">Formato de phone1ular incorreto.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Endereço -->
+                <div class="bloco">
+                    <h2 class="font-weight-bolder mt-4">Endereço</h2>
+                    <p class="mt-2 mb-4"></p>
+                    <hr>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="zipcode">zipcode:</label>
+                            <input type="text" class="form-control" id="zipcode" [ngClass]="{ 'is-invalid': submitted && f.zipcode.errors }" formControlName="zipcode" mask="00.000-000" (blur)="buscaCep()" maxlength="10">
+                            <div *ngIf="submitted && f.zipcode.errors" class="invalid-feedback">
+                                <div *ngIf="f.zipcode.errors.required">zipcode é obrigatório.</div>
+                                <div *ngIf="f.zipcode.errors.minlength">zipcode inválido.</div>
+                                <div *ngIf="f.zipcode.errors.maxlength">Formato de zipcode incorreto.</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-7">
+                            <label for="street">Logradouro:</label>
+                            <input type="text" class="form-control" id="street" [ngClass]="{ 'is-invalid': submitted && f.street.errors }" formControlName="street" maxlength="255" [readonly]="true">
+                            <div *ngIf="submitted && f.street.errors" class="invalid-feedback">
+                                <div *ngIf="f.street.errors.required">street é obrigatório.</div>
+                                <div *ngIf="f.street.errors.maxlength">Formato de street incorreto.</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="number">Número:</label>
+                            <input type="text" class="form-control" id="number" [ngClass]="{ 'is-invalid': submitted && f.number.errors }" formControlName="number" maxlength="15">
+                            <div *ngIf="submitted && f.number.errors" class="invalid-feedback">
+                                <div *ngIf="f.number.errors.maxlength">Número muito longo. Reduza ou abrevie.</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="comp">Complemento:</label>
+                            <input type="text" class="form-control" id="comp" [ngClass]="{ 'is-invalid': submitted && f.comp.errors }" formControlName="comp" maxlength="255">
+                            <div *ngIf="submitted && f.comp.errors" class="invalid-feedback">
+                                <div *ngIf="f.comp.errors.maxlength">Complemento muito longo. Reduza ou abrevie.</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="neigh">Bairro:</label>
+                            <input type="text" class="form-control" id="neigh" [ngClass]="{ 'is-invalid': submitted && f.neigh.errors }" formControlName="neigh" maxlength="255" [readonly]="true">
+                            <div *ngIf="submitted && f.neigh.errors" class="invalid-feedback">
+                                <div *ngIf="f.neigh.errors.required">neigh é obrigatório.</div>
+                                <div *ngIf="f.neigh.errors.maxlength">Formato de bairro incorreto.</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-9">
+                            <label for="city">Município:</label>
+                            <input type="text" class="form-control" id="city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" formControlName="city" maxlength="255" [readonly]="true">
+                            <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                                <div *ngIf="f.city.errors.required">Município é obrigatório.</div>
+                                <div *ngIf="f.city.errors.maxlength">Formato de município incorreto.</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="state">Estado (state):</label>
+                            <input type="text" class="form-control" id="state" [ngClass]="{ 'is-invalid': submitted && f.state.errors }" formControlName="state" maxlength="2" [readonly]="true">
+                            <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                                <div *ngIf="f.state.errors.required">Estado (state) é obrigatório.</div>
+                                <div *ngIf="f.state.errors.maxlength">Formato de Estado (UF) incorreto.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bloco">
+                    <button type="submit" class="btn btn-primary">Concluir</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

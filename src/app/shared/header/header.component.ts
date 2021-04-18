@@ -15,6 +15,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
 
     this.storaged = JSON.parse(localStorage.getItem('cart'));
+
+    if(this.storaged)
     this.cartItems = this.storaged.length;
 
   }

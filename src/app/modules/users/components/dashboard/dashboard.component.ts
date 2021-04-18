@@ -43,6 +43,7 @@ export class DashboardComponent implements OnInit {
 
   logout() {
     window.localStorage.removeItem('token');
+    window.localStorage.removeItem('cart');
     this.router.navigateByUrl('/');
   }
 

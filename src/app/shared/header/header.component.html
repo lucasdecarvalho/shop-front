@@ -31,7 +31,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="text-black-50" style="font-size: 2em;" routerLink="/carrinho"><i class="bi bi-cart3"></i></a>
-                    <span class="rounded-circle bg-danger text-white pt-1 pb-1 pl-2 pr-2 text-center" style="font-size: 1em;position:relative;top:-15px;">{{ cartItems }}</span>
+                    <span class="rounded-circle bg-danger text-white pt-1 pb-1 pl-2 pr-2 text-center" style="font-size: 1em;position:relative;top:-15px;">{{ cartItems || 0 }}</span>
                 </li>
             </ul>
         </div>

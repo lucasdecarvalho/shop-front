@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NgxMaskModule } from 'ngx-mask';
 import { NgxCurrencyModule } from 'ngx-currency';
+import { PurchasesComponent } from './components/purchases/purchases.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NgxCurrencyModule } from 'ngx-currency';
     LoginComponent,
     SignupComponent,
     UserDataComponent,
+    PurchasesComponent,
   ],
   imports: [
     CommonModule,
